@@ -4,7 +4,11 @@ Tutorized Application is a system that allows students to schedule time with a t
 
 
 Group 5:
+
 Wesley Easton
+
 Timothy McWatters
+
 Keenal Shah
+
 Wenwen Xu
