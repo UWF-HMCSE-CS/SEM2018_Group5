@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Dapper;
 using System.Data.SqlClient;
+using Newtonsoft.Json;
 
 namespace TUTORized.Repository
 {
@@ -21,7 +22,7 @@ namespace TUTORized.Repository
         }
 
         //test connection
-        
+
         public async Task TestConnection()
         {
             using (IDbConnection conn = Connection)
@@ -31,7 +32,7 @@ namespace TUTORized.Repository
                 var result = await conn.QueryAsync<String>(query);
             }
         }
-        
+
 
         //Execute Async
         private async Task ExecuteAsync(string procedureName, object parameters = null)
@@ -44,8 +45,31 @@ namespace TUTORized.Repository
             }
         }
 
-        //Retrives rows in a table
-        
+        protected async Task<IEnumerable<T>> JsonResultAsync<T>(string procedureName, DynamicParameters parameters = null)
+        {
+            using (var connection = Connection)
+            {
+                connection.Open();
+
+                return await connection.QueryAsync<T>(procedureName, parameters, commandType: CommandType.StoredProcedure).ConfigureAwait(false);
+            }
+        }
+
+        protected async Task<T> FirstJsonResultAsync<T>(string procedureName, DynamicParameters parameters)
+        {
+            using (var connection = Connection)
+            {
+                connection.Open();
+
+                var results = await connection.QueryAsync(procedureName, parameters, commandType: CommandType.StoredProcedure);
+
+                return JsonConvert.DeserializeObject<T>(
+                    string.Join(string.Empty, results)
+                    );
+            }
+        }
+
+
 
     }
 }
