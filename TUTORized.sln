@@ -3,14 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TUTORized", "TUTORized.csproj", "{868FEAA2-87E6-4368-9F5E-FB42D8AB04C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TUTORized", "TUTORized\TUTORized.csproj", "{868FEAA2-87E6-4368-9F5E-FB42D8AB04C7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TUTORizedTests", "..\TUTORizedTests\TUTORizedTests.csproj", "{F89F9F3D-F72E-4F5A-B7BA-8531D34944BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TUTORizedTests", "TUTORizedTests\TUTORizedTests.csproj", "{F89F9F3D-F72E-4F5A-B7BA-8531D34944BF}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{394D2960-1724-4130-B97C-B1ED88A01E42}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{13BDCE8D-2FBD-4FDF-80A1-FC86FB11029B}"
-EndProject
+
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
