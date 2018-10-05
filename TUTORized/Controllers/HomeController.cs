@@ -9,8 +9,8 @@ namespace TUTORized.Controllers
     {
         public async Task<IActionResult> Index() 
         {
-            BaseRepository br = new BaseRepository();
-            await br.TestConnection();
+            //BaseRepository br = new BaseRepository();
+            //await br.TestConnection();
             return View();
         }
 
