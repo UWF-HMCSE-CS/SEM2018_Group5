@@ -24,18 +24,23 @@ namespace TUTORized.Repository
 
         //test connection
 
-        public async Task TestConnection()
-        {
-            using (IDbConnection conn = Connection)
-            {
-                string query = "SELECT * FROM USERS";
-                conn.Open();
-                var result = await conn.QueryAsync<String>(query);
-            }
-        }
+        //public async Task TestConnection()
+        //{
+        //    using (IDbConnection conn = Connection)
+        //    {
+        //        string query = "SELECT * FROM USERS";
+        //        conn.Open();
+        //        var result = await conn.QueryAsync<String>(query);
+        //    }
+        //}
 
 
-        //Execute Async
+        /// <summary>
+        /// executes the commands
+        /// </summary>
+        /// <param name="procedureName"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
         private async Task ExecuteAsync(string procedureName, object parameters = null)
         {
             using (var connection = Connection)
@@ -46,6 +51,14 @@ namespace TUTORized.Repository
             }
         }
 
+        /// <summary>
+        /// takes a list of objects
+        /// and returns a whole string of json result, unformatted. Ex. 5 user objects all in one string
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="procedureName"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
         protected async Task<IEnumerable<T>> JsonResultAsync<T>(string procedureName, DynamicParameters parameters = null)
         {
             using (var connection = Connection)
@@ -59,6 +72,12 @@ namespace TUTORized.Repository
             }
         }
 
+        /// <summary>
+        /// returns a string in json 
+        /// </summary>
+        /// <param name="procedureName"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
         protected async Task<string> JsonResultAsync(string procedureName, object parameters = null)
         {
             using (var connection = Connection)
@@ -77,10 +96,17 @@ namespace TUTORized.Repository
             }
         }
 
+        /// <summary>
+        /// returns only the first row of the json result
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="procedureName"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
         protected async Task<T> FirstJsonResultAsync<T>(string procedureName, DynamicParameters parameters)
         {
-           //Calls to JsonResult which grabs the JSON string from the specified stored proceudre.
-           //It will then conver the json to the specified type (i.e. User model, student model, tutor model etc.).
+           //Calls to JsonResult which grabs the JSON string from the specified stored procedure.
+           //It will then convert the json to the specified type (i.e. User model, student model, tutor model etc.).
            return JsonConvert.DeserializeObject<T>(await JsonResultAsync(procedureName, parameters).ConfigureAwait(false));   
         }
     }
