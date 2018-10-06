@@ -2,15 +2,27 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TUTORized.Repository;
+using TUTORized.Repository.Abstract;
 
 namespace TUTORized.Controllers
 {
     public class HomeController : Controller
     {
-        public async Task<IActionResult> Index() 
+        //FOR TESTING PURPOSES ONLY
+        private readonly IUserRepository _userRepository;
+
+        public HomeController(IUserRepository userRepository)
         {
-            BaseRepository br = new BaseRepository();
-            await br.TestConnection();
+            _userRepository = userRepository;
+        }
+        public async Task<IActionResult> Index()
+        {
+            //FOR TESTING PURPOSES ONLY-------------
+            var email = "test@test.com";
+            var test = await _userRepository.GetUserByEmail(email);
+            //---------------------------------------
+
+
             return View();
         }
 
