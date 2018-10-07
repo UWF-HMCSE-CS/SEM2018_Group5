@@ -3,25 +3,30 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TUTORized.Repository;
 using TUTORized.Repository.Abstract;
+using TUTORized.Services.Abstract;
 
 namespace TUTORized.Controllers
 {
     public class HomeController : Controller
     {
         //FOR TESTING PURPOSES ONLY
-        private readonly IUserRepository _userRepository;
+        private readonly IUserService _userService;
 
-        public HomeController(IUserRepository userRepository)
+        public HomeController(IUserService userService)
         {
-            _userRepository = userRepository;
+            _userService = userService;
         }
-        public async Task<IActionResult> Index()
+
+        public IActionResult Index()
         {
             //FOR TESTING PURPOSES ONLY-------------
-            var email = "test@test.com";
-            var test = await _userRepository.GetUserByEmailAsync(email);
+            string email = "example@example.com";
+            string password = "examplePassword";
+            string firstName = "exampleFirstName";
+            string lastName = "exampleLastName";
+            string role = "exampleRole";
+            _userService.RegisterUser(email, password, firstName, lastName, role);
             //---------------------------------------
-
 
             return View();
         }
