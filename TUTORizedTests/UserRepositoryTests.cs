@@ -1,3 +1,5 @@
+
+using System.IO;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -9,18 +11,14 @@ using TUTORized.Repository.Abstract;
 namespace TUTORizedTests
 {
     [TestClass]
-    public class UserRepositoryTests
+    public class UserRepositoryTests : BaseTest
     {
-        private IUserRepository _userRepository;
 
-        [TestInitialize]
-        public async Task Setup()
+        private readonly IUserRepository _userRepository;
+
+        public UserRepositoryTests()
         {
-            IConfigurationBuilder _configurationBuilder = new ConfigurationBuilder();
-            _configurationBuilder.AddJsonFile("appsettings.Development.json");
-            IConfiguration _configuration = _configurationBuilder.Build();
-
-            _userRepository = new UserRepository(_configuration.GetConnectionString("tma"));
+            _userRepository = new UserRepository(_connection);
         }
 
         [TestMethod]

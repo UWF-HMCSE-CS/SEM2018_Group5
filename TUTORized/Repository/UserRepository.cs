@@ -23,7 +23,7 @@ namespace TUTORized.Repository
             //Adds to Parameters
             parameters.Add("Email", email);
 
-            return await FirstJsonResultAsync<User>("getUserByEmail", parameters);
+            return await FirstJsonResultAsync<User>("readUserByEmail", parameters);
         }
     }
 }
