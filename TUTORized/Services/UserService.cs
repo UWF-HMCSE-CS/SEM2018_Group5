@@ -4,10 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using TUTORized.Models;
 using TUTORized.Repository.Abstract;
+using TUTORized.Services.Abstract;
 
 namespace TUTORized.Services
 {
-    public class UserService
+    public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
 
