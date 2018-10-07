@@ -26,9 +26,13 @@ namespace TUTORized.Repository
             var parameters = new DynamicParameters();
 
             //Adds to Parameters
-            parameters.Add("User", user);
+            parameters.Add("Email", user.Email);
+            parameters.Add("Password", user.Password);
+            parameters.Add("FirstName", user.FirstName);
+            parameters.Add("LastName", user.LastName);
+            parameters.Add("Role", user.Role);
 
-            await ExecuteAsync("UserProfile_Create", parameters);
+            await ExecuteAsync("createUser", parameters);
         }
 
         /// <summary>
@@ -47,91 +51,57 @@ namespace TUTORized.Repository
             return await FirstJsonResultAsync<User>("getUserByEmail", parameters);
         }
 
-
-
-        /// FINISH CRUD HERE
-        /// ////////////////////////////////////
-      
-
-
-
-
-
-        public async Task<User> AccountInfoGetAsync(User email)
+        /// <summary>
+        /// Retrieves a User from the database by their Id
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        public async Task<User> GetUserByIdAsync(string Id)
         {
-            return new User
-            {
-                Email = user.email,
-                Password = user.password,
-                FirstName = user.firstName,
-                LastName = user.lastName,
-                Role = user.role,
-            };
+            //Initializes Parameters for Stored Procedure
+            var parameters = new DynamicParameters();
+
+            //Adds to Parameters
+            parameters.Add("Id", Id);
+
+            return await FirstJsonResultAsync<User>("getUserById", parameters);
         }
 
-        public async Task<string> AccountProfileGetAsync(User user)
+        /// <summary>
+        ///  Updates a User from the database by passing in their updated User object
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public async Task UserProfileUpdateAsync(User user)
         {
-            return await AccountProfileGetAsync(user.Id).ConfigureAwait(false);
+            //Initializes Parameters for Stored Procedure
+            var parameters = new DynamicParameters();
+
+            //Adds to Parameters
+            parameters.Add("Id", user.Id);
+            parameters.Add("Email", user.Email);
+            parameters.Add("Password", user.Password);
+            parameters.Add("FirstName", user.FirstName);
+            parameters.Add("LastName", user.LastName);
+            parameters.Add("Role", user.Role);
+
+            await ExecuteAsync("UserProfileUpdate", parameters);
         }
 
-        public async Task<string> AccountProfileGetAsync(string userId)
+        /// <summary>
+        /// Deletes a User from the Database
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        public async Task UserProfileDeleteAsync(string Id)
         {
-            return await JsonResultAsync(nameof(this.AccountProfileGetAsync), new { AspNetUserId = userId }).ConfigureAwait(false);
-        }
+            //Initializes Parameters for Stored Procedure
+            var parameters = new DynamicParameters();
 
-        public async Task<string> AccountProfileUpsertAsync(string userId, UserProfile profile)
-        {
-            return await JsonResultAsync("UpdateUserAccountProfile", new { AspNetUserId = userId, Details = profile }).ConfigureAwait(false);
-        }
+            //Adds to Parameters
+            parameters.Add("Id", Id);
 
-        public async Task<User> FindByEmailAsync(string email)
-        {
-            return (await QueryAsync<User>("identity_GetUserByEmail", Parameters(new { Email = email })).ConfigureAwait(false))
-                .FirstOrDefault();
+            await ExecuteAsync("UserDelete", parameters);
         }
-
-        public async Task<User> FindByIdAsync(string userId)
-        {
-            return (await QueryAsync<User>("identity_GetUserById", new { UserId = userId }).ConfigureAwait(false))
-                .FirstOrDefault();
-        }
-
-        public async Task<User> GetAsync(User user)
-        {
-            return await FindByIdAsync(user.Id).ConfigureAwait(false);
-        }
-
-        public async Task<IEnumerable<User>> ListInRoleAsync(string roleName)
-        {
-            return await QueryAsync<User>(
-                        "identity_GetUsersInRole",
-                        Parameters(new { RoleName = roleName })).ConfigureAwait(false);
-        }
-
-        public Task<UserProfile> ProfileGetAsync(string userId)
-        {
-            return JsonFirstAsync<UserProfile>("sp_GetUserProfile", new { user_id = userId });
-        }
-
-        public async Task ProfileUpdateAsync(string userId, UserProfile userProfile)
-        {
-            await ExecuteAsync(
-                "UserProfile_Update",
-                new
-                {
-                    Id = userId,
-                    PhoneNumber = userProfile.Phone,
-                    userProfile.FirstName,
-                    userProfile.LastName,
-                    DateOfBirth = userProfile.DoB,
-                    JsonData = JsonParam(new { address = userProfile.Address })
-                }).ConfigureAwait(false);
-        }
-
-        public async Task<ApplicationRole> RoleFindByNameAsync(string roleName)
-        {
-            return (await RoleListAsync().ConfigureAwait(false)).FirstOrDefault(role => role.Name == roleName);
-        }
-
     }
 }
