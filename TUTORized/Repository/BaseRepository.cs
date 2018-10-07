@@ -41,7 +41,7 @@ namespace TUTORized.Repository
         /// <param name="procedureName"></param>
         /// <param name="parameters"></param>
         /// <returns></returns>
-        private async Task ExecuteAsync(string procedureName, object parameters = null)
+        protected async Task ExecuteAsync(string procedureName, object parameters = null)
         {
             using (var connection = Connection)
             {

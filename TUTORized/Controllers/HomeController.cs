@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TUTORized.Repository;
 using TUTORized.Repository.Abstract;
+using TUTORized.Services;
 using TUTORized.Services.Abstract;
 
 namespace TUTORized.Controllers
