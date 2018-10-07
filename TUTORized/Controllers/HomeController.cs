@@ -19,7 +19,7 @@ namespace TUTORized.Controllers
         {
             //FOR TESTING PURPOSES ONLY-------------
             var email = "test@test.com";
-            var test = await _userRepository.GetUserByEmail(email);
+            var test = await _userRepository.ReadUserByEmail(email);
             //---------------------------------------
 
 

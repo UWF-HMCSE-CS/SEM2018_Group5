@@ -8,6 +8,6 @@ namespace TUTORized.Repository.Abstract
 {
     public interface IUserRepository
     {
-        Task<User> GetUserByEmail(string email);
+        Task<User> ReadUserByEmail(string email);
     }
 }
