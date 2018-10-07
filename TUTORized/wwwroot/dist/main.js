@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "cded53f5100f59276911"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "53a354c633e770b23f68"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -4475,7 +4475,7 @@ if (true) {
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _vm._m(0)
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('h1', [_vm._v("Hello, world!")]), _vm._v(" "), _c('p', [_vm._v("Welcome to your new single-page application, built with:")]), _vm._v(" "), _c('ul', [_c('li', [_c('a', {
+  return _c('div', [_c('h1', [_vm._v("Tutorized!")]), _vm._v(" "), _c('p', [_vm._v("Welcome to your new single-page application, built with:")]), _vm._v(" "), _c('ul', [_c('li', [_c('a', {
     attrs: {
       "href": "https://get.asp.net/"
     }
