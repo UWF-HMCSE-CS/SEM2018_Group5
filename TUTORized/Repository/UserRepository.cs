@@ -15,7 +15,7 @@ namespace TUTORized.Repository
 
         }
 
-        public async Task<User> GetUserByEmail(string email)
+        public async Task<User> ReadUserByEmail(string email)
         {
             //Initializes Parameters for Stored Procedure.
             var parameters = new DynamicParameters();
@@ -23,7 +23,7 @@ namespace TUTORized.Repository
             //Adds to Parameters
             parameters.Add("Email", email);
 
-            return await FirstJsonResultAsync<User>("getUserByEmail", parameters);
+            return await FirstJsonResultAsync<User>("readUserByEmail", parameters);
         }
     }
 }
