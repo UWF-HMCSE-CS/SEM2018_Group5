@@ -39,7 +39,7 @@ namespace TUTORized.Repository
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        public async Task UserProfileCreateAsync(User user)
+        public async Task<User> UserProfileCreateAsync(User user)
         {
             //Initializes Parameters for Stored Procedure
             var parameters = new DynamicParameters();
@@ -51,7 +51,8 @@ namespace TUTORized.Repository
             parameters.Add("LastName", user.LastName);
             parameters.Add("Role", user.Role);
 
-            await ExecuteAsync("createUser", parameters);
+            var result = await FirstJsonResultAsync<User>("createUser", parameters);
+            return result;
         }
 
         /// <summary>
@@ -67,7 +68,7 @@ namespace TUTORized.Repository
             //Adds to Parameters
             parameters.Add("Email", email);
 
-            return await FirstJsonResultAsync<User>("getUserByEmail", parameters);
+            return await FirstJsonResultAsync<User>("readUserByEmail", parameters);
         }
 
         /// <summary>
@@ -75,15 +76,15 @@ namespace TUTORized.Repository
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        public async Task<User> GetUserByIdAsync(string Id)
+        public async Task<User> GetUserByIdAsync(string id)
         {
             //Initializes Parameters for Stored Procedure
             var parameters = new DynamicParameters();
 
             //Adds to Parameters
-            parameters.Add("Id", Id);
+            parameters.Add("Id", id);
 
-            return await FirstJsonResultAsync<User>("getUserById", parameters);
+            return await FirstJsonResultAsync<User>("readUserById", parameters);
         }
 
         /// <summary>
@@ -91,7 +92,7 @@ namespace TUTORized.Repository
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        public async Task UserProfileUpdateAsync(User user)
+        public async Task<User> UserProfileUpdateAsync(User user)
         {
             //Initializes Parameters for Stored Procedure
             var parameters = new DynamicParameters();
@@ -104,7 +105,7 @@ namespace TUTORized.Repository
             parameters.Add("LastName", user.LastName);
             parameters.Add("Role", user.Role);
 
-            await ExecuteAsync("UserProfileUpdate", parameters);
+            return await FirstJsonResultAsync<User>("updateUserProfileById", parameters);
         }
 
         /// <summary>
@@ -112,13 +113,13 @@ namespace TUTORized.Repository
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        public async Task UserProfileDeleteAsync(string Id)
+        public async Task UserProfileDeleteByEmailAsync(string email)
         {
             //Initializes Parameters for Stored Procedure
             var parameters = new DynamicParameters();
 
             //Adds to Parameters
-            parameters.Add("Id", Id);
+            parameters.Add("Email", email);
 
             await ExecuteAsync("UserDelete", parameters);
         }
