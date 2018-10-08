@@ -100,7 +100,6 @@ namespace TUTORized.Repository
             //Adds to Parameters
             parameters.Add("Id", user.Id);
             parameters.Add("Email", user.Email);
-            parameters.Add("Password", user.Password);
             parameters.Add("FirstName", user.FirstName);
             parameters.Add("LastName", user.LastName);
             parameters.Add("Role", user.Role);
@@ -121,7 +120,7 @@ namespace TUTORized.Repository
             //Adds to Parameters
             parameters.Add("Email", email);
 
-            await ExecuteAsync("UserDelete", parameters);
+            await ExecuteAsync("deleteUserByEmail", parameters);
         }
     }
 }
