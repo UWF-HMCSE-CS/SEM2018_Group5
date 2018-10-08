@@ -1,41 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Xunit;
-using TUTORized;
+
+using System.IO;
+using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TUTORized.Models;
+using TUTORized.Repository;
+using TUTORized.Repository.Abstract;
+
 
 namespace TUTORizedTests
 {
-    public class UserRepositoryTests
+    [TestClass]
+    public class UserRepositoryTests : BaseTest
     {
 
+        private readonly IUserRepository _userRepository;
 
+        public UserRepositoryTests()
+        {
+            _userRepository = new UserRepository(_connection);
+        }
 
-        [Fact]
-        public void TestAbleToCreateUserProfile()
+        [TestMethod]
+        public async Task GetUserByEmail_ShouldReturnUser()
         {
             //ARRANGE
-            var sut = new UserRepository();
-            var user = new User("UserRepositoryTest@test.com", "userRepositoryTestPassword", "userRepositoryTestFirstName",
-                "userRepositoryTestLastName", "userRepositoryTestRole");
+            string email = "test@test.com";
+            string userId = "280A191D-9783-41AE-BE5E-31C33703D459";
 
             //ACT
-            sut.UserProfileCreateAsync(user);
-            User retrievedUser = GetUserByEmailAsync("UserRepositoryTest@test.com");
+            User user = await _userRepository.GetUserByEmail(email);
 
             //ASSERT
-            Assert.Equals(user, retrievedUser);
+            Assert.AreEqual(userId, user.Id);
         }
     }
 }
-
-
-Task UserProfileCreateAsync(User user);
-
-Task<User> GetUserByEmailAsync(string email);
-
-Task<User> GetUserByIdAsync(string Id);
-
-Task UserProfileUpdateAsync(User user);
-
-Task UserProfileDeleteAsync(string Id);
