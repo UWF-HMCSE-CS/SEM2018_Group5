@@ -34,49 +34,6 @@ namespace TUTORized.Services
         }
 
         /// <summary>
-        /// Creates a default User object with no given parameters (each initialized to "" (the empty string))
-        /// </summary>
-        /// <returns>User</returns>
-        public User CreateUserObject()
-        {
-            var newUserObject = new User();
-            return newUserObject;
-        }
-
-        /// <summary>
-        /// Creates a User object with all instance variables given except Id
-        /// Primarily used when Registering a new User, because the DataBase will issue an Id
-        /// </summary>
-        /// <param name="email"></param>
-        /// <param name="password"></param>
-        /// <param name="firstName"></param>
-        /// <param name="lastName"></param>
-        /// <param name="role"></param>
-        /// <returns>User</returns>
-        public User CreateUserObject(string email, string password, string firstName, string lastName, string role)
-        {
-            var newUserObject = new User(email, password, firstName, lastName, role);
-            return newUserObject;
-        }
-
-        /// <summary>
-        /// Creates a User object with all instance variables
-        /// Primarily used when creating a user with information retrieved from the DataBase
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="email"></param>
-        /// <param name="password"></param>
-        /// <param name="firstName"></param>
-        /// <param name="lastName"></param>
-        /// <param name="role"></param>
-        /// <returns></returns>
-        public User CreateUserObject(string id, string email, string password, string firstName, string lastName, string role)
-        {
-            var newUserObject = new User(id, email, password, firstName, lastName, role);
-            return newUserObject;
-        }
-
-        /// <summary>
         /// Used to Register a new User by creating a new user object and saving the 
         /// information to the Database
         /// </summary>
@@ -85,9 +42,8 @@ namespace TUTORized.Services
         /// <param name="firstName"></param>
         /// <param name="lastName"></param>
         /// <param name="role"></param>
-        public void RegisterUser(string email, string password, string firstName, string lastName, string role)
+        public void RegisterUser(User user)
         {
-            var user = CreateUserObject(email, password, firstName, lastName, role);
             _userRepository.UserProfileCreateAsync(user);
         }
     }

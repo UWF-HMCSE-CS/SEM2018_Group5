@@ -24,16 +24,6 @@ namespace TUTORized.Services.Abstract
 {
     public interface IUserService
     {
-        User CreateUserObject();
-
-
-        User CreateUserObject(string email, string password, string firstName, string lastName, string role);
-
-
-        User CreateUserObject(string id, string email, string password, string firstName, string lastName, string role);
-
-
-        void RegisterUser(string email, string password, string firstName, string lastName, string role);
-
+        void RegisterUser(User user);
     }
 }

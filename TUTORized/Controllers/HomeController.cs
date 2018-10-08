@@ -20,14 +20,6 @@ namespace TUTORized.Controllers
 
         public IActionResult Index()
         {
-            //FOR TESTING PURPOSES ONLY-------------
-            string email = "example@example.com";
-            string password = "examplePassword";
-            string firstName = "exampleFirstName";
-            string lastName = "exampleLastName";
-            string role = "exampleRole";
-            _userService.RegisterUser(email, password, firstName, lastName, role);
-            //---------------------------------------
 
             return View();
         }

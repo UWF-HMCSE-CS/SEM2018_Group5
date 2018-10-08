@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using TUTORized.Models;
 using TUTORized.Services.Abstract;
 
 /**
@@ -23,7 +24,7 @@ File Name: UserController.cs
 
 namespace TUTORized.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/user")]
     public class UserController : Controller
     {
         private readonly IUserService _userService;
@@ -33,10 +34,10 @@ namespace TUTORized.Controllers
             _userService = userService;
         }
 
-        [HttpGet("[action]")]
-        public void RegisterUser(string email, string password, string firstName, string lastName, string role)
+        [HttpPost("registerUser")]
+        public void RegisterUser([FromBody] User user)
         {
-            RegisterUser(email, password, firstName, lastName, role);
+            _userService.RegisterUser(user);
         }
     }
 }
