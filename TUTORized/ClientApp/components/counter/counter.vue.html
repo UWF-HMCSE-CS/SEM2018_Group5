@@ -4,7 +4,9 @@
 
         <p>This is a simple example of a Vue.js component.</p>
 
-        <p>Current count: <strong>{{ currentcount }}</strong></p>
+        <v-alert color="info" icon="info" value="true">
+            Current count: <strong>{{ currentcount }}</strong>
+        </v-alert>
 
         <button @click="incrementCounter">Increment</button>
     </div>
