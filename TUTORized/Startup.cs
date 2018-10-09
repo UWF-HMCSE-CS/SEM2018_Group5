@@ -9,6 +9,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using TUTORized.Repository;
 using TUTORized.Repository.Abstract;
+using TUTORized.Services;
+using TUTORized.Services.Abstract;
 
 namespace TUTORized
 {
@@ -25,7 +27,9 @@ namespace TUTORized
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddSingleton<IUserRepository>(provider => new UserRepository(Configuration.GetConnectionString("tma")));
+            services.AddSingleton<IUserService, UserService>();
+            services.AddSingleton<IUserRepository>(provider =>
+                new UserRepository(Configuration.GetConnectionString("tma")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

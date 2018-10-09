@@ -41,7 +41,7 @@ namespace TUTORized.Repository
         /// <param name="procedureName"></param>
         /// <param name="parameters"></param>
         /// <returns></returns>
-        private async Task ExecuteAsync(string procedureName, object parameters = null)
+        protected async Task ExecuteAsync(string procedureName, object parameters = null)
         {
             using (var connection = Connection)
             {
@@ -66,8 +66,8 @@ namespace TUTORized.Repository
                 connection.Open();
 
                 return await connection.QueryAsync<T>(
-                    procedureName, 
-                    parameters, 
+                    procedureName,
+                    parameters,
                     commandType: CommandType.StoredProcedure).ConfigureAwait(false);
             }
         }
@@ -105,9 +105,9 @@ namespace TUTORized.Repository
         /// <returns></returns>
         protected async Task<T> FirstJsonResultAsync<T>(string procedureName, DynamicParameters parameters)
         {
-           //Calls to JsonResult which grabs the JSON string from the specified stored procedure.
-           //It will then convert the json to the specified type (i.e. User model, student model, tutor model etc.).
-           return JsonConvert.DeserializeObject<T>(await JsonResultAsync(procedureName, parameters).ConfigureAwait(false));   
+            //Calls to JsonResult which grabs the JSON string from the specified stored procedure.
+            //It will then convert the json to the specified type (i.e. User model, student model, tutor model etc.).
+            return JsonConvert.DeserializeObject<T>(await JsonResultAsync(procedureName, parameters).ConfigureAwait(false));
         }
     }
 }

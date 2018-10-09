@@ -16,22 +16,14 @@ with each other.
 @author Wenwen Xu
 @version 1.0
 CEN4053    "TUTORized" SEM- Group 5's class project
-File Name: IUserRepository.cs 
-    This is the interface for the UserRepository class.
+File Name: IUserService.cs 
+    This class is the interface for the UserService class.
 */
 
-namespace TUTORized.Repository.Abstract
+namespace TUTORized.Services.Abstract
 {
-    public interface IUserRepository
+    public interface IUserService
     {
-        Task<User> UserProfileCreateAsync(User user);
-
-        Task<User> GetUserByEmailAsync(string email);
-
-        Task<User> GetUserByIdAsync(string Id);
-
-        Task<User> UserProfileUpdateAsync(User user);
-
-        Task UserProfileDeleteByEmailAsync(string email);
+        void RegisterUser(User user);
     }
 }
