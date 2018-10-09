@@ -19,7 +19,9 @@
   <ItemGroup>
     <None Remove="ClientApp\components\home\login\login.ts" />
     <None Remove="ClientApp\components\home\signUp\signUp.css" />
-    <None Remove="ClientApp\components\home\signUp\signUp.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="ClientApp\components\home\login\login.cs" />
   </ItemGroup>
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">
     <!-- Ensure Node.js is installed -->

@@ -3,17 +3,19 @@
         <h1>LogIn </h1>
         <p>
             Don't have an account?
-            <button>SignUp</button>
+            <a href="/signup"> <strong>SignUp Here</strong></a>
         </p>
-        <p>
-            Email:
-            <input type="text" name="femail"><br>
-        </p>
-        <p>
-            Password
-            <input type="text" name="fpassword"><br>
-        </p>
-        <button>Login</button>
+        <strong>
+            <p>
+                Email:
+                <input type="text" name="femail"><br>
+            </p>
+            <p>
+                Password
+                <input type="text" name="fpassword"><br>
+            </p>
+            <button @click="loginButton">Login</button>
+        </strong>
     </div>
 </template>
 
