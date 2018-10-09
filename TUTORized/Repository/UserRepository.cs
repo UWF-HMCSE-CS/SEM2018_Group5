@@ -24,7 +24,6 @@ File Name: UserRepository.cs
     order to relay CRUD operations with the DataBase.
 */
 
-
 namespace TUTORized.Repository
 {
     public class UserRepository : BaseRepository, IUserRepository
@@ -63,6 +62,7 @@ namespace TUTORized.Repository
         public async Task<User> GetUserByEmailAsync(string email)
         {
             //Initializes Parameters for Stored Procedure
+
             var parameters = new DynamicParameters();
 
             //Adds to Parameters

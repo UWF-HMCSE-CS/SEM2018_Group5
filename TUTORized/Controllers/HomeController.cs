@@ -20,7 +20,6 @@ namespace TUTORized.Controllers
 
         public IActionResult Index()
         {
-
             return View();
         }
 
