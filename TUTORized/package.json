@@ -23,5 +23,10 @@
     "vue-template-compiler": "^2.2.2",
     "webpack": "^2.2.0",
     "webpack-hot-middleware": "^2.12.2"
+  },
+  "dependencies": {
+    "vue": "^2.2.2",
+    "vuetify": "^1.2.6",
+    "vue-loader": "^11.1.4"
   }
 }
