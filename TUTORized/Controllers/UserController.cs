@@ -39,5 +39,11 @@ namespace TUTORized.Controllers
         {
             _userService.RegisterUser(user);
         }
+
+        [HttpPost("loginUser")]
+        public void LoginUser([FromBody] string email, string password)
+        {
+            _userService.LoginUser(email, password);
+        }
     }
 }

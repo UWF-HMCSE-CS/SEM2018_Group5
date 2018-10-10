@@ -46,5 +46,10 @@ namespace TUTORized.Services
         {
             _userRepository.UserProfileCreateAsync(user);
         }
+
+        public void LoginUser(string email, string password)
+        {
+            _userRepository.UserLoginAsync(email, password);
+        }
     }
 }

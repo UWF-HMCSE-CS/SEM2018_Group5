@@ -68,5 +68,14 @@ namespace TUTORized.Models
             this.LastName = lastName;
             this.Role = role;
         }
+
+        /// <summary>
+        /// Constructor with email and password
+        /// </summary>
+        public User(string email, string password)
+        {
+            this.Email = email;
+            this.Password = password;
+        }
     }
 }

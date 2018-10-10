@@ -33,5 +33,7 @@ namespace TUTORized.Repository.Abstract
         Task<User> UserProfileUpdateAsync(User user);
 
         Task UserProfileDeleteByEmailAsync(string email);
+
+        Task UserLoginAsync(string email, string password);
     }
 }
