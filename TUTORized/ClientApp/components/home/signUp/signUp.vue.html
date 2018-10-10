@@ -1,5 +1,5 @@
 ﻿<template>
-    <div>
+    <div id="userSignUpScreen">
         <h1>SignUp</h1>
         <p>
             Already have an account?
@@ -7,16 +7,13 @@
         </p>
         <strong>
             <p>
-                Email:
-                <input type="text" name="femail">{{userEmail}}<br>
+                Email: <input type="text" name="femail">{{userEmail}}<br>
             </p>
             <p>
-                Password:
-                <input type="text" name="fpassword">{{userPassword}}<br>
+                Password: <input type="text" name="fpassword">{{userPassword}}<br>
             </p>
             <p>
-                Confirm Password:
-                <input type="text" name="fconpassword">{{conPassword}}<br>
+                Confirm Password:<input type="text" name="fconpassword">{{conPassword}}<br>
             </p>
             <button @click="signUpButton">SignUp</button>
           </strong>
