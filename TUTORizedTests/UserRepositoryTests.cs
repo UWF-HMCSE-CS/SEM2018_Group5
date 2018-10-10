@@ -120,6 +120,22 @@ namespace TUTORizedTests
             //ASSERT
             Assert.AreEqual("test@test.com", user.Email);
         }
+
+        //[TestMethod]
+        //public async Task UserLoginAsync_ShouldAllowUserToLogInIfEmailAndPasswordMatch()
+        //{
+        //    //ARRANGE
+        //    var loginCredentials = new User()
+        //    {
+        //        Email = "test@test.com",
+        //        Password = "TestPassword"
+        //    };
+        //    loginCredentials = await _userRepository.UserLoginAsync(Email, Password);
+        //    var emailInDB = User.Email;
+
+        //    //ASSERT
+        //    Assert.AreEqual(loginCredentials, emailInDB);
+        //}
     }
 }
 

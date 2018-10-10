@@ -134,7 +134,7 @@ namespace TUTORized.Repository
         /// <returns></returns>
         public async Task UserLoginAsync(string email, string password)
         {
-            User user = new User(email, password);
+            var user = new User(email, password);
 
             //Initializes Parameters for Stored Procedure
             var parameters = new DynamicParameters();
