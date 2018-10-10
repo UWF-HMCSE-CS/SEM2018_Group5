@@ -8,15 +8,15 @@
         <strong>
             <p>
                 Email:
-                <input type="text" name="femail"><br>
+                <input type="text" name="femail">{{userEmail}}<br>
             </p>
             <p>
-                Password
-                <input type="text" name="fpassword"><br>
+                Password:
+                <input type="text" name="fpassword">{{userPassword}}<br>
             </p>
             <p>
-                Confirm Password
-                <input type="text" name="fconpassword"><br>
+                Confirm Password:
+                <input type="text" name="fconpassword">{{conPassword}}<br>
             </p>
             <button @click="signUpButton">SignUp</button>
           </strong>

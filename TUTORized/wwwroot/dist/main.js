@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "6545d48f1191e6be19a1"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "8c9cb663c011988380b0"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -4513,7 +4513,22 @@ if (true) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('h1', [_vm._v("SignUp")]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('strong', [_vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3), _vm._v(" "), _c('button', {
+  return _c('div', [_c('h1', [_vm._v("SignUp")]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('strong', [_c('p', [_vm._v("\n            Email:\n            "), _c('input', {
+    attrs: {
+      "type": "text",
+      "name": "femail"
+    }
+  }), _vm._v(_vm._s(_vm.userEmail)), _c('br')]), _vm._v(" "), _c('p', [_vm._v("\n            Password:\n            "), _c('input', {
+    attrs: {
+      "type": "text",
+      "name": "fpassword"
+    }
+  }), _vm._v(_vm._s(_vm.userPassword)), _c('br')]), _vm._v(" "), _c('p', [_vm._v("\n            Confirm Password:\n            "), _c('input', {
+    attrs: {
+      "type": "text",
+      "name": "fconpassword"
+    }
+  }), _vm._v(_vm._s(_vm.conPassword)), _c('br')]), _vm._v(" "), _c('button', {
     on: {
       "click": _vm.signUpButton
     }
@@ -4524,27 +4539,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "href": "/"
     }
   }, [_c('strong', [_vm._v("Login Here")])])])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('p', [_vm._v("\n            Email:\n            "), _c('input', {
-    attrs: {
-      "type": "text",
-      "name": "femail"
-    }
-  }), _c('br')])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('p', [_vm._v("\n            Password\n            "), _c('input', {
-    attrs: {
-      "type": "text",
-      "name": "fpassword"
-    }
-  }), _c('br')])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('p', [_vm._v("\n            Confirm Password\n            "), _c('input', {
-    attrs: {
-      "type": "text",
-      "name": "fconpassword"
-    }
-  }), _c('br')])
 }]}
 module.exports.render._withStripped = true
 if (true) {
@@ -4597,14 +4591,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_c('strong', [_vm._v("SignUp Here")])])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('p', [_vm._v("\n            Email:\n            "), _c('input', {
+  return _c('p', [_vm._v("\n            Email: \n            "), _c('input', {
     attrs: {
       "type": "text",
       "name": "femail"
     }
   }), _c('br')])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('p', [_vm._v("\n            Password\n            "), _c('input', {
+  return _c('p', [_vm._v("\n            Password: \n            "), _c('input', {
     attrs: {
       "type": "text",
       "name": "fpassword"
