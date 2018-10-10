@@ -1,0 +1,24 @@
+﻿<template>
+    <div>
+        <h1>SignUp</h1>
+        <p>
+            Already have an account?
+            <a href="/"> <strong>Login Here</strong></a>
+        </p>
+        <strong>
+            <p>
+                Email:
+                <input type="text" name="femail">{{userEmail}}<br>
+            </p>
+            <p>
+                Password:
+                <input type="text" name="fpassword">{{userPassword}}<br>
+            </p>
+            <p>
+                Confirm Password:
+                <input type="text" name="fconpassword">{{conPassword}}<br>
+            </p>
+            <button @click="signUpButton">SignUp</button>
+          </strong>
+    </div>
+</template>

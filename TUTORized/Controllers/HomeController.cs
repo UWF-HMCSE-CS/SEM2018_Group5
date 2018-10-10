@@ -20,6 +20,8 @@ namespace TUTORized.Controllers
 
         public IActionResult Index()
         {
+            //BaseRepository br = new BaseRepository();
+            //await br.TestConnection();
             return View();
         }
 
