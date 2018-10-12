@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "d5e18812a9df3b6a9801"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "5735604fab8358e5a83a"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -1869,6 +1869,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+//import { MdRadioChange } from '@angular/material';
 //import userSignUpModules from '././module/userSignUpModules';
 var SignUpComponent = (function (_super) {
     __extends(SignUpComponent, _super);
@@ -1879,9 +1880,7 @@ var SignUpComponent = (function (_super) {
         _this.userEmail = '';
         _this.userPassword = '';
         _this.conPassword = '';
-        _this.debug = '';
-        _this.studentRole = false;
-        _this.teacherRole = false;
+        _this.role = '';
         return _this;
     }
     SignUpComponent.prototype.signUpFunction = function () {
@@ -1890,13 +1889,25 @@ var SignUpComponent = (function (_super) {
         this.userEmail = document.getElementById("userEmail").value;
         this.userPassword = document.getElementById("userPassword").value;
         this.conPassword = document.getElementById("conPassword").value;
+        //check which role the user selected
+        if (document.getElementById("studentRole").checked) {
+            this.role = document.getElementById("studentRole").value;
+        }
+        if (document.getElementById("teacherRole").checked) {
+            this.role = document.getElementById("teacherRole").value;
+        }
         __WEBPACK_IMPORTED_MODULE_2_jquery___default.a.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
             type: "POST",
-            url: 'api/user/signUp',
+            url: 'api/user/registerUser',
             data: { userFirstName: this.firstName,
                 userLastName: this.lastName,
                 userInputEmail: this.userEmail,
-                userInputPassword: this.userPassword
+                userInputPassword: this.userPassword,
+                role: this.role
             },
             dataType: 'json'
         });
@@ -4399,7 +4410,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "click": _vm.signUpFunction
     }
-  }, [_vm._v("SignUp")])]), _vm._v(" "), _c('P', [_vm._v(_vm._s(_vm.debug))])], 1)])])
+  }, [_vm._v("SignUp")])])])])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('p', [_vm._v("\n        Already have an account?\n        "), _c('a', {
     attrs: {
@@ -4444,13 +4455,15 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "id": "studentRole",
       "type": "radio",
-      "name": "role"
+      "name": "role",
+      "value": "student"
     }
   }), _vm._v(" Student  \n                "), _c('input', {
     attrs: {
       "id": "teacherRole",
       "type": "radio",
-      "name": "role"
+      "name": "role",
+      "value": "teacher"
     }
   }), _vm._v(" Teacher\n            ")])
 }]}

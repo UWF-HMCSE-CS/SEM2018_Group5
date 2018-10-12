@@ -1,6 +1,7 @@
 ﻿import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 import $ from 'jquery';
+//import { MdRadioChange } from '@angular/material';
 //import userSignUpModules from '././module/userSignUpModules';
 
 
@@ -12,9 +13,7 @@ export default class SignUpComponent extends Vue{
     userEmail: string = '';
     userPassword: string = '';
     conPassword: string = '';
-    debug: string = '';
-    studentRole: boolean = false;
-    teacherRole: boolean = false;
+    role: string='';
 
     signUpFunction(){
 
@@ -24,17 +23,30 @@ export default class SignUpComponent extends Vue{
         this.userPassword = (<HTMLInputElement>document.getElementById("userPassword")).value;
         this.conPassword = (<HTMLInputElement>document.getElementById("conPassword")).value;
 
-        
-         $.ajax({
-          type: "POST",
-          url: 'api/user/signUp',
-          data: {userFirstName: this.firstName,
-              userLastName: this.lastName,
-              userInputEmail: this.userEmail,
-              userInputPassword: this.userPassword
-              },
+        //check which role the user selected
+        if ((<HTMLInputElement>document.getElementById("studentRole")).checked) {
 
-          dataType: 'json'
+             this.role = (<HTMLInputElement>document.getElementById("studentRole")).value;
+        } if ((<HTMLInputElement>document.getElementById("teacherRole")).checked) {
+
+             this.role = (<HTMLInputElement>document.getElementById("teacherRole")).value;
+        }
+
+        $.ajax({
+             headers: { 
+                'Accept': 'application/json',
+                'Content-Type': 'application/json' 
+                },
+              type: "POST",
+              url: 'api/user/registerUser',
+              data: {userFirstName: this.firstName,
+                  userLastName: this.lastName,
+                  userInputEmail: this.userEmail,
+                  userInputPassword: this.userPassword,
+                  role: this.role
+                  },
+
+              dataType: 'json'
         });
           
     
