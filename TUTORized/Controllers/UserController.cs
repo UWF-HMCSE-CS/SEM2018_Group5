@@ -39,5 +39,14 @@ namespace TUTORized.Controllers
         {
             _userService.RegisterUser(user);
         }
+
+        [HttpPost("signUp")]
+        public IActionResult postUserDara(string firstName, string lastName, string userEmail, string userPassword)
+        {
+
+            return Ok("test");
+
+        }
+
     }
 }

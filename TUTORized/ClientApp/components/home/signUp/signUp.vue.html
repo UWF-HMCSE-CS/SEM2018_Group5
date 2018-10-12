@@ -1,21 +1,35 @@
 ﻿<template>
-    <div id="userSignUpScreen">
+    <div class="mainSignUpScreen">
         <h1>SignUp</h1>
         <p>
             Already have an account?
             <a href="/"> <strong>Login Here</strong></a>
         </p>
-        <strong>
-            <p>
-                Email: <input type="text" name="femail">{{userEmail}}<br>
-            </p>
-            <p>
-                Password: <input type="text" name="fpassword">{{userPassword}}<br>
-            </p>
-            <p>
-                Confirm Password:<input type="text" name="fconpassword">{{conPassword}}<br>
-            </p>
-            <button @click="signUpButton">SignUp</button>
-          </strong>
-    </div>
+        <div class="userInfo">
+            <strong>
+                <p>
+                    First Name: <input id="firstName" type="text" />
+                    Last Name: <input id="lastName" type="text" />
+                </p>
+
+                <p> Email: <input id="userEmail" type="text" /></p>
+
+                <p> Password: <input id="userPassword" type="text"></p>
+
+                <p>Confirm Password: <input id="conPassword" type="text"></p>
+
+                <p>I am a : 
+                    <input id="studentRole" type="radio" name="role"> Student &#160
+                    <input id="teacherRole" type="radio" name="role"> Teacher
+                </p>
+
+                <p><button @click="signUpFunction">SignUp</button></p>
+
+                <P>{{debug}}</p>
+
+            </strong>
+        </div>
+        </div>
 </template>
+<script src="./signUp.ts"></script>
+

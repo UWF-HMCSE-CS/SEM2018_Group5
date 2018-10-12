@@ -15,13 +15,20 @@
   <ItemGroup>
     <Folder Include="ClientApp\components\home\login\" />
     <Folder Include="ClientApp\components\home\signUp\" />
+    <Folder Include="ClientApp\module\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="ClientApp\components\home\login\login.ts" />
     <None Remove="ClientApp\components\home\signUp\signUp.css" />
+    <None Remove="ClientApp\components\home\signUp\signUp.js" />
+    <None Remove="ClientApp\components\counter\counter.ts" />
+    <None Remove="ClientApp\components\fetchdata\fetchdata.ts" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="ClientApp\components\home\login\login.cs" />
+    <Compile Remove="ClientApp\components\home\signUp\userRegistration.cs" />
+    <Compile Remove="Controllers\SignUpControllers.cs" />
+    <Compile Remove="Controllers\SampleDataController.cs" />
   </ItemGroup>
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">
     <!-- Ensure Node.js is installed -->

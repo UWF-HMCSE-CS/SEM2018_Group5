@@ -14,19 +14,19 @@ namespace TUTORized.Controllers
     public class SignUpControllers : Controller
     {
        
-        /*
-        [HttpGet("action")]
-        public IEnumerable<signUpScreen> signUpScreen()
+
+        public void postUserDara(string firstName, string lastName, string userEmail, string userPassword)
         {
-        }*/
+           
+
+
+        }
 
         public class signUpScreen
         {
             public string userEmail { get; set; }
             public string userPassword { get; set; }
             public string conPassword { get; set; }
-
-
         }
     }
 }
