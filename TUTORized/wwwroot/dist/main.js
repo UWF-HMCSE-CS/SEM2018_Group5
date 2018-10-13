@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "5735604fab8358e5a83a"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "9adfa3e7f32d9744c48f"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -1869,8 +1869,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-//import { MdRadioChange } from '@angular/material';
-//import userSignUpModules from '././module/userSignUpModules';
 var SignUpComponent = (function (_super) {
     __extends(SignUpComponent, _super);
     function SignUpComponent() {
@@ -1903,12 +1901,12 @@ var SignUpComponent = (function (_super) {
             },
             type: "POST",
             url: 'api/user/registerUser',
-            data: { userFirstName: this.firstName,
-                userLastName: this.lastName,
-                userInputEmail: this.userEmail,
-                userInputPassword: this.userPassword,
-                role: this.role
-            },
+            data: JSON.stringify({ FirstName: this.firstName,
+                LastName: this.lastName,
+                Email: this.userEmail,
+                Password: this.userPassword,
+                Role: this.role
+            }),
             dataType: 'json'
         });
     };
