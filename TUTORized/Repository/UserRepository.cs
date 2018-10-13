@@ -73,6 +73,7 @@ namespace TUTORized.Repository
             return await FirstJsonResultAsync<User>("readUserByEmail", parameters);
         }
 
+
         /// <summary>
         /// Retrieves a User from the database by their Id
         /// </summary>
@@ -87,6 +88,24 @@ namespace TUTORized.Repository
             parameters.Add("Id", id);
 
             return await FirstJsonResultAsync<User>("readUserById", parameters);
+        }
+
+
+
+        /// <summary>
+        /// Deletes a User from the Database
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        public async Task UserProfileDeleteByEmailAsync(string email)
+        {
+            //Initializes Parameters for Stored Procedure
+            var parameters = new DynamicParameters();
+
+            //Adds to Parameters
+            parameters.Add("Email", email);
+
+            await ExecuteAsync("deleteUserByEmail", parameters);
         }
 
         /// <summary>
@@ -107,67 +126,24 @@ namespace TUTORized.Repository
             parameters.Add("Role", user.Role);
 
             return await FirstJsonResultAsync<User>("updateUserProfileById", parameters);
+            
         }
 
         /// <summary>
-        /// Deletes a User from the Database
+        /// checks to see if user email and user password matches email and password in the db and lets them log in
         /// </summary>
-        /// <param name="Id"></param>
+        /// <param name="userEmail"></param>
+        /// <param name="userPassword"></param>
         /// <returns></returns>
-        public async Task UserProfileDeleteByEmailAsync(string email)
+        public async Task<User> UserLoginAsync(string userEmail, string userPassword)
         {
             //Initializes Parameters for Stored Procedure
             var parameters = new DynamicParameters();
 
-            //Adds to Parameters
-            parameters.Add("Email", email);
+            //If the email and password matches, it lists that User obj
+            return await FirstJsonResultAsync<User>("readUserByEmail", parameters);
 
-            await ExecuteAsync("deleteUserByEmail", parameters);
+
         }
-
-        /// <summary>
-        /// matches the user email and password so the user can successfully log in
-        /// </summary>
-        /// <typeparam name="User"></typeparam>
-        /// <param name=""></param>
-        /// <param name=""></param>
-        /// <returns></returns>
-        public async Task UserLoginAsync(string email, string password)
-        {
-            var user = new User(email, password);
-
-            //Initializes Parameters for Stored Procedure
-            var parameters = new DynamicParameters();
-            
-            //Check if the email given in the paramter matches the email in db
-            if (email.Equals(user.Email))
-            {
-                //If the email is registered, check for the password
-                if (password.Equals(user.Password))
-                {
-                    //If the email and password matches, then allow them to log in
-                    //Not sure how to allow them to go to the next step so I'm just returning the user info here
-                    await FirstJsonResultAsync<User>("readUserByEmail", parameters);
-                }
-
-                else 
-                {
-                    //Tell the user their password is incorrect
-                    //For now, I'm just going to throw this message to the console
-                    Console.WriteLine("Your password is incorrect, try again.");
-                }
-
-            }
-
-            //If the email is not registered, tell them it's not registered and to register before you sign in 
-            if (email != user.Email)
-            {
-                //Tell the user that their email does not exist and to register before they can sign in
-                Console.WriteLine("Your email does not exist, register your account before signing in");
-            }
-    
-
-            
-        }
-    }
+}
 }

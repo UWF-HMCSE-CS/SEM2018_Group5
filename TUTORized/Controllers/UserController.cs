@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Dapper;
 using Microsoft.AspNetCore.Mvc;
 using TUTORized.Models;
+using TUTORized.Repository;
+using TUTORized.Repository.Abstract;
 using TUTORized.Services.Abstract;
 
 /**
@@ -28,6 +31,7 @@ namespace TUTORized.Controllers
     public class UserController : Controller
     {
         private readonly IUserService _userService;
+        private readonly IUserRepository _userRepository;
 
         public UserController(IUserService userService)
         {
@@ -41,9 +45,38 @@ namespace TUTORized.Controllers
         }
 
         [HttpPost("loginUser")]
-        public void LoginUser([FromBody] string email, string password)
+        /// <summary>
+        /// checks to see if user email and user password matches email and password in the db and lets them log in
+        /// </summary>
+        /// <param name="userEmail"></param>
+        /// <param name="userPassword"></param>
+        /// <returns></returns>
+        //  public async Task<User> LoginUserAsync(string userEmail, string userPassword)
+        public void LoginUser(string userEmail, string userPassword)
         {
-            _userService.LoginUser(email, password);
+            //Gets the email and password from the database
+            User fetchDbUser = (User)_userService.LoginUser(userEmail, userPassword);
+
+            //Checks the entered email with the email from the database
+            if (userEmail.Equals(fetchDbUser.Email))
+            {
+                //Checks the entered password with the password from the database
+                if (userPassword.Equals(fetchDbUser.Password))
+                {
+                    Ok();
+                }
+
+                else
+                {
+                    BadRequest();
+                }
+            }
+
+            else
+            {
+                BadRequest();
+            }
         }
+
     }
 }

@@ -18,7 +18,7 @@ namespace TUTORized.Controllers
             _userService = userService;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(Models.User user)
         {
             return View();
         }

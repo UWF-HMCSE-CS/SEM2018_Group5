@@ -121,7 +121,7 @@ namespace TUTORizedTests
             Assert.AreEqual("test@test.com", user.Email);
         }
 
-        //[TestMethod]
+        ////[TestMethod]
         //public async Task UserLoginAsync_ShouldAllowUserToLogInIfEmailAndPasswordMatch()
         //{
         //    //ARRANGE
@@ -130,7 +130,7 @@ namespace TUTORizedTests
         //        Email = "test@test.com",
         //        Password = "TestPassword"
         //    };
-        //    loginCredentials = await _userRepository.UserLoginAsync(Email, Password);
+        //    loginCredentials = await _userRepository.UserLoginAsync(loginCredentials.Email, loginCredentials.Password);
         //    var emailInDB = User.Email;
 
         //    //ASSERT

@@ -69,13 +69,21 @@ namespace TUTORized.Models
             this.Role = role;
         }
 
+        public static explicit operator User(Task<User> v)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
-        /// Constructor with email and password
+        /// Constructor with email
         /// </summary>
         public User(string email, string password)
         {
             this.Email = email;
             this.Password = password;
         }
+
+
+
     }
 }

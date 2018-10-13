@@ -44,12 +44,15 @@ namespace TUTORized.Services
         /// <param name="role"></param>
         public void RegisterUser(User user)
         {
-            _userRepository.UserProfileCreateAsync(user);
+             _userRepository.UserProfileCreateAsync(user);
         }
 
-        public void LoginUser(string email, string password)
+
+        public async Task<User> LoginUser(string email, string password)
         {
-            _userRepository.UserLoginAsync(email, password);
+            return await _userRepository.UserLoginAsync(email, password);
         }
+
+
     }
 }
