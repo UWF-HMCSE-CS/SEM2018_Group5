@@ -56,8 +56,8 @@ namespace TUTORized.Services
         public async Task<User> LoginUser(string userEmail, string userPassword)
         {
             return await _userRepository.UserLoginAsync(userEmail, userPassword);
-        }
 
+        }
 
     }
 }

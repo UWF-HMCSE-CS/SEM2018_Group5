@@ -140,8 +140,12 @@ namespace TUTORized.Repository
             //Initializes Parameters for Stored Procedure
             var parameters = new DynamicParameters();
 
-            //If the email and password matches, it lists that User obj
-            return await FirstJsonResultAsync<User>("readUserByEmail", parameters);
+            parameters.Add("Email", userEmail);
+            parameters.Add("Password", userPassword);
+
+
+            //Returns the User obj that matches user entered email and password
+            return await FirstJsonResultAsync<User>("readUserByEmailAndPassword", parameters);
 
 
         }

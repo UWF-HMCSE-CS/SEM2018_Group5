@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TUTORized.Repository;
 
 /**
 TUTORized is a web application designed for use in 
@@ -23,6 +24,7 @@ namespace TUTORized.Models
 {
     public class User
     {
+
         public string Id { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
@@ -40,7 +42,7 @@ namespace TUTORized.Models
             this.Password = "";
             this.FirstName = "";
             this.LastName = "";
-            this.Role = "";
+            this.Role = ""; 
         }
 
         /// <summary>
@@ -67,11 +69,6 @@ namespace TUTORized.Models
             this.FirstName = firstName;
             this.LastName = lastName;
             this.Role = role;
-        }
-
-        public static explicit operator User(Task<User> v)
-        {
-            throw new NotImplementedException();
         }
 
         /// <summary>

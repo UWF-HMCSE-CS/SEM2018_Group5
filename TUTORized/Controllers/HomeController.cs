@@ -12,14 +12,19 @@ namespace TUTORized.Controllers
     {
         //FOR TESTING PURPOSES ONLY
         private readonly IUserService _userService;
+        private readonly IUserRepository _userRepository;
 
-        public HomeController(IUserService userService)
+        public HomeController(IUserService userService, IUserRepository userRepository)
         {
             _userService = userService;
+            _userRepository = userRepository;
         }
 
         public IActionResult Index(Models.User user)
         {
+
+            UserController uc = new UserController(_userService, _userRepository);
+            uc.LoginUser("wesTest@Test.com", "TestPassword");
             return View();
         }
 

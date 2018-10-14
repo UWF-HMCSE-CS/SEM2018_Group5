@@ -33,9 +33,14 @@ namespace TUTORized.Controllers
         private readonly IUserService _userService;
         private readonly IUserRepository _userRepository;
 
-        public UserController(IUserService userService)
+        public UserController()
+        {
+               
+        }
+        public UserController(IUserService userService, IUserRepository userRepository)
         {
             _userService = userService;
+            _userRepository = userRepository;
         }
 
         [HttpPost("registerUser")]
@@ -45,37 +50,24 @@ namespace TUTORized.Controllers
         }
 
         [HttpPost("loginUser")]
-        /// <summary>
-        /// checks to see if user email and user password matches email and password in the db and lets them log in
-        /// </summary>
-        /// <param name="userEmail"></param>
-        /// <param name="userPassword"></param>
-        /// <returns></returns>
-        //  public async Task<User> LoginUserAsync(string userEmail, string userPassword)
         public void LoginUser(string userEmail, string userPassword)
         {
-            //Gets the email and password from the database
-            User fetchDbUser = (User)_userService.LoginUser(userEmail, userPassword);
+            //Takes the user entered email and password and returns the User obj
+            Task<User> x = _userService.LoginUser(userEmail, userPassword);
 
-            //Checks the entered email with the email from the database
-            if (userEmail.Equals(fetchDbUser.Email))
+            //Compare the email and password from the entered user with the returned user obj email and password
+            if (userEmail.Equals(userEmail) && userPassword.Equals(userPassword))
             {
-                //Checks the entered password with the password from the database
-                if (userPassword.Equals(fetchDbUser.Password))
-                {
-                    Ok();
-                }
-
-                else
-                {
-                    BadRequest();
-                }
+                Ok();
             }
 
-            else
+            if (x.Equals(null))
             {
                 BadRequest();
             }
+
+            
+                
         }
 
     }
