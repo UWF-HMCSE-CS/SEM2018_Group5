@@ -33,101 +33,101 @@ namespace TUTORized.Repository
 
         }
 
-        /// <summary>
-        /// Creates a database entry of a User object; used in User Registration
-        /// </summary>
-        /// <param name="user"></param>
-        /// <returns></returns>
-        public async Task<User> UserProfileCreateAsync(User user)
-        {
-            //Initializes Parameters for Stored Procedure
-            var parameters = new DynamicParameters();
+        ///// <summary>
+        ///// Creates a database entry of a User object; used in User Registration
+        ///// </summary>
+        ///// <param name="user"></param>
+        ///// <returns></returns>
+        //public async Task<User> UserProfileCreateAsync(User user)
+        //{
+        //    //Initializes Parameters for Stored Procedure
+        //    var parameters = new DynamicParameters();
 
-            //Adds to Parameters
-            parameters.Add("Email", user.Email);
-            parameters.Add("Password", user.Password);
-            parameters.Add("FirstName", user.FirstName);
-            parameters.Add("LastName", user.LastName);
-            parameters.Add("Role", user.Role);
+        //    //Adds to Parameters
+        //    parameters.Add("Email", user.Email);
+        //    parameters.Add("Password", user.Password);
+        //    parameters.Add("FirstName", user.FirstName);
+        //    parameters.Add("LastName", user.LastName);
+        //    parameters.Add("Role", user.Role);
 
-            var result = await FirstJsonResultAsync<User>("createUser", parameters);
-            return result;
-        }
+        //    var result = await FirstJsonResultAsync<User>("createUser", parameters);
+        //    return result;
+        //}
 
         
 
-        /// <summary>
-        /// Retrieves a User from the database by their email address
-        /// </summary>
-        /// <param name="email"></param>
-        /// <returns></returns>
-        public async Task<User> GetUserByEmailAsync(string email)
-        {
-            //Initializes Parameters for Stored Procedure
+        ///// <summary>
+        ///// Retrieves a User from the database by their email address
+        ///// </summary>
+        ///// <param name="email"></param>
+        ///// <returns></returns>
+        //public async Task<User> GetUserByEmailAsync(string email)
+        //{
+        //    //Initializes Parameters for Stored Procedure
 
-            var parameters = new DynamicParameters();
+        //    var parameters = new DynamicParameters();
 
-            //Adds to Parameters
-            parameters.Add("Email", email);
+        //    //Adds to Parameters
+        //    parameters.Add("Email", email);
 
-            return await FirstJsonResultAsync<User>("readUserByEmail", parameters);
-        }
-
-
-        /// <summary>
-        /// Retrieves a User from the database by their Id
-        /// </summary>
-        /// <param name="Id"></param>
-        /// <returns></returns>
-        public async Task<User> GetUserByIdAsync(string id)
-        {
-            //Initializes Parameters for Stored Procedure
-            var parameters = new DynamicParameters();
-
-            //Adds to Parameters
-            parameters.Add("Id", id);
-
-            return await FirstJsonResultAsync<User>("readUserById", parameters);
-        }
+        //    return await FirstJsonResultAsync<User>("readUserByEmail", parameters);
+        //}
 
 
+        ///// <summary>
+        ///// Retrieves a User from the database by their Id
+        ///// </summary>
+        ///// <param name="Id"></param>
+        ///// <returns></returns>
+        //public async Task<User> GetUserByIdAsync(string id)
+        //{
+        //    //Initializes Parameters for Stored Procedure
+        //    var parameters = new DynamicParameters();
 
-        /// <summary>
-        /// Deletes a User from the Database
-        /// </summary>
-        /// <param name="Id"></param>
-        /// <returns></returns>
-        public async Task UserProfileDeleteByEmailAsync(string email)
-        {
-            //Initializes Parameters for Stored Procedure
-            var parameters = new DynamicParameters();
+        //    //Adds to Parameters
+        //    parameters.Add("Id", id);
 
-            //Adds to Parameters
-            parameters.Add("Email", email);
+        //    return await FirstJsonResultAsync<User>("readUserById", parameters);
+        //}
 
-            await ExecuteAsync("deleteUserByEmail", parameters);
-        }
 
-        /// <summary>
-        ///  Updates a User from the database by passing in their updated User object
-        /// </summary>
-        /// <param name="user"></param>
-        /// <returns></returns>
-        public async Task<User> UserProfileUpdateAsync(User user)
-        {
-            //Initializes Parameters for Stored Procedure
-            var parameters = new DynamicParameters();
 
-            //Adds to Parameters
-            parameters.Add("Id", user.Id);
-            parameters.Add("Email", user.Email);
-            parameters.Add("FirstName", user.FirstName);
-            parameters.Add("LastName", user.LastName);
-            parameters.Add("Role", user.Role);
+        ///// <summary>
+        ///// Deletes a User from the Database
+        ///// </summary>
+        ///// <param name="Id"></param>
+        ///// <returns></returns>
+        //public async Task UserProfileDeleteByEmailAsync(string email)
+        //{
+        //    //Initializes Parameters for Stored Procedure
+        //    var parameters = new DynamicParameters();
 
-            return await FirstJsonResultAsync<User>("updateUserProfileById", parameters);
+        //    //Adds to Parameters
+        //    parameters.Add("Email", email);
+
+        //    await ExecuteAsync("deleteUserByEmail", parameters);
+        //}
+
+        ///// <summary>
+        /////  Updates a User from the database by passing in their updated User object
+        ///// </summary>
+        ///// <param name="user"></param>
+        ///// <returns></returns>
+        //public async Task<User> UserProfileUpdateAsync(User user)
+        //{
+        //    //Initializes Parameters for Stored Procedure
+        //    var parameters = new DynamicParameters();
+
+        //    //Adds to Parameters
+        //    parameters.Add("Id", user.Id);
+        //    parameters.Add("Email", user.Email);
+        //    parameters.Add("FirstName", user.FirstName);
+        //    parameters.Add("LastName", user.LastName);
+        //    parameters.Add("Role", user.Role);
+
+        //    return await FirstJsonResultAsync<User>("updateUserProfileById", parameters);
             
-        }
+        //}
 
         /// <summary>
         /// checks to see if user email and user password matches email and password in the db and lets them log in

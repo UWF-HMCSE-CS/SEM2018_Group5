@@ -23,7 +23,7 @@ namespace TUTORized.Controllers
         public IActionResult Index(Models.User user)
         {
 
-            UserController uc = new UserController(_userService, _userRepository);
+            UserController uc = new UserController(_userService);
             uc.LoginUser("wesTest@Test.com", "TestPassword");
             return View();
         }

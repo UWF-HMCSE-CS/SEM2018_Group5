@@ -33,19 +33,19 @@ namespace TUTORized.Services
             _userRepository = userRepository;
         }
 
-        /// <summary>
-        /// Used to Register a new User by creating a new user object and saving the 
-        /// information to the Database
-        /// </summary>
-        /// <param name="email"></param>
-        /// <param name="password"></param>
-        /// <param name="firstName"></param>
-        /// <param name="lastName"></param>
-        /// <param name="role"></param>
-        public void RegisterUser(User user)
-        {
-             _userRepository.UserProfileCreateAsync(user);
-        }
+        ///// <summary>
+        ///// Used to Register a new User by creating a new user object and saving the 
+        ///// information to the Database
+        ///// </summary>
+        ///// <param name="email"></param>
+        ///// <param name="password"></param>
+        ///// <param name="firstName"></param>
+        ///// <param name="lastName"></param>
+        ///// <param name="role"></param>
+        //public void RegisterUser(User user)
+        //{
+        //     _userRepository.UserProfileCreateAsync(user);
+        //}
 
         /// <summary>
         /// Used to login an user by matching the entered email and password to the one provided in the db
@@ -55,7 +55,7 @@ namespace TUTORized.Services
         /// <returns></returns>
         public async Task<User> LoginUser(string userEmail, string userPassword)
         {
-            return await _userRepository.UserLoginAsync(userEmail, userPassword);
+               return await _userRepository.UserLoginAsync(userEmail, userPassword);
 
         }
 

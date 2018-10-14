@@ -24,15 +24,15 @@ namespace TUTORized.Repository.Abstract
 {
     public interface IUserRepository
     {
-        Task<User> UserProfileCreateAsync(User user);
+        //Task<User> UserProfileCreateAsync(User user);
 
-        Task<User> GetUserByEmailAsync(string email);
+        //Task<User> GetUserByEmailAsync(string email);
 
-        Task<User> GetUserByIdAsync(string Id);
+        //Task<User> GetUserByIdAsync(string Id);
 
-        Task<User> UserProfileUpdateAsync(User user);
+        //Task<User> UserProfileUpdateAsync(User user);
 
-        Task UserProfileDeleteByEmailAsync(string email);
+        //Task UserProfileDeleteByEmailAsync(string email);
 
         Task<User> UserLoginAsync(string userEmail, string userPassword);
     }

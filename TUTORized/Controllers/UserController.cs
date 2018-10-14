@@ -31,23 +31,21 @@ namespace TUTORized.Controllers
     public class UserController : Controller
     {
         private readonly IUserService _userService;
-        private readonly IUserRepository _userRepository;
 
         public UserController()
         {
                
         }
-        public UserController(IUserService userService, IUserRepository userRepository)
+        public UserController(IUserService userService)
         {
             _userService = userService;
-            _userRepository = userRepository;
         }
 
-        [HttpPost("registerUser")]
-        public void RegisterUser([FromBody] User user)
-        {
-            _userService.RegisterUser(user);
-        }
+        //[HttpPost("registerUser")]
+        //public void RegisterUser([FromBody] User user)
+        //{
+        //    _userService.RegisterUser(user);
+        //}
 
         [HttpPost("loginUser")]
         public void LoginUser(string userEmail, string userPassword)
@@ -58,11 +56,12 @@ namespace TUTORized.Controllers
             //Compare the email and password from the entered user with the returned user obj email and password
             if (userEmail.Equals(userEmail) && userPassword.Equals(userPassword))
             {
-                Ok();
+                Console.WriteLine("it matches");
             }
 
             if (x.Equals(null))
             {
+                Console.WriteLine("it doesnt match");
                 BadRequest();
             }
 

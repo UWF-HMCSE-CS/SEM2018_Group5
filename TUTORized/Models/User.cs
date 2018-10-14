@@ -32,9 +32,9 @@ namespace TUTORized.Models
         public string LastName { get; set; }
         public string Role { get; set; }
 
-        /// <summary>
-        /// Default Constructor
-        /// </summary>
+        ///// <summary>
+        ///// Default Constructor
+        ///// </summary>
         public User()
         {
             this.Id = "";
@@ -42,8 +42,9 @@ namespace TUTORized.Models
             this.Password = "";
             this.FirstName = "";
             this.LastName = "";
-            this.Role = ""; 
+            this.Role = "";
         }
+
 
         /// <summary>
         /// Constructor with no ID; used for new User registration where an ID has not been assigned yet.
@@ -57,6 +58,8 @@ namespace TUTORized.Models
             this.LastName = lastName;
             this.Role = role;
         }
+
+
 
         /// <summary>
         /// Constructor with ID; used to recreate an User object called from the database.
