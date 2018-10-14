@@ -41,31 +41,33 @@ namespace TUTORized.Controllers
             _userService = userService;
         }
 
-        //[HttpPost("registerUser")]
-        //public void RegisterUser([FromBody] User user)
-        //{
-        //    _userService.RegisterUser(user);
-        //}
+        [HttpPost("registerUser")]
+        public void RegisterUser([FromBody] User user)
+        {
+            _userService.RegisterUser(user);
+        }
 
         [HttpPost("loginUser")]
-        public void LoginUser(string userEmail, string userPassword)
+        public async Task<IActionResult> LoginUserX(string userEmail, string userPassword)
         {
             //Takes the user entered email and password and returns the User obj
-            Task<User> x = _userService.LoginUser(userEmail, userPassword);
+            User x = await _userService.LoginUser(userEmail, userPassword);
 
             //Compare the email and password from the entered user with the returned user obj email and password
-            if (userEmail.Equals(userEmail) && userPassword.Equals(userPassword))
+            if (string.IsNullOrEmpty(x.Id))
             {
-                Console.WriteLine("it matches");
+                return BadRequest();
+                //Console.WriteLine("it matches");
             }
 
-            if (x.Equals(null))
+            if (userPassword.Equals(x.Password))
             {
-                Console.WriteLine("it doesnt match");
-                BadRequest();
+                return Ok();
+              //  Console.WriteLine("it doesnt match");
+                
             }
 
-            
+            return BadRequest();
                 
         }
 
