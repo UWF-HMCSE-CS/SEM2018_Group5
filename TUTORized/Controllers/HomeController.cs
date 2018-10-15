@@ -12,13 +12,15 @@ namespace TUTORized.Controllers
     {
         //FOR TESTING PURPOSES ONLY
         private readonly IUserService _userService;
+        private readonly IUserRepository _userRepository;
 
-        public HomeController(IUserService userService)
+        public HomeController(IUserService userService, IUserRepository userRepository)
         {
             _userService = userService;
+            _userRepository = userRepository;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(Models.User user)
         {
             //BaseRepository br = new BaseRepository();
             //await br.TestConnection();

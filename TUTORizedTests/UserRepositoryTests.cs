@@ -3,12 +3,14 @@ using System;
 using System.Data.SqlClient;
 using System.IO;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TUTORized.Controllers;
 using TUTORized.Models;
 using TUTORized.Repository;
 using TUTORized.Repository.Abstract;
-
+using TUTORized.Services.Abstract;
 
 namespace TUTORizedTests
 {
@@ -17,6 +19,7 @@ namespace TUTORizedTests
     {
 
         private readonly IUserRepository _userRepository;
+        private readonly IUserService _userService;
 
         public UserRepositoryTests()
         {
@@ -120,6 +123,23 @@ namespace TUTORizedTests
             //ASSERT
             Assert.AreEqual("test@test.com", user.Email);
         }
+
+        [TestMethod]
+        public async Task UserLoginByEmailAndPassword_ShouldLetTheUserLogin()
+        {
+            //ARRANGE
+            string userEmail = "kstest@Test.com";
+            string userPassword = "kspassword";
+
+            //ACT
+            User x = await _userService.LoginUser(userEmail, userPassword);
+                
+            //ASSERT
+            Assert.AreEqual("kspassword", x.Password);
+
+        }
+
+
     }
 }
 

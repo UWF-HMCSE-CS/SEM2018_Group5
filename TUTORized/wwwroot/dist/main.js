@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "9adfa3e7f32d9744c48f"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "1891fee9f7eb651089a5"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -4204,7 +4204,7 @@ var Component = __webpack_require__(3)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/wenwenxu/Desktop/SEM2018_Group5/TUTORized/ClientApp/components/app/app.vue.html"
+Component.options.__file = "C:\\Users\\Keena\\Desktop\\SEM2018_Group5\\TUTORized\\ClientApp\\components\\app\\app.vue.html"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] app.vue.html: functional components are not supported with templates, they should use render functions.")}
 
@@ -4231,6 +4231,36 @@ module.exports = Component.exports
 var Component = __webpack_require__(3)(
   /* script */
   null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "C:\\Users\\Keena\\Desktop\\SEM2018_Group5\\TUTORized\\ClientApp\\components\\counter\\counter.vue.html"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] counter.vue.html: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (true) {(function () {
+  var hotAPI = __webpack_require__(1)
+  hotAPI.install(__webpack_require__(0), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-4d57e299", Component.options)
+  } else {
+    hotAPI.reload("data-v-4d57e299", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 31 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(2)(
+  /* script */
+  __webpack_require__(16),
   /* template */
   __webpack_require__(35),
   /* scopeId */
@@ -4238,7 +4268,7 @@ var Component = __webpack_require__(3)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/wenwenxu/Desktop/SEM2018_Group5/TUTORized/ClientApp/components/home/login/login.vue.html"
+Component.options.__file = "C:\\Users\\Keena\\Desktop\\SEM2018_Group5\\TUTORized\\ClientApp\\components\\fetchdata\\fetchdata.vue.html"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] login.vue.html: functional components are not supported with templates, they should use render functions.")}
 
@@ -4272,7 +4302,7 @@ var Component = __webpack_require__(3)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/wenwenxu/Desktop/SEM2018_Group5/TUTORized/ClientApp/components/home/signUp/signUp.vue.html"
+Component.options.__file = "C:\\Users\\Keena\\Desktop\\SEM2018_Group5\\TUTORized\\ClientApp\\components\\home\\home.vue.html"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] signUp.vue.html: functional components are not supported with templates, they should use render functions.")}
 
@@ -4310,7 +4340,7 @@ var Component = __webpack_require__(3)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/wenwenxu/Desktop/SEM2018_Group5/TUTORized/ClientApp/components/navmenu/navmenu.vue.html"
+Component.options.__file = "C:\\Users\\Keena\\Desktop\\SEM2018_Group5\\TUTORized\\ClientApp\\components\\navmenu\\navmenu.vue.html"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] navmenu.vue.html: functional components are not supported with templates, they should use render functions.")}
 
