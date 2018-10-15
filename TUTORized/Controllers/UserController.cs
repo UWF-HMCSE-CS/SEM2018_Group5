@@ -42,12 +42,5 @@ namespace TUTORized.Controllers
 
         }
 
-        [HttpPost("loginUser")]
-        public void LoginUser([FromBody] User user)
-        {
-
-
-        }
-
     }
 }
