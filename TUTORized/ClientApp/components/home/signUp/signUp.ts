@@ -24,9 +24,9 @@ export default class SignUpComponent extends Vue{
         if ((<HTMLInputElement>document.getElementById("studentRole")).checked) {
 
              this.role = (<HTMLInputElement>document.getElementById("studentRole")).value;
-        } if ((<HTMLInputElement>document.getElementById("teacherRole")).checked) {
+        } if ((<HTMLInputElement>document.getElementById("tutorRole")).checked) {
 
-             this.role = (<HTMLInputElement>document.getElementById("teacherRole")).value;
+             this.role = (<HTMLInputElement>document.getElementById("tutorRole")).value;
         }
         
         
