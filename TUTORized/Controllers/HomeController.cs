@@ -14,16 +14,13 @@ namespace TUTORized.Controllers
         private readonly IUserService _userService;
         private readonly IUserRepository _userRepository;
 
-        public HomeController(IUserService userService, IUserRepository userRepository)
+        public HomeController(IUserService userService)
         {
             _userService = userService;
-            _userRepository = userRepository;
         }
 
-        public IActionResult Index(Models.User user)
+        public IActionResult Index()
         {
-            //BaseRepository br = new BaseRepository();
-            //await br.TestConnection();
             return View();
         }
 

@@ -32,10 +32,6 @@ namespace TUTORized.Controllers
     {
         private readonly IUserService _userService;
 
-        public UserController()
-        {
-               
-        }
         public UserController(IUserService userService)
         {
             _userService = userService;
@@ -45,12 +41,10 @@ namespace TUTORized.Controllers
         public void RegisterUser([FromBody] User user)
         {
             _userService.RegisterUser(user);
-            
-
         }
 
         [HttpPost("loginUser")]
-        public async Task<IActionResult> LoginUserX(string userEmail, string userPassword)
+        public async Task<IActionResult> LoginUser(string userEmail, string userPassword)
         {
             //Takes the user entered email and password and returns the User obj
             User x = await _userService.LoginUser(userEmail, userPassword);

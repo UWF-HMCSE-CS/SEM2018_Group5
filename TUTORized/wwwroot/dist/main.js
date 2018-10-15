@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "7d06c021cd3c5c125330"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "13910fb357356d954070"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -937,7 +937,7 @@ exports = module.exports = __webpack_require__(6)();
 
 
 // module
-exports.push([module.i, "@media (max-width: 767px) {\n    /* On small screens, the nav menu spans the full width of the screen. Leave a space for it. */\n    body {\n        padding-top: 50px;\n    }\n}", ""]);
+exports.push([module.i, "@media (max-width: 767px) {\r\n    /* On small screens, the nav menu spans the full width of the screen. Leave a space for it. */\r\n    body {\r\n        padding-top: 50px;\r\n    }\r\n}", ""]);
 
 // exports
 
@@ -951,7 +951,7 @@ exports = module.exports = __webpack_require__(6)();
 
 
 // module
-exports.push([module.i, "\n.main-nav li .glyphicon {\n    margin-right: 10px;\n}\n\n/* Highlighting rules for nav menu items */\n.main-nav li a.router-link-active,\n.main-nav li a.router-link-active:hover,\n.main-nav li a.router-link-active:focus {\n    background-color: #4189C7;\n    color: white;\n}\n\n/* Keep the nav menu independent of scrolling and on top of other items */\n.main-nav {\n    position: fixed;\n    top: 0;\n    left: 0;\n    right: 0;\n    z-index: 1;\n}\n@media (min-width: 768px) {\n    /* On small screens, convert the nav menu to a vertical sidebar */\n.main-nav {\n        height: 100%;\n        width: calc(25% - 20px);\n}\n.main-nav .navbar {\n        border-radius: 0px;\n        border-width: 0px;\n        height: 100%;\n}\n.main-nav .navbar-header {\n        float: none;\n}\n.main-nav .navbar-collapse {\n        border-top: 1px solid #444;\n        padding: 0px;\n}\n.main-nav .navbar ul {\n        float: none;\n}\n.main-nav .navbar li {\n        float: none;\n        font-size: 15px;\n        margin: 6px;\n}\n.main-nav .navbar li a {\n        padding: 10px 16px;\n        border-radius: 4px;\n}\n.main-nav .navbar a {\n        /* If a menu item's text is too long, truncate it */\n        width: 100%;\n        white-space: nowrap;\n        overflow: hidden;\n        text-overflow: ellipsis;\n}\n}\n", "", {"version":3,"sources":["/./ClientApp/components/navmenu/navmenu.css"],"names":[],"mappings":";AAAA;IACI,mBAAmB;CACtB;;AAED,2CAA2C;AAC3C;;;IAGI,0BAA0B;IAC1B,aAAa;CAChB;;AAED,0EAA0E;AAC1E;IACI,gBAAgB;IAChB,OAAO;IACP,QAAQ;IACR,SAAS;IACT,WAAW;CACd;AAED;IACI,kEAAkE;AAClE;QACI,aAAa;QACb,wBAAwB;CAC3B;AACD;QACI,mBAAmB;QACnB,kBAAkB;QAClB,aAAa;CAChB;AACD;QACI,YAAY;CACf;AACD;QACI,2BAA2B;QAC3B,aAAa;CAChB;AACD;QACI,YAAY;CACf;AACD;QACI,YAAY;QACZ,gBAAgB;QAChB,YAAY;CACf;AACD;QACI,mBAAmB;QACnB,mBAAmB;CACtB;AACD;QACI,oDAAoD;QACpD,YAAY;QACZ,oBAAoB;QACpB,iBAAiB;QACjB,wBAAwB;CAC3B;CACJ","file":"navmenu.css","sourcesContent":[".main-nav li .glyphicon {\n    margin-right: 10px;\n}\n\n/* Highlighting rules for nav menu items */\n.main-nav li a.router-link-active,\n.main-nav li a.router-link-active:hover,\n.main-nav li a.router-link-active:focus {\n    background-color: #4189C7;\n    color: white;\n}\n\n/* Keep the nav menu independent of scrolling and on top of other items */\n.main-nav {\n    position: fixed;\n    top: 0;\n    left: 0;\n    right: 0;\n    z-index: 1;\n}\n\n@media (min-width: 768px) {\n    /* On small screens, convert the nav menu to a vertical sidebar */\n    .main-nav {\n        height: 100%;\n        width: calc(25% - 20px);\n    }\n    .main-nav .navbar {\n        border-radius: 0px;\n        border-width: 0px;\n        height: 100%;\n    }\n    .main-nav .navbar-header {\n        float: none;\n    }\n    .main-nav .navbar-collapse {\n        border-top: 1px solid #444;\n        padding: 0px;\n    }\n    .main-nav .navbar ul {\n        float: none;\n    }\n    .main-nav .navbar li {\n        float: none;\n        font-size: 15px;\n        margin: 6px;\n    }\n    .main-nav .navbar li a {\n        padding: 10px 16px;\n        border-radius: 4px;\n    }\n    .main-nav .navbar a {\n        /* If a menu item's text is too long, truncate it */\n        width: 100%;\n        white-space: nowrap;\n        overflow: hidden;\n        text-overflow: ellipsis;\n    }\n}\n"],"sourceRoot":"webpack://"}]);
+exports.push([module.i, "\n.main-nav li .glyphicon {\r\n    margin-right: 10px;\n}\r\n\r\n/* Highlighting rules for nav menu items */\n.main-nav li a.router-link-active,\r\n.main-nav li a.router-link-active:hover,\r\n.main-nav li a.router-link-active:focus {\r\n    background-color: #4189C7;\r\n    color: white;\n}\r\n\r\n/* Keep the nav menu independent of scrolling and on top of other items */\n.main-nav {\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n    right: 0;\r\n    z-index: 1;\n}\n@media (min-width: 768px) {\r\n    /* On small screens, convert the nav menu to a vertical sidebar */\n.main-nav {\r\n        height: 100%;\r\n        width: calc(25% - 20px);\n}\n.main-nav .navbar {\r\n        border-radius: 0px;\r\n        border-width: 0px;\r\n        height: 100%;\n}\n.main-nav .navbar-header {\r\n        float: none;\n}\n.main-nav .navbar-collapse {\r\n        border-top: 1px solid #444;\r\n        padding: 0px;\n}\n.main-nav .navbar ul {\r\n        float: none;\n}\n.main-nav .navbar li {\r\n        float: none;\r\n        font-size: 15px;\r\n        margin: 6px;\n}\n.main-nav .navbar li a {\r\n        padding: 10px 16px;\r\n        border-radius: 4px;\n}\n.main-nav .navbar a {\r\n        /* If a menu item's text is too long, truncate it */\r\n        width: 100%;\r\n        white-space: nowrap;\r\n        overflow: hidden;\r\n        text-overflow: ellipsis;\n}\n}\r\n", "", {"version":3,"sources":["/./ClientApp/components/navmenu/navmenu.css"],"names":[],"mappings":";AAAA;IACI,mBAAmB;CACtB;;AAED,2CAA2C;AAC3C;;;IAGI,0BAA0B;IAC1B,aAAa;CAChB;;AAED,0EAA0E;AAC1E;IACI,gBAAgB;IAChB,OAAO;IACP,QAAQ;IACR,SAAS;IACT,WAAW;CACd;AAED;IACI,kEAAkE;AAClE;QACI,aAAa;QACb,wBAAwB;CAC3B;AACD;QACI,mBAAmB;QACnB,kBAAkB;QAClB,aAAa;CAChB;AACD;QACI,YAAY;CACf;AACD;QACI,2BAA2B;QAC3B,aAAa;CAChB;AACD;QACI,YAAY;CACf;AACD;QACI,YAAY;QACZ,gBAAgB;QAChB,YAAY;CACf;AACD;QACI,mBAAmB;QACnB,mBAAmB;CACtB;AACD;QACI,oDAAoD;QACpD,YAAY;QACZ,oBAAoB;QACpB,iBAAiB;QACjB,wBAAwB;CAC3B;CACJ","file":"navmenu.css","sourcesContent":[".main-nav li .glyphicon {\r\n    margin-right: 10px;\r\n}\r\n\r\n/* Highlighting rules for nav menu items */\r\n.main-nav li a.router-link-active,\r\n.main-nav li a.router-link-active:hover,\r\n.main-nav li a.router-link-active:focus {\r\n    background-color: #4189C7;\r\n    color: white;\r\n}\r\n\r\n/* Keep the nav menu independent of scrolling and on top of other items */\r\n.main-nav {\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n    right: 0;\r\n    z-index: 1;\r\n}\r\n\r\n@media (min-width: 768px) {\r\n    /* On small screens, convert the nav menu to a vertical sidebar */\r\n    .main-nav {\r\n        height: 100%;\r\n        width: calc(25% - 20px);\r\n    }\r\n    .main-nav .navbar {\r\n        border-radius: 0px;\r\n        border-width: 0px;\r\n        height: 100%;\r\n    }\r\n    .main-nav .navbar-header {\r\n        float: none;\r\n    }\r\n    .main-nav .navbar-collapse {\r\n        border-top: 1px solid #444;\r\n        padding: 0px;\r\n    }\r\n    .main-nav .navbar ul {\r\n        float: none;\r\n    }\r\n    .main-nav .navbar li {\r\n        float: none;\r\n        font-size: 15px;\r\n        margin: 6px;\r\n    }\r\n    .main-nav .navbar li a {\r\n        padding: 10px 16px;\r\n        border-radius: 4px;\r\n    }\r\n    .main-nav .navbar a {\r\n        /* If a menu item's text is too long, truncate it */\r\n        width: 100%;\r\n        white-space: nowrap;\r\n        overflow: hidden;\r\n        text-overflow: ellipsis;\r\n    }\r\n}\r\n"],"sourceRoot":"webpack://"}]);
 
 // exports
 
@@ -4204,7 +4204,7 @@ var Component = __webpack_require__(3)(
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\Users\\Keena\\Desktop\\SEM2018_Group5\\TUTORized\\ClientApp\\components\\app\\app.vue.html"
+Component.options.__file = "C:\\Source\\Repos\\School\\SEM2018_Group5\\TUTORized\\ClientApp\\components\\app\\app.vue.html"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] app.vue.html: functional components are not supported with templates, they should use render functions.")}
 
@@ -4231,36 +4231,6 @@ module.exports = Component.exports
 var Component = __webpack_require__(3)(
   /* script */
   null,
-  /* cssModules */
-  null
-)
-Component.options.__file = "C:\\Users\\Keena\\Desktop\\SEM2018_Group5\\TUTORized\\ClientApp\\components\\counter\\counter.vue.html"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] counter.vue.html: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (true) {(function () {
-  var hotAPI = __webpack_require__(1)
-  hotAPI.install(__webpack_require__(0), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-4d57e299", Component.options)
-  } else {
-    hotAPI.reload("data-v-4d57e299", Component.options)
-  }
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 31 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Component = __webpack_require__(2)(
-  /* script */
-  __webpack_require__(16),
   /* template */
   __webpack_require__(35),
   /* scopeId */
@@ -4268,7 +4238,7 @@ var Component = __webpack_require__(2)(
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\Users\\Keena\\Desktop\\SEM2018_Group5\\TUTORized\\ClientApp\\components\\fetchdata\\fetchdata.vue.html"
+Component.options.__file = "C:\\Source\\Repos\\School\\SEM2018_Group5\\TUTORized\\ClientApp\\components\\home\\login\\login.vue.html"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] login.vue.html: functional components are not supported with templates, they should use render functions.")}
 
@@ -4302,7 +4272,7 @@ var Component = __webpack_require__(3)(
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\Users\\Keena\\Desktop\\SEM2018_Group5\\TUTORized\\ClientApp\\components\\home\\home.vue.html"
+Component.options.__file = "C:\\Source\\Repos\\School\\SEM2018_Group5\\TUTORized\\ClientApp\\components\\home\\signUp\\signUp.vue.html"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] signUp.vue.html: functional components are not supported with templates, they should use render functions.")}
 
@@ -4340,7 +4310,7 @@ var Component = __webpack_require__(3)(
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\Users\\Keena\\Desktop\\SEM2018_Group5\\TUTORized\\ClientApp\\components\\navmenu\\navmenu.vue.html"
+Component.options.__file = "C:\\Source\\Repos\\School\\SEM2018_Group5\\TUTORized\\ClientApp\\components\\navmenu\\navmenu.vue.html"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] navmenu.vue.html: functional components are not supported with templates, they should use render functions.")}
 
