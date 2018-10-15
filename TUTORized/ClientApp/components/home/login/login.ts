@@ -19,8 +19,8 @@ export default class LoginComponent extends Vue{
                 'Accept': 'application/json',
                 'Content-Type': 'application/json' 
                 },
-              type: "POST",
-              url: 'api/user/LoginUser',
+              type: "GET",
+              url: 'api/user/loginUser',
               data: JSON.stringify({ Email: this.userEmail,
                   Password: this.userPassword
                  }),

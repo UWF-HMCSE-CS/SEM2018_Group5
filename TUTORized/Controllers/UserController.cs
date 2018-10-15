@@ -58,8 +58,9 @@ namespace TUTORized.Controllers
 
             if (userPassword.Equals(x.Password))
             {
+                //Console.WriteLine("it doesnt match");
                 return Ok();
-              //  Console.WriteLine("it doesnt match");
+
                 
             }
 
