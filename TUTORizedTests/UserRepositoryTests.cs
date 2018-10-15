@@ -127,18 +127,25 @@ namespace TUTORizedTests
         [TestMethod]
         public async Task UserLoginByEmailAndPassword_ShouldLetTheUserLogin()
         {
-            //ARRANGE
-            string userEmail = "kstest@Test.com";
-            string userPassword = "kspassword";
+            var user = new User()
+            {
+                Email = "test@test.com",
+                Password = "TestPassword",
+                FirstName = "TestFirstName",
+                LastName = "TestLastName",
+                Role = "Tester"
+            };
+            user = await _userRepository.UserProfileCreateAsync(user);
 
             //ACT
-            User x = await _userService.LoginUser(userEmail, userPassword);
-                
+            User x = await _userRepository.UserLoginAsync(user.Email, user.Password);
+
             //ASSERT
-            Assert.AreEqual("kspassword", x.Password);
+            Assert.AreEqual("TestPassword", x.Password);
+
+            await _userRepository.UserProfileDeleteByEmailAsync(user.Email);
 
         }
-
 
     }
 }
