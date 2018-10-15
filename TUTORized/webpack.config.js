@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CheckerPlugin = require('awesome-typescript-loader').CheckerPlugin;
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const bundleOutputDir = './wwwroot/dist';
 const { VueLoaderPlugin } = require('vue-loader');
 
@@ -47,7 +48,26 @@ module.exports = (env) => {
             new VueLoaderPlugin()
         ] : [
             // Plugins that apply in production builds only
-            new webpack.optimize.UglifyJsPlugin(),
+            new UglifyJsPlugin({
+                uglifyOptions: {
+                    parallel: true,
+                    compress: {
+                        warnings: false,
+                        conditionals: true,
+                        unused: true,
+                        comparisons: true,
+                        sequences: true,
+                        dead_code: true,
+                        evaluate: true,
+                        if_return: true,
+                        join_vars: true,
+                        drop_console: true
+                    },
+                    output: {
+                        comments: false
+                    }
+                }
+            }),
                 new ExtractTextPlugin('site.css'),
                 new VueLoaderPlugin()
         ])
