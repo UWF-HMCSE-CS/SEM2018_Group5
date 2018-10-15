@@ -2,12 +2,12 @@ import './css/site.css';
 import 'bootstrap';
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import Component from '../node_modules/vue-class-component';
 Vue.use(VueRouter);
 
 const routes = [
-    { path: '/', component: require('./components/home/home.vue.html') },
-    { path: '/counter', component: require('./components/counter/counter.vue.html') },
-    { path: '/fetchdata', component: require('./components/fetchdata/fetchdata.vue.html') }
+    { path: '/', component: require('./components/home/login/login.vue.html')},
+    { path: '/signUp', component: require('./components/home/signUp/signUp.vue.html')},
 ];
 
 new Vue({

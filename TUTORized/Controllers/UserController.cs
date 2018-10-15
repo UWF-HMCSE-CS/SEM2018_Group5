@@ -41,10 +41,12 @@ namespace TUTORized.Controllers
             _userService = userService;
         }
 
-        [HttpPost("registerUser")]
+       [HttpPost("registerUser")]
         public void RegisterUser([FromBody] User user)
         {
             _userService.RegisterUser(user);
+            
+
         }
 
         [HttpPost("loginUser")]
@@ -70,6 +72,5 @@ namespace TUTORized.Controllers
             return BadRequest();
                 
         }
-
     }
 }

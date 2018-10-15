@@ -9,6 +9,7 @@ namespace TUTORized.Controllers
     [Route("api/[controller]")]
     public class SampleDataController : Controller
     {
+
         private static string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
@@ -36,9 +37,11 @@ namespace TUTORized.Controllers
             {
                 get
                 {
-                    return 32 + (int)(TemperatureC / 0.5556);
+                    return 32;
                 }
             }
+
         }
+
     }
 }

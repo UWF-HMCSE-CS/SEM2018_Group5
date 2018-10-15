@@ -22,16 +22,8 @@ namespace TUTORized.Controllers
 
         public IActionResult Index(Models.User user)
         {
-            //user.Email = "kstest@test.com";
-            //user.Password = "kspassword";
-            //user.FirstName = "K";
-            //user.LastName = "S";
-            //user.Role = "student";
-
-          //  UserController uc = new UserController(_userService);
-
-          //  uc.RegisterUser(user);
-         //   uc.LoginUserX("kstest@test.com", "kspassword");
+            //BaseRepository br = new BaseRepository();
+            //await br.TestConnection();
             return View();
         }
 
