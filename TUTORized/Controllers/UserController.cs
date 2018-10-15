@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Dapper;
 using Microsoft.AspNetCore.Mvc;
 using TUTORized.Models;
+using TUTORized.Repository;
+using TUTORized.Repository.Abstract;
 using TUTORized.Services.Abstract;
 
 /**
@@ -29,6 +32,10 @@ namespace TUTORized.Controllers
     {
         private readonly IUserService _userService;
 
+        public UserController()
+        {
+               
+        }
         public UserController(IUserService userService)
         {
             _userService = userService;
@@ -42,5 +49,28 @@ namespace TUTORized.Controllers
 
         }
 
+        [HttpPost("loginUser")]
+        public async Task<IActionResult> LoginUserX(string userEmail, string userPassword)
+        {
+            //Takes the user entered email and password and returns the User obj
+            User x = await _userService.LoginUser(userEmail, userPassword);
+
+            //Compare the email and password from the entered user with the returned user obj email and password
+            if (string.IsNullOrEmpty(x.Id))
+            {
+                return BadRequest();
+                //Console.WriteLine("it matches");
+            }
+
+            if (userPassword.Equals(x.Password))
+            {
+                return Ok();
+              //  Console.WriteLine("it doesnt match");
+                
+            }
+
+            return BadRequest();
+                
+        }
     }
 }
