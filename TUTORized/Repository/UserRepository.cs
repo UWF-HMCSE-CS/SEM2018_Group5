@@ -70,7 +70,7 @@ namespace TUTORized.Repository
 
             return await FirstJsonResultAsync<User>("readUserByEmail", parameters);
         }
-
+         
         /// <summary>
         /// Retrieves a User from the database by their Id
         /// </summary>

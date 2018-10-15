@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "build:vendor": "webpack --config webpack.config.vendor.js",
+    "build:dev": "webpack"
+  },
   "name": "TUTORized",
   "private": true,
   "version": "0.0.0",
