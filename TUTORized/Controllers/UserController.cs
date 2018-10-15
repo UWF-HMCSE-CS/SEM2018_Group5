@@ -38,6 +38,7 @@ namespace TUTORized.Controllers
         public void RegisterUser([FromBody] User user)
         {
             _userService.RegisterUser(user);
+            
 
         }
 

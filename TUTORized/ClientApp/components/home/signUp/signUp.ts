@@ -1,13 +1,10 @@
 ﻿import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 import $ from 'jquery';
-//import { MdRadioChange } from '@angular/material';
-//import userSignUpModules from '././module/userSignUpModules';
-
 
 @Component
 export default class SignUpComponent extends Vue{
-  
+
     firstName: string = '';
     lastName: string = '';
     userEmail: string = '';
@@ -31,21 +28,21 @@ export default class SignUpComponent extends Vue{
 
              this.role = (<HTMLInputElement>document.getElementById("teacherRole")).value;
         }
-
-        $.ajax({
+        
+        
+       $.ajax({
              headers: { 
                 'Accept': 'application/json',
                 'Content-Type': 'application/json' 
                 },
               type: "POST",
               url: 'api/user/registerUser',
-              data: {userFirstName: this.firstName,
-                  userLastName: this.lastName,
-                  userInputEmail: this.userEmail,
-                  userInputPassword: this.userPassword,
-                  role: this.role
-                  },
-
+              data: JSON.stringify({FirstName: this.firstName,
+                  LastName: this.lastName,
+                  Email: this.userEmail,
+                  Password: this.userPassword,
+                  Role: this.role
+                  }),
               dataType: 'json'
         });
           

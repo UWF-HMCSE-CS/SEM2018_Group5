@@ -18,7 +18,6 @@
     <Folder Include="ClientApp\module\" />
   </ItemGroup>
   <ItemGroup>
-    <None Remove="ClientApp\components\home\login\login.ts" />
     <None Remove="ClientApp\components\home\signUp\signUp.css" />
     <None Remove="ClientApp\components\home\signUp\signUp.js" />
     <None Remove="ClientApp\components\counter\counter.ts" />
