@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "f911c2a8fee3c6034975"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "cd7d29d8144bbfbb9c8e"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -1888,7 +1888,7 @@ var LoginComponent = (function (_super) {
         this.userPassword = document.getElementById("userPassword").value;
         __WEBPACK_IMPORTED_MODULE_2_jquery___default.a.ajax({
             url: 'api/user/loginUser',
-            type: "get",
+            type: 'get',
             data: {
                 email: this.userEmail,
                 password: this.userPassword

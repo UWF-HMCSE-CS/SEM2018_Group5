@@ -16,7 +16,7 @@ export default class LoginComponent extends Vue{
        
         $.ajax({
               url: 'api/user/loginUser',
-              type: "get",
+              type: 'get',
               data: {
                   email: this.userEmail,
                   password: this.userPassword
