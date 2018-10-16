@@ -1,17 +1,18 @@
 import './css/site.css';
-import 'bootstrap';
+import './stylus/main.styl';
 import Vue from 'vue';
+import Vuetify from 'vuetify';
 import VueRouter from 'vue-router';
-import Component from '../node_modules/vue-class-component';
+Vue.use(Vuetify);
 Vue.use(VueRouter);
 
 const routes = [
-    { path: '/', component: require('./components/home/login/login.vue.html')},
-    { path: '/signUp', component: require('./components/home/signUp/signUp.vue.html')},
+    { path: '/', component: require('./components/home/login/login.vue.html').default },
+    { path: '/signUp', component: require('./components/home/signUp/signUp.vue.html').default },
 ];
 
 new Vue({
     el: '#app-root',
     router: new VueRouter({ mode: 'history', routes: routes }),
-    render: h => h(require('./components/app/app.vue.html'))
+    render: h => h(require('./components/app/app.vue.html').default )
 });

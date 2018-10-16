@@ -1,22 +1,20 @@
 ﻿<template>
-    <div>
-        <h1>LogIn </h1>
-        <p>
-            Don't have an account?
-            <a href="/signup"> <strong>SignUp Here</strong></a>
-        </p>
-        <strong>
-            <p>
-                Email: 
-                <input type="text" name="femail" id="userEmail"><br>
-            </p>
-            <p>
-                Password: 
-                <input type="text" name="fpassword" id="userPassword"><br>
-            </p>
-            <button @click="loginButtonFunction">Login</button>
-        </strong>
-    </div>
+    <v-layout row wrap>
+        <v-flex xs12 md8 lg6>
+            <v-card>
+                <v-card-title>
+                    Login Page
+                </v-card-title>
+                <v-text-field box v-model="user.Email" label="Email"></v-text-field>
+                <v-text-field box v-model="user.Password" label="Password"></v-text-field>
+                </v-text-field>
+                <v-card-actions>
+                    <v-btn flat @click="loginButtonFunction">Login</v-btn>
+                </v-card-actions>
+            </v-card>
+        </v-flex>
+    </v-layout>
+    
 </template>
 <script src="./login.ts"></script>
 

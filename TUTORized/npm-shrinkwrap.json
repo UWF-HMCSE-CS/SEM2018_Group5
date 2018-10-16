@@ -4,6 +4,19 @@
   "lockfileVersion": 1,
   "requires": true,
   "dependencies": {
+    "@types/jquery": {
+      "version": "3.3.18",
+      "resolved": "https://registry.npmjs.org/@types/jquery/-/jquery-3.3.18.tgz",
+      "integrity": "sha512-+Qjd+g/oOCRGLq7FR0XoJ+1cBvUBn46Ha58QmEZOvIVphF8DzZ/ZL30rL6xcJVA1V4cGDtJWgpQduIIAtZuPnw==",
+      "requires": {
+        "@types/sizzle": "*"
+      }
+    },
+    "@types/sizzle": {
+      "version": "2.3.2",
+      "resolved": "https://registry.npmjs.org/@types/sizzle/-/sizzle-2.3.2.tgz",
+      "integrity": "sha512-7EJYyKTL7tFR8+gDbB6Wwz/arpGa0Mywk1TJbNzKzHtzbwVmY4HR9WqS5VV7dsBUKQmPNr192jHr/VpBluj/hg=="
+    },
     "@types/webpack-env": {
       "version": "1.13.6",
       "resolved": "https://registry.npmjs.org/@types/webpack-env/-/webpack-env-1.13.6.tgz",

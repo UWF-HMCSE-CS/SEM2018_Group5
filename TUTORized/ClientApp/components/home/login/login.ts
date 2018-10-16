@@ -10,10 +10,7 @@ export default class LoginComponent extends Vue{
    
     loginButtonFunction(){
 
-       this.user.email = (<HTMLInputElement>document.getElementById("userEmail")).value;
-       this.user.password = (<HTMLInputElement>document.getElementById("userPassword")).value;
-       
-       
+        
         $.ajax({
             headers: { 
                 'Accept': 'application/json',
@@ -21,10 +18,11 @@ export default class LoginComponent extends Vue{
             },
             url: 'api/user/loginUser',
             type: 'POST',
+            dataType: 'json',
             data: JSON.stringify({
-                user: this.user
+                "Email": this.user.Email,
+                "Password": this.user.Password
             }),
-            dataType: 'json'
         });
           
     
