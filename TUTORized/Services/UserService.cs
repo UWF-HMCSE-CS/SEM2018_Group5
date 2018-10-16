@@ -53,9 +53,9 @@ namespace TUTORized.Services
         /// <param name="email"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        public async Task<User> LoginUser(string userEmail, string userPassword)
+        public async Task<User> LoginUser(string email, string password)
         {
-               return await _userRepository.UserLoginAsync(userEmail, userPassword);
+               return await _userRepository.UserLoginAsync(email, password);
 
         }
 

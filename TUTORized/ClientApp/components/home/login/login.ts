@@ -14,17 +14,19 @@ export default class LoginComponent extends Vue{
        this.userPassword = (<HTMLInputElement>document.getElementById("userPassword")).value;
        
        
-       $.ajax({
-             headers: { 
-                'Accept': 'application/json',
-                'Content-Type': 'application/json' 
-                },
-              type: "GET",
+        $.ajax({
               url: 'api/user/loginUser',
-              data: JSON.stringify({ Email: this.userEmail,
-                  Password: this.userPassword
-                 }),
-              dataType: 'json'
+              type: "get",
+              data: {
+                  userEmail: this.userEmail,
+                  userPassword: this.userPassword
+                  },
+              success: function(){
+                  return OK('successfully');
+              },
+              error: function(xhr){
+
+              }
         });
           
     

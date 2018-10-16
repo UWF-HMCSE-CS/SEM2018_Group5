@@ -44,24 +44,21 @@ namespace TUTORized.Controllers
         }
 
         [HttpPost("loginUser")]
-        public async Task<IActionResult> LoginUser(string userEmail, string userPassword)
+        public async Task<IActionResult> LoginUser(string email, string password)
         {
             //Takes the user entered email and password and returns the User obj
-            User x = await _userService.LoginUser(userEmail, userPassword);
+            User user = await _userService.LoginUser(email, password);
 
             //Compare the email and password from the entered user with the returned user obj email and password
-            if (string.IsNullOrEmpty(x.Id))
+            if (string.IsNullOrEmpty(user.Id))
             {
                 return BadRequest();
-                //Console.WriteLine("it matches");
             }
 
-            if (userPassword.Equals(x.Password))
+            if (password.Equals(user.Password))
             {
-                //Console.WriteLine("it doesnt match");
                 return Ok();
 
-                
             }
 
             return BadRequest();

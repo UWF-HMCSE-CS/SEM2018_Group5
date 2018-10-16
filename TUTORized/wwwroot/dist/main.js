@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "512cea5361d26d58b322"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "a7a060b0b261226c50d7"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -1887,16 +1887,17 @@ var LoginComponent = (function (_super) {
         this.userEmail = document.getElementById("userEmail").value;
         this.userPassword = document.getElementById("userPassword").value;
         __WEBPACK_IMPORTED_MODULE_2_jquery___default.a.ajax({
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            type: "GET",
             url: 'api/user/loginUser',
-            data: JSON.stringify({ Email: this.userEmail,
-                Password: this.userPassword
-            }),
-            dataType: 'json'
+            type: "get",
+            data: {
+                userEmail: this.userEmail,
+                userPassword: this.userPassword
+            },
+            success: function () {
+                return OK('successfully');
+            },
+            error: function (xhr) {
+            }
         });
     };
     return LoginComponent;
