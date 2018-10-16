@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "a7a060b0b261226c50d7"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "f911c2a8fee3c6034975"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -1890,13 +1890,8 @@ var LoginComponent = (function (_super) {
             url: 'api/user/loginUser',
             type: "get",
             data: {
-                userEmail: this.userEmail,
-                userPassword: this.userPassword
-            },
-            success: function () {
-                return OK('successfully');
-            },
-            error: function (xhr) {
+                email: this.userEmail,
+                password: this.userPassword
             }
         });
     };

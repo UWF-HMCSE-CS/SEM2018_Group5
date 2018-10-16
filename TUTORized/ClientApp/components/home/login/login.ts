@@ -18,15 +18,10 @@ export default class LoginComponent extends Vue{
               url: 'api/user/loginUser',
               type: "get",
               data: {
-                  userEmail: this.userEmail,
-                  userPassword: this.userPassword
-                  },
-              success: function(){
-                  return OK('successfully');
-              },
-              error: function(xhr){
-
-              }
+                  email: this.userEmail,
+                  password: this.userPassword
+                  }
+                
         });
           
     
