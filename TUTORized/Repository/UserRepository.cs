@@ -54,6 +54,8 @@ namespace TUTORized.Repository
             return result;
         }
 
+
+
         /// <summary>
         /// Retrieves a User from the database by their email address
         /// </summary>
@@ -70,7 +72,8 @@ namespace TUTORized.Repository
 
             return await FirstJsonResultAsync<User>("readUserByEmail", parameters);
         }
-         
+
+
         /// <summary>
         /// Retrieves a User from the database by their Id
         /// </summary>
@@ -85,6 +88,24 @@ namespace TUTORized.Repository
             parameters.Add("Id", id);
 
             return await FirstJsonResultAsync<User>("readUserById", parameters);
+        }
+
+
+
+        /// <summary>
+        /// Deletes a User from the Database
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        public async Task UserProfileDeleteByEmailAsync(string email)
+        {
+            //Initializes Parameters for Stored Procedure
+            var parameters = new DynamicParameters();
+
+            //Adds to Parameters
+            parameters.Add("Email", email);
+
+            await ExecuteAsync("deleteUserByEmail", parameters);
         }
 
         /// <summary>
@@ -105,22 +126,28 @@ namespace TUTORized.Repository
             parameters.Add("Role", user.Role);
 
             return await FirstJsonResultAsync<User>("updateUserProfileById", parameters);
+
         }
 
         /// <summary>
-        /// Deletes a User from the Database
+        /// checks to see if user email and user password matches email and password in the db and lets them log in
         /// </summary>
-        /// <param name="Id"></param>
+        /// <param name="userEmail"></param>
+        /// <param name="userPassword"></param>
         /// <returns></returns>
-        public async Task UserProfileDeleteByEmailAsync(string email)
+        public async Task<User> UserLoginAsync(string userEmail, string userPassword)
         {
             //Initializes Parameters for Stored Procedure
             var parameters = new DynamicParameters();
 
-            //Adds to Parameters
-            parameters.Add("Email", email);
+            parameters.Add("Email", userEmail);
+            parameters.Add("Password", userPassword);
 
-            await ExecuteAsync("deleteUserByEmail", parameters);
+
+            //Returns the User obj that matches user entered email and password
+            return await FirstJsonResultAsync<User>("readUserByEmailAndPassword", parameters);
+
+
         }
-    }
+}
 }

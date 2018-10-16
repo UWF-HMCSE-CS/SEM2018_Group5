@@ -1,19 +1,17 @@
 import './css/site.css';
-import './stylus/main.styl';
+import 'bootstrap';
 import Vue from 'vue';
-import Vuetify from 'vuetify';
 import VueRouter from 'vue-router';
-Vue.use(Vuetify);
+import Component from '../node_modules/vue-class-component';
 Vue.use(VueRouter);
 
 const routes = [
-    { path: '/', component: require('./components/home/home.vue.html').default },
-    { path: '/counter', component: require('./components/counter/counter.vue.html').default },
-    { path: '/fetchdata', component: require('./components/fetchdata/fetchdata.vue.html').default }
+    { path: '/', component: require('./components/home/login/login.vue.html')},
+    { path: '/signUp', component: require('./components/home/signUp/signUp.vue.html')},
 ];
 
 new Vue({
     el: '#app-root',
     router: new VueRouter({ mode: 'history', routes: routes }),
-    render: h => h(require('./components/app/app.vue.html').default)
+    render: h => h(require('./components/app/app.vue.html'))
 });

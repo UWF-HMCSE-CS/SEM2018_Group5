@@ -46,5 +46,18 @@ namespace TUTORized.Services
         {
             _userRepository.UserProfileCreateAsync(user);
         }
+
+        /// <summary>
+        /// Used to login an user by matching the entered email and password to the one provided in the db
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        public async Task<User> LoginUser(string email, string password)
+        {
+               return await _userRepository.UserLoginAsync(email, password);
+
+        }
+
     }
 }
