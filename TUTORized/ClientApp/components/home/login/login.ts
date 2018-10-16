@@ -1,27 +1,30 @@
 ﻿import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 import $ from 'jquery';
+import { User } from '../../../models/User';
 
 @Component
 export default class LoginComponent extends Vue{
-
-    userEmail: string = '';
-    userPassword: string = '';
+    
+    user = new User();
    
     loginButtonFunction(){
 
-       this.userEmail = (<HTMLInputElement>document.getElementById("userEmail")).value;
-       this.userPassword = (<HTMLInputElement>document.getElementById("userPassword")).value;
+       this.user.email = (<HTMLInputElement>document.getElementById("userEmail")).value;
+       this.user.password = (<HTMLInputElement>document.getElementById("userPassword")).value;
        
        
         $.ajax({
-              url: 'api/user/loginUser',
-              type: 'get',
-              data: {
-                  email: this.userEmail,
-                  password: this.userPassword
-                  }
-                
+            headers: { 
+                'Accept': 'application/json',
+                'Content-Type': 'application/json' 
+            },
+            url: 'api/user/loginUser',
+            type: 'POST',
+            data: JSON.stringify({
+                user: this.user
+            }),
+            dataType: 'json'
         });
           
     
