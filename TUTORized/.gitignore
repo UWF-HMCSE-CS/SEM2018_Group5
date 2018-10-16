@@ -34,6 +34,8 @@ bin/
 Bin/
 obj/
 Obj/
+TUTORized/.nyc_output
+TUTORized/.vscode
 
 # Visual Studio 2015 cache/options directory
 .vs/
