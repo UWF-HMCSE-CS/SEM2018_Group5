@@ -35,10 +35,20 @@ export default class SignUpComponent extends Vue{
               type: "POST",
               url: 'api/user/registerUser',
               data: JSON.stringify({
-                  user:this.user
+                  firstname: this.user.firstName,
+                  lastname: this.user.lastName,
+                  email: this.user.email,
+                  password: this.user.password,
+                  role: this.user.role
                   }),
-              dataType: 'json'
-        });
+              dataType: 'json',
+              complete: function (response){
+                window.location.href = "http://localhost:53352/";
+              }
+
+          });
+
+
           
     
     }

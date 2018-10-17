@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "012bec136ca92b9ba684"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "e723547e3f5f9e00dcf5"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -1917,7 +1917,14 @@ var LoginComponent = (function (_super) {
                 email: this.user.email,
                 password: this.user.password
             }),
-            dataType: 'json'
+            dataType: 'json',
+            success: function (response) {
+                alert("Welcome to TUTORized");
+                //window.location.href = "http://localhost:53352/";
+            },
+            error: function (response) {
+                alert("Login failed, please check you email or password");
+            }
         });
     };
     return LoginComponent;
@@ -1989,9 +1996,16 @@ var SignUpComponent = (function (_super) {
             type: "POST",
             url: 'api/user/registerUser',
             data: JSON.stringify({
-                user: this.user
+                firstname: this.user.firstName,
+                lastname: this.user.lastName,
+                email: this.user.email,
+                password: this.user.password,
+                role: this.user.role
             }),
-            dataType: 'json'
+            dataType: 'json',
+            complete: function (response) {
+                window.location.href = "http://localhost:53352/";
+            }
         });
     };
     return SignUpComponent;

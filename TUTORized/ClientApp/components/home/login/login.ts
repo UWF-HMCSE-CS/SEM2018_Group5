@@ -26,7 +26,17 @@ export default class LoginComponent extends Vue{
                 password: this.user.password
 
             }),
-            dataType: 'json'
+            dataType: 'json',
+            success: function (response) {
+              
+                 alert("Welcome to TUTORized");
+                 //window.location.href = "http://localhost:53352/";
+                    
+            },
+            error: function(response){
+                alert("Login failed, please check you email or password");
+             }
+
         });
           
     
