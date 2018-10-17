@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "fbc1e4f4171c94ea6716"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "012bec136ca92b9ba684"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -1914,7 +1914,8 @@ var LoginComponent = (function (_super) {
             url: 'api/user/loginUser',
             type: 'POST',
             data: JSON.stringify({
-                user: this.user
+                email: this.user.email,
+                password: this.user.password
             }),
             dataType: 'json'
         });
