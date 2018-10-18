@@ -1,42 +1,30 @@
 ﻿import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 import $ from 'jquery';
-import { User } from '../../../models/User';
 
 @Component
 export default class LoginComponent extends Vue{
-    
-    user = new User();
+
+    userEmail: string = '';
+    userPassword: string = '';
    
     loginButtonFunction(){
 
-       this.user.email = (<HTMLInputElement>document.getElementById("userEmail")).value;
-       this.user.password = (<HTMLInputElement>document.getElementById("userPassword")).value;
+       this.userEmail = (<HTMLInputElement>document.getElementById("userEmail")).value;
+       this.userPassword = (<HTMLInputElement>document.getElementById("userPassword")).value;
        
        
-        $.ajax({
-            headers: { 
+       $.ajax({
+             headers: { 
                 'Accept': 'application/json',
                 'Content-Type': 'application/json' 
-            },
-            url: 'api/user/loginUser',
-            type: 'POST',
-            data: JSON.stringify({
-                email: this.user.email,
-                password: this.user.password
-
-            }),
-            dataType: 'json',
-            success: function (response) {
-              
-                 alert("Welcome to TUTORized");
-                 //window.location.href = "http://localhost:53352/";
-                    
-            },
-            error: function(response){
-                alert("Login failed, please check you email or password");
-             }
-
+                },
+              type: "POST",
+              url: 'api/user/LoginUser',
+              data: JSON.stringify({ Email: this.userEmail,
+                  Password: this.userPassword
+                 }),
+              dataType: 'json'
         });
           
     

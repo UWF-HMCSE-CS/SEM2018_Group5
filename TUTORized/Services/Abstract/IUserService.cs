@@ -26,6 +26,6 @@ namespace TUTORized.Services.Abstract
     {
         void RegisterUser(User user);
 
-        Task<User> LoginUser(string email, string password);
+        Task<User> LoginUser(string userEmail, string userPassword);
     }
 }
