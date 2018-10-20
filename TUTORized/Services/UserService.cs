@@ -37,11 +37,7 @@ namespace TUTORized.Services
         /// Used to Register a new User by creating a new user object and saving the 
         /// information to the Database
         /// </summary>
-        /// <param name="email"></param>
-        /// <param name="password"></param>
-        /// <param name="firstName"></param>
-        /// <param name="lastName"></param>
-        /// <param name="role"></param>
+        /// <param name="user"></param>
         public void RegisterUser(User user)
         {
             _userRepository.UserProfileCreateAsync(user);
