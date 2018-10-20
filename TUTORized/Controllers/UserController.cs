@@ -37,7 +37,7 @@ namespace TUTORized.Controllers
             _userService = userService;
         }
 
-       [HttpPost("registerUser")]
+        [HttpPost("registerUser")]
         public void RegisterUser([FromBody] User user)
         {
             _userService.RegisterUser(user);
@@ -57,12 +57,12 @@ namespace TUTORized.Controllers
 
             if (user.Password.Equals(result.Password))
             {
-                return Ok();
+                return Ok("Login Successfully");
 
             }
 
             return BadRequest();
-                
+
         }
     }
 }
