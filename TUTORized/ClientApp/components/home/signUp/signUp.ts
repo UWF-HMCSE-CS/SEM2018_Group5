@@ -43,7 +43,7 @@ export default class SignUpComponent extends Vue {
             }),
             dataType: 'json',
             complete: function (response) {
-                window.location.href = "http://localhost:53352/";
+                 window.location.href = "/";
             }
 
         });
