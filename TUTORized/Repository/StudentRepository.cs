@@ -58,7 +58,7 @@ namespace TUTORized.Repository
             //Initializes Parameters for Stored Procedure
             var parameters = new DynamicParameters();
 
-            return await JsonResultAsync<User>("readAllTutors", parameters);
+            return await JsonResultAsync<User>("readTutorsAll", parameters);
         }
 
         /// <summary>

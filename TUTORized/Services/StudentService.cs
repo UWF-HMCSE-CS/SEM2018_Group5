@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TUTORized.Models;
+using TUTORized.Repository.Abstract;
 using TUTORized.Services.Abstract;
 
 /**
@@ -25,9 +26,20 @@ namespace TUTORized.Services
 {
     public class StudentService : IStudentService
     {
-        public Task<List<User>> ListOfTutorsGet()
+        private readonly IStudentRepository _studentRepository;
+
+        public StudentService(IStudentRepository studentRepository)
         {
-            return null;
+            _studentRepository = studentRepository;
+        }
+
+        /// <summary>
+        /// Retreives the entire list of tutors
+        /// </summary>
+        /// <returns></returns>
+        public async Task<IEnumerable<User>> ListOfTutorsGetAsync()
+        {
+            return await _studentRepository.GetEntireTutorListAsync();
         }
     }
 }

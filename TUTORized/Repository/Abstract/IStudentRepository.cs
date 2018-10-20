@@ -22,7 +22,7 @@ File Name: IStudentRepository.cs
 
 namespace TUTORized.Repository.Abstract
 {
-    interface IStudentRepository
+    public interface IStudentRepository
     {
         Task<User> GetTutorByEmailAsync(string email);
 

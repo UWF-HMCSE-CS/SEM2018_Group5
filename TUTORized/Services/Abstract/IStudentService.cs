@@ -24,6 +24,6 @@ namespace TUTORized.Services.Abstract
 {
     public interface IStudentService
     {
-        Task<List<User>> ListOfTutorsGet();
+        Task<IEnumerable<User>> ListOfTutorsGetAsync();
     }
 }
