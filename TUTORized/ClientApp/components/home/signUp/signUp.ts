@@ -24,11 +24,11 @@ export default class SignUpComponent extends Vue {
             type: "POST",
             url: 'api/user/registerUser',
             data: JSON.stringify({
-                firstname: this.user.FirstName,
-                lastname: this.user.LastName,
-                email: this.user.Email,
-                password: this.user.Password,
-                role: this.user.Role
+                "Firstname": this.user.FirstName,
+                "Lastname": this.user.LastName,
+                "Email": this.user.Email,
+                "Password": this.user.Password,
+                "Role": this.user.Role
             }),
             dataType: 'json',
             complete: function (response) {

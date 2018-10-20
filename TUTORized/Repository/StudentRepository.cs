@@ -55,10 +55,7 @@ namespace TUTORized.Repository
         /// <returns></returns>
         public async Task<IEnumerable<User>> GetEntireTutorListAsync()
         {
-            //Initializes Parameters for Stored Procedure
-            var parameters = new DynamicParameters();
-
-            return await JsonResultAsync<User>("readTutorsAll", parameters);
+            return await JsonResultAsync<User>("readTutorsAll");
         }
 
         /// <summary>

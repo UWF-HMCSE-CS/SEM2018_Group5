@@ -6,13 +6,13 @@
                     Sign Up
                 </v-card-title>
                 <v-card-text>
-                    <v-text-field box v-model="user.FirstName" label="First Name"></v-text-field>
-                    <v-text-field box v-model="user.LastName" label="Last Name"></v-text-field>
-                    <v-text-field box v-model="user.Email" label="Email"></v-text-field>
-                    <v-text-field box v-model="user.Password" label="Password" :type="'password'"></v-text-field>
+                    <v-text-field box v-model="user.jirstName" label="First Name"></v-text-field>
+                    <v-text-field box v-model="user.lastName" label="Last Name"></v-text-field>
+                    <v-text-field box v-model="user.email" label="Email"></v-text-field>
+                    <v-text-field box v-model="user.password" label="Password" :type="'password'"></v-text-field>
                     <v-text-field box v-model="ConfirmPassword" label="Confirm Password" :type="'password'"></v-text-field>
                     <v-select
-                        v-model="user.Role" 
+                        v-model="user.role" 
                         :items="roles"
                         item-text="role"
                         item-value="role"
