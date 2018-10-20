@@ -7,25 +7,14 @@ import { User } from '../../../models/User';
 export default class SignUpComponent extends Vue {
 
     user = new User();
-    conPassword: string = '';
+    ConfirmPassword: string = '';
+
+    roles: any[] =  [
+        { role: 'Tutor' },
+        { role: 'Student'}
+    ];
 
     signUpFunction() {
-
-        this.user.firstName = (<HTMLInputElement>document.getElementById("firstName")).value;
-        this.user.lastName = (<HTMLInputElement>document.getElementById("lastName")).value;
-        this.user.email = (<HTMLInputElement>document.getElementById("userEmail")).value;
-        this.user.password = (<HTMLInputElement>document.getElementById("userPassword")).value;
-        this.conPassword = (<HTMLInputElement>document.getElementById("conPassword")).value;
-
-        //check which role the user selected
-        if ((<HTMLInputElement>document.getElementById("studentRole")).checked) {
-
-            this.user.role = (<HTMLInputElement>document.getElementById("studentRole")).value;
-        } if ((<HTMLInputElement>document.getElementById("tutorRole")).checked) {
-
-            this.user.role = (<HTMLInputElement>document.getElementById("tutorRole")).value;
-        }
-
 
         $.ajax({
             headers: {
@@ -35,11 +24,11 @@ export default class SignUpComponent extends Vue {
             type: "POST",
             url: 'api/user/registerUser',
             data: JSON.stringify({
-                firstname: this.user.firstName,
-                lastname: this.user.lastName,
-                email: this.user.email,
-                password: this.user.password,
-                role: this.user.role
+                firstname: this.user.FirstName,
+                lastname: this.user.LastName,
+                email: this.user.Email,
+                password: this.user.Password,
+                role: this.user.Role
             }),
             dataType: 'json',
             complete: function (response) {
@@ -47,10 +36,6 @@ export default class SignUpComponent extends Vue {
             }
 
         });
-
-
-
-
     }
 
 

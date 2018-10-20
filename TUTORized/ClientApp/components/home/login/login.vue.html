@@ -1,16 +1,19 @@
 ﻿<template>
     <v-layout row wrap>
-        <v-flex xs12 md8 lg6>
+        <v-flex x12 md8 lg6>
             <v-card>
-                <v-card-title>
-                    Login Page
+                <v-card-title class="title">
+                    <span>Login Page</span>
                 </v-card-title>
-                <v-text-field box v-model="user.Email" label="Email"></v-text-field>
-                <v-text-field box v-model="user.Password" label="Password"></v-text-field>
-                </v-text-field>
-                <v-card-actions>
-                    <v-btn flat @click="loginButtonFunction">Login</v-btn>
-                </v-card-actions>
+                <v-card-text>
+                    <v-text-field box v-model="user.Email" label="Email"></v-text-field>
+                    <v-text-field box v-model="user.Password" label="Password" :type="'password'"></v-text-field>
+                    </v-text-field>
+                    <v-card-actions>
+                        <v-btn flat @click="routeToSignup">Sign Up</v-btn>
+                        <v-btn flat @click="loginButtonFunction">Login</v-btn>
+                    </v-card-actions>
+                </v-card-text>
             </v-card>
         </v-flex>
     </v-layout>

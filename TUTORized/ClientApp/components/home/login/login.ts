@@ -8,9 +8,7 @@ export default class LoginComponent extends Vue{
     
     user = new User();
    
-    loginButtonFunction(){
-
-        
+    loginButtonFunction(){     
         $.ajax({
             headers: { 
                 'Accept': 'application/json',
@@ -23,9 +21,18 @@ export default class LoginComponent extends Vue{
                 "Email": this.user.Email,
                 "Password": this.user.Password
             }),
+            success: function (response) {
+
+                alert("Welcome to TUTORized");
+                //window.location.href = "http://localhost:53352/";
+            },
         });
-          
-    
+    }
+
+    routeToSignup(){
+        this.$router.push({
+            path: '/signUp'
+        });
     }
 
    

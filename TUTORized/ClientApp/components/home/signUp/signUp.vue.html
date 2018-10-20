@@ -1,32 +1,29 @@
 ﻿<template>
-    <div class="mainSignUpScreen">
-        <h1>SignUp</h1>
-        <p>
-            Already have an account?
-            <a href="/"> <strong>Login Here</strong></a>
-        </p>
-        <div class="userInfo">
-            <strong>
-                <p>
-                    First Name: <input id="firstName" type="text" />
-                    Last Name: <input id="lastName" type="text" />
-                </p>
-
-                <p> Email: <input id="userEmail" type="email" /></p>
-
-                <p> Password: <input id="userPassword" type="password"></p>
-
-                <p>Confirm Password: <input id="conPassword" type="password"></p>
-
-                <p>
-                    I am a :
-                    <input id="studentRole" type="radio" name="role" value="student"> Student &#160
-                    <input id="tutorRole" type="radio" name="role" value="tutor"> Tutor
-                </p>
-                <p><button @click="signUpFunction">SignUp</button></p>
-
-            </strong>
-        </div>
-    </div>
+    <v-layout row wrap>
+        <v-flex xs12 md8 lg6>
+            <v-card>
+                <v-card-title class="title">
+                    Sign Up
+                </v-card-title>
+                <v-card-text>
+                    <v-text-field box v-model="user.FirstName" label="First Name"></v-text-field>
+                    <v-text-field box v-model="user.LastName" label="Last Name"></v-text-field>
+                    <v-text-field box v-model="user.Email" label="Email"></v-text-field>
+                    <v-text-field box v-model="user.Password" label="Password" :type="'password'"></v-text-field>
+                    <v-text-field box v-model="ConfirmPassword" label="Confirm Password" :type="'password'"></v-text-field>
+                    <v-select
+                        v-model="user.Role" 
+                        :items="roles"
+                        item-text="role"
+                        item-value="role"
+                        label="Role">
+                    </v-select>
+                    <v-card-actions>
+                        <v-btn flat @click="signUpFunction">Login</v-btn>
+                    </v-card-actions>
+                </v-card-text>
+            </v-card>
+        </v-flex>
+    </v-layout>
 </template>
 <script src="./signUp.ts"></script>
