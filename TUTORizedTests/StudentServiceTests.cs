@@ -1,11 +1,13 @@
 ﻿
 using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.IO;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 using TUTORized.Controllers;
 using TUTORized.Models;
 using TUTORized.Repository;
@@ -18,17 +20,20 @@ namespace TUTORizedTests
     [TestClass]
     public class StudentServiceTests : BaseTest
     {
-        private readonly IUserRepository _userRepository;
-        private readonly IStudentRepository _studentRepository;
-        private readonly IStudentService _studentService;
-        User user;
+        private readonly StudentService _sut;
+        private readonly Mock<IUserRepository> _userRepositoryMock;
+        private readonly Mock<IStudentRepository> _studentRepositoryMock;
+        private User user;
+        List<User> mockList;
 
         public StudentServiceTests()
         {
-            _userRepository = new UserRepository(_connection);
-            _studentRepository = new StudentRepository(_connection);
-            //_studentService = new StudentService();
+            //Mock dependancies
+            _userRepositoryMock = new Mock<IUserRepository>();
+            _studentRepositoryMock = new Mock<IStudentRepository>();
 
+            //Construct system under test (sut)
+            _sut = new StudentService(_studentRepositoryMock.Object);
         }
 
         [TestInitialize]
@@ -41,17 +46,19 @@ namespace TUTORizedTests
             user.Password = "password";
             user.Role = "tutor";
 
-            _userRepository.UserProfileCreateAsync(user);
-        }
+            mockList = new List<User>();
+            mockList.Add(user);
+            }
 
         [TestMethod]
         public async Task ListOfTutorsGetAsync_ShouldReturnListOfTutors()
         {
             //ARRANGE
+            _studentRepositoryMock.Setup(_studentRepositoryMock => _studentRepositoryMock.GetEntireTutorListAsync()).Returns(Task.FromResult((IEnumerable<User>)mockList));
             int tutors = 0;
-            var tutorList = await _studentService.ListOfTutorsGetAsync();
 
             //ACT
+            var tutorList = await _sut.ListOfTutorsGetAsync();
             foreach (User tutor in tutorList)
             {
                 tutors++;
@@ -59,11 +66,6 @@ namespace TUTORizedTests
 
             //ASSERT
             Assert.IsTrue(tutors > 0, "The tutors were not greater than 0");
-        }
-
-        public void CleanUpAfterTests()
-        {
-            _userRepository.UserProfileDeleteByEmailAsync(user.Email);
         }
     }
 }
