@@ -22,16 +22,22 @@ export default class LoginComponent extends Vue{
                 "Password": this.user.password
             }),
             success: function (response) {
-
-                alert("Welcome to TUTORized");
                 //window.location.href = "http://localhost:53352/";
             },
+        }).then(() => {
+            this.routeToScheduleAppt();
         });
     }
 
     routeToSignup(){
         this.$router.push({
             path: '/signUp'
+        });
+    }
+
+    routeToScheduleAppt() {
+        this.$router.push({
+            path: '/scheduleappointment'
         });
     }
 

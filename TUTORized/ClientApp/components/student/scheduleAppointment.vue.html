@@ -1,11 +1,11 @@
 <template>
     <v-layout>
-        <v-flex v-if="isLoaded" xs12 md8 lg6>
-            <v-select
-                v-model="tutor"
+        <v-flex xs12 md8 lg6>
+            <v-select v-if="isLoaded"
+                v-model="selectedTutor.id"
                 :items="tutors"
-                item-text="tutor.lastName"
-                item-value="tutor.id"
+                item-text="lastName"
+                item-value="id"
                 label="All Tutors">
             </v-select>
         </v-flex>
