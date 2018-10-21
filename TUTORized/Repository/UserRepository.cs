@@ -146,8 +146,6 @@ namespace TUTORized.Repository
 
             //Returns the User obj that matches user entered email and password
             return await FirstJsonResultAsync<User>("readUserByEmailAndPassword", parameters);
-
-
         }
 }
 }
