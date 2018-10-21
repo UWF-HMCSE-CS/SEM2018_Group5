@@ -61,16 +61,9 @@ namespace TUTORized.Repository
         /// <returns></returns>
         protected async Task<IEnumerable<T>> JsonResultAsync<T>(string procedureName, DynamicParameters parameters = null)
         {
-            using (var connection = Connection)
-            {
-                connection.Open();
-
-                return await connection.QueryAsync<T>(
-                    procedureName,
-                    parameters,
-                    commandType: CommandType.StoredProcedure).ConfigureAwait(false);
-            }
+            return JsonConvert.DeserializeObject<IEnumerable<T>>(await JsonResultAsync(procedureName, parameters));
         }
+
 
         /// <summary>
         /// returns a string in json 
