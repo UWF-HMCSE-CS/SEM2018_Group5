@@ -1,17 +1,17 @@
 export class User {
-    Id: string;
-    Email: string;
-    Password: string;
-    FirstName: string;
-    LastName: string;
-    Role: string;
+    id: string;
+    email: string;
+    password: string;
+    firstName: string;
+    lastName: string;
+    role: string;
 
     constructor() {
-        this.Id = "";
-        this.Email = "";
-        this.Password = "";
-        this.FirstName = "";
-        this.LastName = "";
-        this.Role = "";
+        this.id = "";
+        this.email = "";
+        this.password = "";
+        this.firstName = "";
+        this.lastName = "";
+        this.role = "";
     }
 }

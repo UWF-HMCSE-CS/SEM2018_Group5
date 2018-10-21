@@ -22,6 +22,7 @@ namespace TUTORized.Controllers
 
         // GET: api/Student/GetListOfAllTutors
         [HttpGet]
+        [ProducesResponseType(typeof(IList<User>), 200)]
         public async Task<IActionResult> GetListOfAllTutors()
         {
             return Ok(await _studentService.ListOfTutorsGetAsync());

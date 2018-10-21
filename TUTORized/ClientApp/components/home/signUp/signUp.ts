@@ -7,7 +7,7 @@ import { User } from '../../../models/User';
 export default class SignUpComponent extends Vue {
 
     user = new User();
-    ConfirmPassword: string = '';
+    confirmPassword: string = '';
 
     roles: any[] =  [
         { role: 'Tutor' },
@@ -24,11 +24,11 @@ export default class SignUpComponent extends Vue {
             type: "POST",
             url: 'api/user/registerUser',
             data: JSON.stringify({
-                "Firstname": this.user.FirstName,
-                "Lastname": this.user.LastName,
-                "Email": this.user.Email,
-                "Password": this.user.Password,
-                "Role": this.user.Role
+                "Firstname": this.user.firstName,
+                "Lastname": this.user.lastName,
+                "Email": this.user.email,
+                "Password": this.user.password,
+                "Role": this.user.role
             }),
             dataType: 'json',
             complete: function (response) {

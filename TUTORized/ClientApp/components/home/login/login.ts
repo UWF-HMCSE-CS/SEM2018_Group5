@@ -18,8 +18,8 @@ export default class LoginComponent extends Vue{
             type: 'POST',
             dataType: 'json',
             data: JSON.stringify({
-                "Email": this.user.Email,
-                "Password": this.user.Password
+                "Email": this.user.email,
+                "Password": this.user.password
             }),
             success: function (response) {
 
