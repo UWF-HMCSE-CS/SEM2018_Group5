@@ -2,7 +2,9 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CheckerPlugin = require('awesome-typescript-loader').CheckerPlugin;
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const bundleOutputDir = './wwwroot/dist';
+const { VueLoaderPlugin } = require('vue-loader');
 
 module.exports = (env) => {
     const isDevBuild = !(env && env.prod);
@@ -16,8 +18,9 @@ module.exports = (env) => {
             rules: [
                 { test: /\.vue\.html$/, include: /ClientApp/, loader: 'vue-loader', options: { loaders: { js: 'awesome-typescript-loader?silent=true' } } },
                 { test: /\.ts$/, include: /ClientApp/, use: 'awesome-typescript-loader?silent=true' },
-                { test: /\.css$/, use: isDevBuild ? [ 'style-loader', 'css-loader' ] : ExtractTextPlugin.extract({ use: 'css-loader?minimize' }) },
-                { test: /\.(png|jpg|jpeg|gif|svg)$/, use: 'url-loader?limit=25000' }
+                { test: /\.css$/, use: isDevBuild ? [ 'vue-style-loader', 'style-loader', 'css-loader' ] : ExtractTextPlugin.extract({ use: 'css-loader?minimize' }) },
+                { test: /\.(png|jpg|jpeg|gif|svg)$/, use: 'url-loader?limit=25000' },
+                { test: /\.styl$/, use: isDevBuild ? ['style-loader', 'css-loader', 'stylus-loader'] : ExtractTextPlugin.extract({ use: 'css-loader?minimize' }) }
             ]
         },
         output: {
@@ -41,11 +44,32 @@ module.exports = (env) => {
             new webpack.SourceMapDevToolPlugin({
                 filename: '[file].map', // Remove this line if you prefer inline source maps
                 moduleFilenameTemplate: path.relative(bundleOutputDir, '[resourcePath]') // Point sourcemap entries to the original file locations on disk
-            })
+            }),
+            new VueLoaderPlugin()
         ] : [
             // Plugins that apply in production builds only
-            new webpack.optimize.UglifyJsPlugin(),
-            new ExtractTextPlugin('site.css')
+            new UglifyJsPlugin({
+                uglifyOptions: {
+                    parallel: true,
+                    compress: {
+                        warnings: false,
+                        conditionals: true,
+                        unused: true,
+                        comparisons: true,
+                        sequences: true,
+                        dead_code: true,
+                        evaluate: true,
+                        if_return: true,
+                        join_vars: true,
+                        drop_console: true
+                    },
+                    output: {
+                        comments: false
+                    }
+                }
+            }),
+                new ExtractTextPlugin('site.css'),
+                new VueLoaderPlugin()
         ])
     }];
 };

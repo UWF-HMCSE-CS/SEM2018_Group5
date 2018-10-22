@@ -96,7 +96,7 @@ namespace TUTORized.Repository
         /// <param name="procedureName"></param>
         /// <param name="parameters"></param>
         /// <returns></returns>
-        protected async Task<T> FirstJsonResultAsync<T>(string procedureName, DynamicParameters parameters)
+        protected async Task<T> FirstJsonResultAsync<T>(string procedureName, DynamicParameters parameters = null)
         {
             //Calls to JsonResult which grabs the JSON string from the specified stored procedure.
             //It will then convert the json to the specified type (i.e. User model, student model, tutor model etc.).

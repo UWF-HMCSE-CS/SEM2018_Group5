@@ -4,56 +4,45 @@ import $ from 'jquery';
 import { User } from '../../../models/User';
 
 @Component
-export default class LoginComponent extends Vue {
-
+export default class LoginComponent extends Vue{
+    
     user = new User();
-
-    loginButtonFunction() {
-
-        this.user.email = (<HTMLInputElement>document.getElementById("userEmail")).value;
-        this.user.password = (<HTMLInputElement>document.getElementById("userPassword")).value;
-
-
+   
+    loginButtonFunction(){     
         $.ajax({
-            headers: {
+            headers: { 
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json' 
             },
             url: 'api/user/loginUser',
             type: 'POST',
-            data: JSON.stringify({
-                email: this.user.email,
-                password: this.user.password
-
-            }),
             dataType: 'json',
+            data: JSON.stringify({
+                "Email": this.user.email,
+                "Password": this.user.password
+            }),
             success: function (response) {
-
-                alert("Welcome to TUTORized");
                 //window.location.href = "http://localhost:53352/";
-
             },
-            error: function (response) {
-                alert("Login failed, please check you email or password");
-            }
-
+        }).then(() => {
+            this.routeToScheduleAppt();
         });
-
-
     }
 
+    routeToSignup(){
+        this.$router.push({
+            path: '/signUp'
+        });
+    }
 
+    routeToScheduleAppt() {
+        this.$router.push({
+            path: '/scheduleappointment'
+        });
+    }
+
+   
 }
-
-
-
-
-
-
-
-
-
-
 
    
    

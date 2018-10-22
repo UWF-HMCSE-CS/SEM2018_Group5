@@ -1,0 +1,15 @@
+<template>
+    <v-layout>
+        <v-flex xs12 md8 lg6>
+            <v-select v-if="isLoaded"
+                v-model="selectedTutor.id"
+                :items="tutors"
+                item-text="lastName"
+                item-value="id"
+                label="All Tutors">
+            </v-select>
+        </v-flex>
+    </v-layout>
+</template>
+
+<script src="./scheduleAppointment.ts"></script>

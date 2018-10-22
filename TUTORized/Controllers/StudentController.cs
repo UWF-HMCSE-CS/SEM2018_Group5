@@ -22,10 +22,10 @@ namespace TUTORized.Controllers
 
         // GET: api/Student/GetListOfAllTutors
         [HttpGet]
-        public IEnumerable<User> GetListOfAllTutors()
+        [ProducesResponseType(typeof(IList<User>), 200)]
+        public async Task<IActionResult> GetListOfAllTutors()
         {
-            var listOfTutors =  _studentService.ListOfTutorsGetAsync();
-            return (IEnumerable<User>) listOfTutors;
+            return Ok(await _studentService.ListOfTutorsGetAsync());
             //I feel like you want a list of Users meeting the "tutor" criteria then you will match it with
             //the front end User Objects and display their first and last name.... If you would rather me 
             //extract their first and last names in StudentServices and pass just a string up I can, 
