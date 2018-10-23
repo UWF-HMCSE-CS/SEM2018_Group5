@@ -1,4 +1,4 @@
-import Vue from 'vue';
+/*import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 import { User } from '../../models/User';
 import StudentService from '../../services/student/studentServices';
@@ -18,3 +18,4 @@ export default class ScheduleAppointment extends Vue {
         });
     }
 }
+*/
