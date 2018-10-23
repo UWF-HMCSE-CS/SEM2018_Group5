@@ -9,8 +9,7 @@ Vue.use(VueRouter);
 const routes = [
     { path: '/', component: require('./components/home/login/login.vue.html').default },
     { path: '/signUp', component: require('./components/home/signUp/signUp.vue.html').default },
-    { path: '/scheduleappointment', component: require('./components/student/scheduleAppointment.vue.html').default },
-    { path: '/testCalendar', component: require('./components/testCalendar/testCalendar.vue.html').default }
+    { path: '/scheduleappointment', component: require('./components/student/scheduleAppointment.vue.html').default }
 ];
 
 new Vue({
