@@ -1,7 +1,23 @@
 <template>
-    <v-layout row wrap>
-        <v-flex x12 md8 lg6>
-                    <h1>Calenar</h1>
-                </v-flex>
+    <div>
+       <v-layout align-space-around justify-center row fill-height>
+            <v-flex>
+                <v-date-picker
+                    v-model="date"
+                    full-width
+                    landscape
+                    class="mt-3">
+                </v-date-picker>
+            </v-flex>
         </v-layout>
-    </template>
+    </div>
+ 
+</template>
+      
+<script>
+export default {
+    data: () => ({
+    date: '2018-03-02'
+    })
+}
+</script>
