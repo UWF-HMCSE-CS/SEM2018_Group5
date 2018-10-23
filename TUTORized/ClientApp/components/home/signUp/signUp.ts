@@ -41,10 +41,14 @@ export default class SignUpComponent extends Vue {
 
 }
 
+import {ComponentOptions} from 'Vue';
 
-
-
-
+export declare type VueClass = {
+    new (): Vue;
+} & typeof Vue;
+export declare type DecoratedClass = VueClass & {
+    __decorators__?: ((options: ComponentOptions<Vue>) => void)[];
+};
 
 
 
