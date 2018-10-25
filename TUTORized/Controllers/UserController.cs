@@ -67,7 +67,6 @@ namespace TUTORized.Controllers
 
         [HttpGet("listAppointments")]
         [ProducesResponseType(typeof(IList<User>), 200)]
-
         public async Task<IActionResult> GetListOfUserAppointments([FromBody] User user)
         {
             string userEmail = user.Email;
