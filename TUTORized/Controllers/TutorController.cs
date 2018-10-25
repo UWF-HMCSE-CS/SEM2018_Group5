@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TUTORized.Models;
+using TUTORized.Services.Abstract;
 
 namespace TUTORized.Controllers
 {
@@ -17,10 +18,10 @@ namespace TUTORized.Controllers
             _tutorService = tutorService;
         }
 
-        [HttpGet("createAppointment")]
-        public void CreateTutorAppointment([FromBody] User user)
+        [HttpPost("createAppointment")]
+        public void CreateTutorAppointment([FromBody] Appointment appointment)
         {
-            _tutorService.CreateTutorAppoinment(user);
+            _tutorService.CreateAppointment(appointment);
         }
     }
 

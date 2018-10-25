@@ -35,6 +35,10 @@ namespace TUTORized
             services.AddSingleton<IStudentService, StudentService>();
             services.AddSingleton<IStudentRepository>(provider =>
                 new StudentRepository(Configuration.GetConnectionString("tma")));
+
+            services.AddSingleton<ITutorService, TutorService>();
+            services.AddSingleton<ITutorRepository>(provider =>
+                new TutorRepository(Configuration.GetConnectionString("tma")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
