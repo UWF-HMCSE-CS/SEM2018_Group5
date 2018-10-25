@@ -73,5 +73,14 @@ namespace TUTORized.Repository
 
             return await JsonResultAsync<User>("readTutorBySubject", parameters);
         }
+
+        /// <summary>
+        /// Retrieves all available appointments from the database
+        /// </summary>
+        /// <returns></returns>
+        public async Task<IEnumerable<Appointment>> GetListOfAllAvailableAppointmentsAsync()
+        {
+            return await JsonResultAsync<Appointment>("readAvailableAppointmentsAll");
+        }
     }
 }

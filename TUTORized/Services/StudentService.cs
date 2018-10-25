@@ -41,5 +41,14 @@ namespace TUTORized.Services
         {
             return await _studentRepository.GetEntireTutorListAsync();
         }
+
+        /// <summary>
+        /// Retreives the entire list of available appointments
+        /// </summary>
+        /// <returns></returns>
+        public async Task<IEnumerable<Appointment>> GetListOfAllAvailableAppointmentsAsync()
+        {
+            return await _studentRepository.GetListOfAllAvailableAppointmentsAsync();
+        }
     }
 }

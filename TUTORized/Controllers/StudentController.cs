@@ -26,12 +26,13 @@ namespace TUTORized.Controllers
         public async Task<IActionResult> GetListOfAllTutors()
         {
             return Ok(await _studentService.ListOfTutorsGetAsync());
-            //I feel like you want a list of Users meeting the "tutor" criteria then you will match it with
-            //the front end User Objects and display their first and last name.... If you would rather me 
-            //extract their first and last names in StudentServices and pass just a string up I can, 
-            //but I figured if we did that then we would have to pass the name back down (then retreive the User) 
-            //when we later select one of the Tutors....... not sure if you understand what i mean though?
-            //return new string[] { "value1", "value2" };
+        }
+
+        [HttpGet]
+        [ProducesResponseType(typeof(IList<Appointment>), 200)]
+        public async Task<IActionResult> GetListOfAllAvailableAppointments()
+        {
+            return Ok(await _studentService.GetListOfAllAvailableAppointmentsAsync());
         }
 
     }

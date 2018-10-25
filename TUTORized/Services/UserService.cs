@@ -38,9 +38,9 @@ namespace TUTORized.Services
         /// information to the Database
         /// </summary>
         /// <param name="user"></param>
-        public void RegisterUser(User user)
+        public async Task<User> RegisterUser(User user)
         {
-            _userRepository.UserProfileCreateAsync(user);
+            return await _userRepository.UserProfileCreateAsync(user);
         }
 
         /// <summary>
@@ -53,6 +53,15 @@ namespace TUTORized.Services
         {
                return await _userRepository.UserLoginAsync(email, password);
 
+        }
+
+        /// <summary>
+        /// Retreives the entire list of the users appointments
+        /// </summary>
+        /// <returns></returns>
+        public async Task<IEnumerable<Appointment>> GetEntireUserAppointmentListAsync(string userEmail)
+        {
+            return await _userRepository.GetEntireUserAppointmentListAsync(userEmail);
         }
 
     }

@@ -35,5 +35,7 @@ namespace TUTORized.Repository.Abstract
         Task UserProfileDeleteByEmailAsync(string email);
 
         Task<User> UserLoginAsync(string userEmail, string userPassword);
+
+        Task<IEnumerable<Appointment>> GetEntireUserAppointmentListAsync(string userEmail);
     }
 }
