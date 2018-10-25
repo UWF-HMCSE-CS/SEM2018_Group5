@@ -68,9 +68,10 @@ namespace TUTORized.Controllers
         [HttpGet("listAppointments")]
         [ProducesResponseType(typeof(IList<User>), 200)]
 
-        public async Task<IActionResult> GetListOfUserAppointments()
+        public async Task<IActionResult> GetListOfUserAppointments([FromBody] User user)
         {
-            return Ok(await _userService.GetEntireUserAppointmentListAsync());
+            string userEmail = user.Email;
+            return Ok(await _userService.GetEntireUserAppointmentListAsync(userEmail));
         }
     }
 }

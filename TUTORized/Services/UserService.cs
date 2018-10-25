@@ -59,9 +59,9 @@ namespace TUTORized.Services
         /// Retreives the entire list of the users appointments
         /// </summary>
         /// <returns></returns>
-        public async Task<IEnumerable<Appointment>> GetEntireUserAppointmentListAsync()
+        public async Task<IEnumerable<Appointment>> GetEntireUserAppointmentListAsync(string userEmail)
         {
-            return await _userRepository.GetEntireUserAppointmentListAsync();
+            return await _userRepository.GetEntireUserAppointmentListAsync(userEmail);
         }
 
     }
