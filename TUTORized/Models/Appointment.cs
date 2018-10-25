@@ -42,5 +42,17 @@ namespace TUTORized.Models
 
         [JsonProperty("subject")]
         public string Subject { get; set; }
+
+        [JsonProperty("studentFirstName")]
+        public string StudentFirstName { get; set; }
+
+        [JsonProperty("studentLastName")]
+        public string StudentLastName { get; set; }
+
+        [JsonProperty("tutorFirstName")]
+        public string TutorFirstName { get; set; }
+
+        [JsonProperty("tutorLastName")]
+        public string TutorLastName { get; set; }
     }
 }
