@@ -147,5 +147,20 @@ namespace TUTORized.Repository
             //Returns the User obj that matches user entered email and password
             return await FirstJsonResultAsync<User>("readUserByEmailAndPassword", parameters);
         }
-}
+
+        /// <summary>
+        /// retreives the users (either tutor or student) by their email address
+        /// </summary>
+        /// <param name="userEmail"></param>
+        /// <returns></returns>
+        public async Task<IEnumerable<Appointment>> GetEntireUserAppointmentListAsync(string userEmail)
+        {
+            var parameters = new DynamicParameters();
+
+            //Adds to Parameters
+            parameters.Add("Email", userEmail);
+
+            return await JsonResultAsync<Appointment>("readAppointmentsByEmail", parameters);
+        }
+    }
 }

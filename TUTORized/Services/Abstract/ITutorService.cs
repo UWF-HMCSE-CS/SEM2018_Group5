@@ -16,18 +16,14 @@ with each other.
 @author Wenwen Xu
 @version 1.0
 CEN4053    "TUTORized" SEM- Group 5's class project
-File Name: IUserService.cs 
-    This class is the interface for the UserService class.
+File Name: ITutorService.cs 
+    This class is the interface for the TutorService class.
 */
 
 namespace TUTORized.Services.Abstract
 {
-    public interface IUserService
+    public interface ITutorService
     {
-        Task<User> RegisterUser(User user);
-
-        Task<User> LoginUser(string email, string password);
-
-        Task<IEnumerable<Appointment>> GetEntireUserAppointmentListAsync(string userEmail);
+        Task<Appointment> CreateAppointment(Appointment appointment);
     }
 }
