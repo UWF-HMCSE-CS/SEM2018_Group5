@@ -35,7 +35,7 @@ namespace TUTORized.Models
         public string TutorId { get; set; }
 
         [JsonProperty("date")]
-        public string Date { get; set; }
+        public DateTime Date { get; set; }
 
         [JsonProperty("duration")]
         public string Duration { get; set; }

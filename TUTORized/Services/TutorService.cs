@@ -42,8 +42,5 @@ namespace TUTORized.Services
         {
             _tutorRepository.CreateAppointment(appointment);
         }
-
-
-
     }
 }
