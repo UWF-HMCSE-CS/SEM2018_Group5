@@ -3037,19 +3037,11 @@
         },
         "balanced-match": {
           "version": "1.0.0",
-
-          "bundled": true,
-          "dev": true,
-          "optional": true
-
+          "bundled": true
         },
         "brace-expansion": {
           "version": "1.1.11",
           "bundled": true,
-
-          "dev": true,
-          "optional": true,
-
           "requires": {
             "balanced-match": "1.0.0",
             "concat-map": "0.0.1"
@@ -3062,23 +3054,15 @@
         },
         "code-point-at": {
           "version": "1.1.0",
-
-          "bundled": true,
-          "dev": true,
-          "optional": true
+          "bundled": true
         },
         "concat-map": {
           "version": "0.0.1",
-          "bundled": true,
-          "dev": true,
-          "optional": true
+          "bundled": true
         },
         "console-control-strings": {
           "version": "1.1.0",
-          "bundled": true,
-          "dev": true,
-          "optional": true
-
+          "bundled": true
         },
         "core-util-is": {
           "version": "1.0.2",
@@ -3181,10 +3165,7 @@
         },
         "inherits": {
           "version": "2.0.3",
-          "bundled": true,
-          "dev": true,
-          "optional": true
-
+          "bundled": true
         },
         "ini": {
           "version": "1.3.5",
@@ -3194,11 +3175,6 @@
         "is-fullwidth-code-point": {
           "version": "1.0.0",
           "bundled": true,
-
-
-          "dev": true,
-          "optional": true,
-
           "requires": {
             "number-is-nan": "1.0.1"
           }
@@ -3211,30 +3187,17 @@
         "minimatch": {
           "version": "3.0.4",
           "bundled": true,
-
-
-          "dev": true,
-          "optional": true,
-
           "requires": {
             "brace-expansion": "1.1.11"
           }
         },
         "minimist": {
           "version": "0.0.8",
-
-          "bundled": true,
-          "dev": true,
-          "optional": true
-
+          "bundled": true
         },
         "minipass": {
           "version": "2.2.4",
           "bundled": true,
-
-          "dev": true,
-          "optional": true,
-
           "requires": {
             "safe-buffer": "5.1.1",
             "yallist": "3.0.2"
@@ -3251,9 +3214,6 @@
         "mkdirp": {
           "version": "0.5.1",
           "bundled": true,
-
-          "dev": true,
-          "optional": true,
           "requires": {
             "minimist": "0.0.8"
           }
@@ -3326,11 +3286,7 @@
         },
         "number-is-nan": {
           "version": "1.0.1",
-
-          "bundled": true,
-          "dev": true,
-          "optional": true
-
+          "bundled": true
         },
         "object-assign": {
           "version": "4.1.1",
@@ -3340,10 +3296,6 @@
         "once": {
           "version": "1.4.0",
           "bundled": true,
-
-          "dev": true,
-          "optional": true,
-
           "requires": {
             "wrappy": "1.0.2"
           }
@@ -3449,10 +3401,6 @@
         "string-width": {
           "version": "1.0.2",
           "bundled": true,
-
-          "dev": true,
-          "optional": true,
-
           "requires": {
             "code-point-at": "1.1.0",
             "is-fullwidth-code-point": "1.0.0",
@@ -8725,6 +8673,12 @@
       "resolved": "https://registry.npmjs.org/vue/-/vue-2.5.17.tgz",
       "integrity": "sha512-mFbcWoDIJi0w0Za4emyLiW72Jae0yjANHbCVquMKijcavBGypqlF7zHRgMa5k4sesdv7hv2rB4JPdZfR+TPfhQ=="
     },
+    "vue-class-component": {
+      "version": "6.3.2",
+      "resolved": "https://registry.npmjs.org/vue-class-component/-/vue-class-component-6.3.2.tgz",
+      "integrity": "sha512-cH208IoM+jgZyEf/g7mnFyofwPDJTM/QvBNhYMjqGB8fCsRyTf68rH2ISw/G20tJv+5mIThQ3upKwoL4jLTr1A==",
+      "dev": true
+    },
     "vue-hot-reload-api": {
       "version": "2.3.1",
       "resolved": "https://registry.npmjs.org/vue-hot-reload-api/-/vue-hot-reload-api-2.3.1.tgz",
@@ -8745,27 +8699,19 @@
       }
     },
     "vue-property-decorator": {
-      "version": "5.3.0",
-      "resolved": "https://registry.npmjs.org/vue-property-decorator/-/vue-property-decorator-5.3.0.tgz",
-      "integrity": "sha1-8PodDv08Vp/yAJ/pVGzS+zPtf0M=",
+      "version": "6.1.0",
+      "resolved": "https://registry.npmjs.org/vue-property-decorator/-/vue-property-decorator-6.1.0.tgz",
+      "integrity": "sha512-NM4PYPOkOIO7SFtWiQqVrbp+ORzd7CJXcIz0X710PNW9pxGfbil0/x/ULFympzIUoHXBKN2dqoOQzh6oeMzpTQ==",
       "dev": true,
       "requires": {
         "reflect-metadata": "0.1.12",
-        "vue-class-component": "5.0.2"
-      },
-      "dependencies": {
-        "vue-class-component": {
-          "version": "5.0.2",
-          "resolved": "https://registry.npmjs.org/vue-class-component/-/vue-class-component-5.0.2.tgz",
-          "integrity": "sha512-wgI/SKRozqADIeMGN16PXiHBa/cnRD7JcuYt7P4JHcMIMc2BdUw02pQ+EQmsui0tN2kRVZGwZ8h4Yb2Vbf4w0w==",
-          "dev": true
-        }
+        "vue-class-component": "6.3.2"
       }
     },
     "vue-router": {
-      "version": "2.8.1",
-      "resolved": "https://registry.npmjs.org/vue-router/-/vue-router-2.8.1.tgz",
-      "integrity": "sha512-MC4jacHBhTPKtmcfzvaj2N7g6jgJ/Z/eIjZdt+yUaUOM1iKC0OUIlO/xCtz6OZFFTNUJs/1YNro2GN/lE+nOXA==",
+      "version": "3.0.1",
+      "resolved": "https://registry.npmjs.org/vue-router/-/vue-router-3.0.1.tgz",
+      "integrity": "sha512-vLLoY452L+JBpALMP5UHum9+7nzR9PeIBCghU9ZtJ1eWm6ieUI8Zb/DI3MYxH32bxkjzYV1LRjNv4qr8d+uX/w==",
       "dev": true
     },
     "vue-style-loader": {
