@@ -16,8 +16,12 @@
                 <v-card-title>Avaliable Appointments</v-card-title>
                     <v-card-text>
                         <v-list>
-                            <v-list-tile v-for="(id, studentId,  tutorId,date, duration,subject) in appointment">
-                            {{id}} : {{date}} {{duration}} {{subject}}
+                            <v-list-tile v-for="item in appointments" :key="item.id">
+                             Student name: {{item.studentFirstName}} {{item.studentLastName}}
+                             Tutor name: {{item.tutorFirstName}} {{item.tutorLastName}}
+                             Date: {{item.date}}
+                             Duration: {{item.duration}}
+                             Tutor: {{item.tutorFirstName}} {{item.tutorLastName}}
                             </v-list-tile>
                         </v-list>
                     </v-card-text>
