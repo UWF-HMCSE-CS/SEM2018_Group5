@@ -24,6 +24,6 @@ namespace TUTORized.Services.Abstract
 {
     public interface ITutorService
     {
-        void CreateAppointment(Appointment appointment);
+        Task<Appointment> CreateAppointment(Appointment appointment);
     }
 }

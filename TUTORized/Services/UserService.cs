@@ -38,9 +38,9 @@ namespace TUTORized.Services
         /// information to the Database
         /// </summary>
         /// <param name="user"></param>
-        public void RegisterUser(User user)
+        public async Task<User> RegisterUser(User user)
         {
-            _userRepository.UserProfileCreateAsync(user);
+            return await _userRepository.UserProfileCreateAsync(user);
         }
 
         /// <summary>

@@ -24,7 +24,7 @@ namespace TUTORized.Services.Abstract
 {
     public interface IUserService
     {
-        void RegisterUser(User user);
+        Task<User> RegisterUser(User user);
 
         Task<User> LoginUser(string email, string password);
 

@@ -38,9 +38,9 @@ namespace TUTORized.Controllers
         }
 
         [HttpPost("registerUser")]
-        public void RegisterUser([FromBody] User user)
+        public async Task<IActionResult> RegisterUser([FromBody] User user)
         {
-            _userService.RegisterUser(user);
+            return Ok(await _userService.RegisterUser(user));
         }
 
         [HttpPost("loginUser")]
@@ -58,11 +58,8 @@ namespace TUTORized.Controllers
             if (user.Password.Equals(result.Password))
             {
                 return Ok("Login Successfully");
-
             }
-
             return BadRequest();
-
         }
 
         [HttpGet("listAppointments")]

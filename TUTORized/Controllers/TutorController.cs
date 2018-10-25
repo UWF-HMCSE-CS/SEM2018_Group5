@@ -19,9 +19,9 @@ namespace TUTORized.Controllers
         }
 
         [HttpPost("createAppointment")]
-        public void CreateTutorAppointment([FromBody] Appointment appointment)
+        public async Task<IActionResult> CreateTutorAppointment([FromBody] Appointment appointment)
         {
-            _tutorService.CreateAppointment(appointment);
+            return Ok(await _tutorService.CreateAppointment(appointment));
         }
     }
 
