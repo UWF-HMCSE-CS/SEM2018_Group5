@@ -17,11 +17,11 @@
                     <v-card-text>
                         <v-list>
                             <v-list-tile v-for="item in appointments" :key="item.id">
-                             Student name: {{item.studentFirstName}} {{item.studentLastName}}
-                             Tutor name: {{item.tutorFirstName}} {{item.tutorLastName}}
-                             Date: {{item.date}}
-                             Duration: {{item.duration}}
-                             Tutor: {{item.tutorFirstName}} {{item.tutorLastName}}
+                             <li>Student name: {{item.studentFirstName}} {{item.studentLastName}}</li>
+                             <li>Tutor name: {{item.tutorFirstName}} {{item.tutorLastName}}</li>
+                             <li>Date: {{item.date}}</li>
+                             <li>Duration: {{item.duration}}</li>
+                             <li>Tutor: {{item.tutorFirstName}} {{item.tutorLastName}}</li>
                             </v-list-tile>
                         </v-list>
                     </v-card-text>
