@@ -5,7 +5,7 @@ import $ from 'jquery';
 @Component
     export default class CalenderComponent extends Vue{
 
-      //appointment = new Appointment();
+      
 
 
     
