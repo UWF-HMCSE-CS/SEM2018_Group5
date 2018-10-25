@@ -13,10 +13,12 @@
             </v-flex>
              <v-flex xs12>
              <v-card>
-                <v-card-title center>Avaliable Appointments</v-card-title>
+                <v-card-title>Avaliable Appointments</v-card-title>
                     <v-card-text>
                         <v-list>
-                            <v-list-tile v-for="item in appointment" :key="item.id"></v-list-tile>
+                            <v-list-tile v-for="(id, studentId,  tutorId,date, duration,subject) in appointment">
+                            {{id}} : {{date}} {{duration}} {{subject}}
+                            </v-list-tile>
                         </v-list>
                     </v-card-text>
             </v-card>
