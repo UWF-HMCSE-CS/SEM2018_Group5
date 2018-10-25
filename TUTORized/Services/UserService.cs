@@ -55,5 +55,14 @@ namespace TUTORized.Services
 
         }
 
+        /// <summary>
+        /// Retreives the entire list of the users appointments
+        /// </summary>
+        /// <returns></returns>
+        public async Task<IEnumerable<Appointment>> GetEntireUserAppointmentListAsync()
+        {
+            return await _userRepository.GetEntireUserAppointmentListAsync();
+        }
+
     }
 }

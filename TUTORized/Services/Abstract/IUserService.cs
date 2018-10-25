@@ -27,5 +27,7 @@ namespace TUTORized.Services.Abstract
         void RegisterUser(User user);
 
         Task<User> LoginUser(string email, string password);
+
+        Task<IEnumerable<Appointment>> GetEntireUserAppointmentListAsync();
     }
 }
