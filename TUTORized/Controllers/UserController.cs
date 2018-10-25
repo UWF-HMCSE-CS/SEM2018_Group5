@@ -64,5 +64,13 @@ namespace TUTORized.Controllers
             return BadRequest();
 
         }
+
+        [HttpGet("listAppointments")]
+        [ProducesResponseType(typeof(IList<User>), 200)]
+
+        public async Task<IActionResult> GetListOfUserAppointments()
+        {
+            return Ok(await _userService.GetEntireUserAppointmentListAsync());
+        }
     }
 }
