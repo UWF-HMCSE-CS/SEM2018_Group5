@@ -3,7 +3,10 @@ import { Component } from 'vue-property-decorator';
 import $ from 'jquery';
 
 @Component
-    export default class LoginComponent extends Vue{
+    export default class CalenderComponent extends Vue{
+
+      //appointment = new Appointment();
+
 
     
 

@@ -1,23 +1,30 @@
 <template>
     <div>
-       <v-layout align-space-around justify-center row fill-height>
-            <v-flex>
+        <v-layout justify-space-between wrap>
+         <v-container grid-list-xl text-xs-center>
+            <v-flex xs12 class="my-3">
                 <v-date-picker
                     v-model="date"
                     full-width
                     landscape
-                    class="mt-3">
+                    class="mt-3"
+                    color=#90A4AE>
                 </v-date-picker>
             </v-flex>
+             <v-flex xs12>
+             <v-card dark color= #546E7A>
+                <v-card-title >Avaliable Appointments</v-card-title>
+                    <v-card-text>
+                        <v-list>
+                            <v-list-tile v-for="item in appointment" :key="item.id"></v-list-tile>
+                        </v-list>
+                    </v-card-text>
+            </v-card>
+            </v-flex>
+        </v-container>
         </v-layout>
     </div>
- 
+
 </template>
       
-<script>
-export default {
-    data: () => ({
-    date: '2018-03-02'
-    })
-}
-</script>
+<script src="./calender.ts">
