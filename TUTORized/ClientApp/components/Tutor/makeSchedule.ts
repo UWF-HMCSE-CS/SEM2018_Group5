@@ -18,7 +18,7 @@ export default class SignUpComponent extends Vue {
     tutorFirstName: string = '';
     tutorLastName: string = '';
 
-    signUpFunction() {
+    submitFunction() {
 
         $.ajax({
             headers: {
@@ -26,7 +26,7 @@ export default class SignUpComponent extends Vue {
                 'Content-Type': 'application/json'
             },
             type: "POST",
-            url: 'api/user/registerUser',
+            url: 'api/user/makeSchedule',
             data: JSON.stringify({
                 "Id": this.appointment.id,
                 "StudentId": this.appointment.studentId,
@@ -41,7 +41,7 @@ export default class SignUpComponent extends Vue {
             }),
             dataType: 'json',
             complete: function (response) {
-                window.location.href = "/";
+                alert("Scheduled Successfully");
             }
         });
     }

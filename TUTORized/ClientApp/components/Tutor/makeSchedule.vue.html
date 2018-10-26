@@ -1,5 +1,17 @@
 ﻿<template>
     <div>
+    <v-card>
+        <v-card-title class="title">
+            Schedule Appointments
+        </v-card-title>
+        <v-card-text>
+            <v-date-picker v-model="date"></v-date-picker>
+            <v-time-picker v-model="duration"></v-time-picker>
+            <v-card-actions>
+                <v-btn flat @click="submitFunction">Submit</v-btn>
+            </v-card-actions>
+        </v-card-text>
+    </v-card>
         <v-layout align-space-around justify-center row fill-height>
             <v-flex>
                 <v-date-picker v-model="date"
@@ -11,16 +23,7 @@
         </v-layout>
     </div>
 </template>
-
-<script src="./makeSchedule.ts">
-    export default {
-        data: () => ({
-            date: '2018-03-02'
-        })
-    }
-</script>
-
-
+<script src="./makeSchedule.ts"></script>
 
 
 
