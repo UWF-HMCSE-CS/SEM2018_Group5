@@ -7,7 +7,7 @@ import { Appointment } from '../../models/Appointment';
 export default class SignUpComponent extends Vue {
 
     appointment = new Appointment();
-        
+
     //set subject array
     subjects: any[] = [
         {subject: 'Math'},
