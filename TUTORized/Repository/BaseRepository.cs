@@ -7,13 +7,13 @@ using Dapper;
 using System.Data.SqlClient;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using TUTORized.Models;
 
 namespace TUTORized.Repository
 {
     public class BaseRepository
     {
         private IDbConnection Connection => new SqlConnection(_connection);
-
         private readonly string _connection;
 
         //default constructor

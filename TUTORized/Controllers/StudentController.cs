@@ -34,6 +34,5 @@ namespace TUTORized.Controllers
         {
             return Ok(await _studentService.GetListOfAllAvailableAppointmentsAsync());
         }
-
     }
 }

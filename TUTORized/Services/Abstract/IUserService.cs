@@ -28,6 +28,6 @@ namespace TUTORized.Services.Abstract
 
         Task<User> LoginUser(string email, string password);
 
-        Task<IEnumerable<Appointment>> GetEntireUserAppointmentListAsync(string userEmail);
+        Task<IEnumerable<Appointment>> GetEntireUserAppointmentListAsync();
     }
 }

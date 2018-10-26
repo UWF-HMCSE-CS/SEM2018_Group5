@@ -1,5 +1,38 @@
 <template>
     <div>
+        <v-layout align-space-around justify-center row fill-height>
+            <v-flex>
+                <v-date-picker v-model="date"
+                               full-width
+                               landscape
+                               class="mt-3">
+                </v-date-picker>
+            </v-flex>
+        </v-layout>
+        <h5>List of your scheduled appointments:</h5>
+        <v-layout>
+            <v-flex xs12 md8 lg6>
+                <ul v-if="isLoaded">
+                    <li v-for="event in events">
+                        {{ event.event }}
+                    </li>
+                </ul>
+            </v-flex>
+        </v-layout>
+    </div>
+</template>
+
+<script src="./calendar.ts">
+    export default {
+        data: () => ({
+            date: '2018-03-02'
+        })
+    }
+</script>
+
+
+<!--<template>
+    <div>
         <v-layout justify-space-between wrap>
          <v-container grid-list-xl text-xs-center>
             <v-flex xs12 class="my-3">
@@ -13,7 +46,7 @@
             </v-flex>
              <v-flex xs12>
                 <v-card>
-                    <v-card-title>Avaliable Appointments: </v-card-title>
+                    <v-card-title>Your Current Appointments: </v-card-title>
                         <v-card-text>
                             <v-list>
                                 <v-list-tile v-for="item in appointments" :key="item.id">
@@ -33,4 +66,4 @@
 
 </template>
       
-<script src="./calender.ts">
+<script src="./calender.ts">-->
