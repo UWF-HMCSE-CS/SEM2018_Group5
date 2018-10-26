@@ -17,13 +17,16 @@
                     <v-card-text>
                         <v-list>
                             <v-list-tile v-for="item in appointments" :key="item.id">
-                            <div v-if"item.id" key="818FD2E1-1E3D-4EEB-A4B7-B7FF0A0A6D3D">
-                             <li>Student name: {{item.studentFirstName}} {{item.studentLastName}}</li>
-                             <li>Tutor name: {{item.tutorFirstName}} {{item.tutorLastName}}</li>
-                             <li>Date: {{item.date}}</li>
-                             <li>Duration: {{item.duration}}</li>
-                             <li>Tutor: {{item.tutorFirstName}} {{item.tutorLastName}}</li>
-                             </div>
+                                <div v-if="item.id" key="818FD2E1-1E3D-4EEB-A4B7-B7FF0A0A6D3D">
+                                    <li>Student name: {{item.studentFirstName}} {{item.studentLastName}}</li>
+                                    <li>Tutor name: {{item.tutorFirstName}} {{item.tutorLastName}}</li>
+                                    <li>Date: {{item.date}}</li>
+                                    <li>Duration: {{item.duration}}</li>
+                                    <li>Tutor: {{item.tutorFirstName}} {{item.tutorLastName}}</li>
+                                </div>
+                                <div v-else key = " ">
+                                    <li>No Appointment Avaliable</li>
+                                </div>
                             </v-list-tile>
                         </v-list>
                     </v-card-text>
