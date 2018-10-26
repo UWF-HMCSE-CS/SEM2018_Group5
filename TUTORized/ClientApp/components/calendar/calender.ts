@@ -15,6 +15,7 @@ export default class CalenderComponent extends Vue{
     {
         studentSrvices.getListOfAppointments().then(result =>{
             this.appointments = result;
+            
         })
     }
     
