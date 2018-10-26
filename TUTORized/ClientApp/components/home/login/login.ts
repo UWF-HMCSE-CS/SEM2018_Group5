@@ -41,12 +41,6 @@ export default class LoginComponent extends Vue{
         });
     }
 
-    routeToCalendar(){
-        this.$router.push({
-            path: './listAppointments'
-        });
-    }
-   
 }
 
    
