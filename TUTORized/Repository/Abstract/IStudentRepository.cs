@@ -31,5 +31,7 @@ namespace TUTORized.Repository.Abstract
         Task<IEnumerable<User>> GetTutorListBySubjectAsync(string subject);
 
         Task<IEnumerable<Appointment>> GetListOfAllAvailableAppointmentsAsync();
+
+        Task<Appointment> MakeStudentAppointment(Appointment appointment);
     }
 }

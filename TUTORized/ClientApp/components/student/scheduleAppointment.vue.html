@@ -1,37 +1,32 @@
 <template>
     <div>
-        <h5>List of tutors available for Fall18 semester:</h5>
-
-        <table class="tg">
-            <tr>
-                <th style="font-weight:bold">Tutor:</th>
-                <th>Aaron Jones</th>
-                <th>Derek Miller</th>
-                <th>Brandon Davis</th>
-                <th>Kelly Patterson</th>
-                <th>Jacob Carter</th>
-            </tr>
-            <tr>
-                <td style="font-weight:bold">Subject:</td>
-                <td>Math</td>
-                <td>CS</td>
-                <td>Science</td>
-                <td>History</td>
-                <td>English</td>
-            </tr>
-        </table>
-
-        <iframe src="https://calendar.google.com/calendar/b/2/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;src=usltqh07santrkioft1ve37fa0%40group.calendar.google.com&amp;color=%23333333&amp;src=3l3louf6afsgnou8pjh614rfik%40group.calendar.google.com&amp;color=%23B1365F&amp;src=ncucb5jlg3cumjaofumo5v5lug%40group.calendar.google.com&amp;color=%23125A12&amp;src=i3130ibn4ujvodsdagrgccaodk%40group.calendar.google.com&amp;color=%23853104&amp;src=66the736jmuc5dqgfg4f5pg494%40group.calendar.google.com&amp;color=%232952A3&amp;ctz=America%2FChicago"
-                style="border-width:0"
-                width="800"
-                height="600"
-                frameborder="0"
-                scrolling="no"></iframe>
+        <v-layout>
+            <v-flex>
+                <v-date-picker v-model="date"
+                               full-width
+                               landscape
+                               class="mt-3">
+                </v-date-picker>
+            </v-flex>
+        </v-layout>
+        <v-layout>
+            <v-flex xs12 md8 lg6>
+                <v-card>
+                    <v-card-title class="title">Schedule New Appointments</v-card-title>
+                    <v-card-text>
+                        <v-text-field box v-model="subject" label="Subject"></v-text-field>
+                        <v-text-field box v-model="date" label="Date"></v-text-field>
+                        <v-text-field box v-model="duration" label="Duration"></v-text-field>
+                        <v-card-actions>
+                            <v-btn flat @click="submitFunction">Submit</v-btn>
+                        </v-card-actions>
+                    </v-card-text>
+                </v-card>
+            </v-flex>
+        </v-layout>
     </div>
-
 </template>
-
-<script src="./scheduleAppointment.css"></script>
+<script src="./scheduleAppointment.ts"></script>
 
 <!--KEPT OLD CODE HERE IN CASE WE NEED TO REVERT or JUST AS AN EXAMPLE FOR LATER-->
 <!--<v-layout>

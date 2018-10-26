@@ -62,8 +62,6 @@ namespace TUTORized.Controllers
             return BadRequest();
         }
 
-        //[HttpGet("listAppointments")]
-        //[ProducesResponseType(typeof(IList<User>), 200)]
         [HttpGet]
         [ProducesResponseType(typeof(IList<Appointment>), 200)]
         public async Task<IActionResult> GetListOfUserAppointments()

@@ -34,5 +34,11 @@ namespace TUTORized.Controllers
         {
             return Ok(await _studentService.GetListOfAllAvailableAppointmentsAsync());
         }
+
+        [HttpPost("makeAppointment")]
+        public async Task<IActionResult> MakeStudentAppointment([FromBody] Appointment appointment)
+        {
+            return Ok(await _studentService.MakeStudentAppointment(appointment));
+        }
     }
 }

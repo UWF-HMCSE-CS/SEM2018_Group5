@@ -82,5 +82,23 @@ namespace TUTORized.Repository
         {
             return await JsonResultAsync<Appointment>("readAvailableAppointmentsAll");
         }
+
+        /// <summary>
+        /// allows a student to make an appointment
+        /// </summary>
+        /// <param></param>
+        /// <returns></returns>
+        public async Task<Appointment> MakeStudentAppointment(Appointment appointment)
+        {
+            //Initializes Parameters for Stored Procedure
+            var parameters = new DynamicParameters();
+
+            //Adds to Parameters
+            parameters.Add("Email", appointment.Id);
+            parameters.Add("Id", appointment.Id); 
+
+            var result = await FirstJsonResultAsync<Appointment>("MakeStudentAppointment", parameters);
+            return result;
+        }
     }
 }
