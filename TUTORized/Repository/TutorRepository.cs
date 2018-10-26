@@ -49,10 +49,8 @@ namespace TUTORized.Repository
             parameters.Add("Date", appointment.Date);
             parameters.Add("Duration", appointment.Duration);
             parameters.Add("Subject", appointment.Subject);
-            //parameters.Add("studentFirstName", appointment.StudentFirstName);
-            //parameters.Add("studentLastName", appointment.StudentLastName);
-            //parameters.Add("tutorFirstName", appointment.TutorFirstName);
-            //parameters.Add("tutorLastName", appointment.TutorLastName);
+            parameters.Add("TutorFirstName", appointment.TutorFirstName);
+            parameters.Add("TutorLastName", appointment.TutorLastName);
 
             var result = await FirstJsonResultAsync<Appointment>("createAppointment", parameters);
             return result;
