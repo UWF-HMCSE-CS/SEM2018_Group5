@@ -1,4 +1,52 @@
 ﻿<template>
+<div>
+   <v-layout align-space-around justify-center row fill-height>
+        <v-flex>
+         <v-date-picker v-model="date"
+                        full-width
+                        landscape
+                        class="mt-3">
+        </v-date-picker>
+        </v-flex>
+        </v-layout>
+    <v-layout>
+        <v-flex xs12 md8 lg6>
+            <h5>Make New Tutoring Appointment For Schdule: </h5>
+                 <v-select
+                        v-model="appointment.subject" 
+                        :items="subjects"
+                        item-text="subject"
+                        item-value="subject"
+                        label="subject">
+                    </v-select>     
+          </v-flex>  
+    </v-layout> 
+    <v-layout>
+         <v-flex xs12 md8 lg6>     
+            <v-text-field v-model="appointment.date" label="Date & Time" hint="yyyy-mm-dd hh:mm:sc:mls"></v-text-field>
+        </v-flex>
+    </v-layout>
+    <v-layout>
+          <v-flex xs12 md8 lg6>     
+                <!--<v-select
+                        v-model="appointment.duration" 
+                        :items="durations"
+                        item-text="duration"
+                        item-value="duration"
+                        label="Duration">
+                    </v-select>-->     
+                <v-actions>
+                    <v-btn @click="submitFunction">Submit</v-btn>
+                </v-actions>
+            </v-flex>
+    </v-layout>
+    </div>
+</template>
+<script src="./makeSchedule.ts"></script>
+
+
+
+<!--<template>
     <div>
         <h5>List of tutors available for Fall18 semester:</h5>
 
@@ -31,8 +79,7 @@
 
 </template>
 
-<script src="./scheduleAppointment.css"></script>
-
+<script src="./scheduleAppointment.css"></script>-->
 <!--KEPT OLD CODE HERE IN CASE WE NEED TO REVERT or JUST AS AN EXAMPLE FOR LATER-->
 <!--<v-layout>
         <v-flex xs12 md8 lg6>

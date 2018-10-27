@@ -4,7 +4,7 @@ import { Appointment } from '../../models/Appointment';
 
 export default class ScheduleAppointment {
 
-    public static getListOfTutors() : Promise<Array<User>> {
+    public static GetListOfAllAvailableAppointments() : Promise<Array<Appointment>> {
         return axios.get('api/student')
             .then(response => {
                 return response.data;
@@ -13,14 +13,4 @@ export default class ScheduleAppointment {
                 console.log(error);
             })
     }
-
-    //public static getListOfAppointments() : Promise<Array<Appointment>> {
-    //    return axios.get('api/listAppointments')
-    //        .then(response => {
-    //            return response.data;
-    //        })
-    //        .catch(error => {
-    //            console.log(error);
-    //        })
-    //}
 }

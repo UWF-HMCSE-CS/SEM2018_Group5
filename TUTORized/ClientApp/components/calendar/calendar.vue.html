@@ -14,7 +14,13 @@
             <v-flex xs12 md8 lg6>
                 <ul v-if="isLoaded">
                     <li v-for="event in events">
-                        {{ event.event }}
+                        Date: {{ event.date }} |
+                        Duration: {{ event.duration }} mins |
+                        Subject: {{ event.subject }} |
+                        Student: {{ event.studentFirstName }} 
+                        {{ event.studentLastName }} |
+                        Tutor: {{ event.tutorFirstName }} 
+                        {{ event.tutorLastName }}
                     </li>
                 </ul>
             </v-flex>
@@ -30,40 +36,3 @@
     }
 </script>
 
-
-<!--<template>
-    <div>
-        <v-layout justify-space-between wrap>
-         <v-container grid-list-xl text-xs-center>
-            <v-flex xs12 class="my-3">
-                <v-date-picker
-                    v-model="date"
-                    full-width
-                    landscape
-                    class="mt-3"
-                    color=#90A4AE>
-                </v-date-picker>
-            </v-flex>
-             <v-flex xs12>
-                <v-card>
-                    <v-card-title>Your Current Appointments: </v-card-title>
-                        <v-card-text>
-                            <v-list>
-                                <v-list-tile v-for="item in appointments" :key="item.id">
-                                        <li> Student: {{item.studentFirstName}} {{item.studentLastName}}</li>
-                                        <li> Tutor: {{item.tutorFirstName}} {{item.tutorLastName}}</li>
-                                        <li> Date: {{item.date}}</li>
-                                        <li> Duration: {{item.duration}}</li>
-                                        <li> Subject: {{item.subject}}</li>
-                                </v-list-tile>
-                            </v-list>
-                        </v-card-text>
-                </v-card>
-            </v-flex>
-        </v-container>
-        </v-layout>
-    </div>
-
-</template>
-      
-<script src="./calender.ts">-->

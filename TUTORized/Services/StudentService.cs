@@ -50,5 +50,14 @@ namespace TUTORized.Services
         {
             return await _studentRepository.GetListOfAllAvailableAppointmentsAsync();
         }
+
+        /// <summary>
+        /// Allows a student to make an appointment
+        /// </summary>
+        /// <param></param>
+        public async Task<Appointment> MakeStudentAppointment(Appointment appointment)
+        {
+            return await _studentRepository.MakeStudentAppointment(appointment);
+        }
     }
 }
