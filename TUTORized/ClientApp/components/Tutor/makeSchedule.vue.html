@@ -1,6 +1,6 @@
 ﻿<template>
-    <div>
-   <v-layout>
+<div>
+   <v-layout align-space-around justify-center row fill-height>
         <v-flex>
          <v-date-picker v-model="date"
                         full-width
@@ -9,19 +9,35 @@
         </v-date-picker>
         </v-flex>
         </v-layout>
-        <v-layout>
-            <v-flex xs12 md8 lg6>
-                <v-card>
-                    <v-card-title class="title">Schedule New Appointments</v-card-title>
-                    <v-card-text>
-                        <v-text-field box v-model="subject" label="Subject"></v-text-field>  
-                    <v-text-field box v-model="date" label="Date"></v-text-field>  
-                    <v-text-field box v-model="duration" label="Duration"></v-text-field>
-                        <v-card-actions>
-                            <v-btn flat @click="submitFunction">Submit</v-btn>
-                        </v-card-actions>
-                    </v-card-text>
-                </v-card>
+    <v-layout>
+        <v-flex xs12 md8 lg6>
+            <h5>Schedule New Appointments: </h5>
+                 <v-select
+                        v-model="appointment.subject" 
+                        :items="subjects"
+                        item-text="subject"
+                        item-value="subject"
+                        label="subject">
+                    </v-select>     
+          </v-flex>  
+    </v-layout> 
+    <v-layout>
+         <v-flex xs12 md8 lg6>     
+            <v-text-field v-model="appointment.date" label="Date" hint="mm/dd/yyyy"></v-text-field>
+        </v-flex>
+    </v-layout>
+    <v-layout>
+          <v-flex xs12 md8 lg6>     
+                <v-select
+                        v-model="appointment.duration" 
+                        :items="durations"
+                        item-text="duration"
+                        item-value="duration"
+                        label="Duration">
+                    </v-select>     
+                <v-actions>
+                    <v-btn @click="submitFunction">Submit</v-btn>
+                </v-actions>
             </v-flex>
     </v-layout>
     </div>

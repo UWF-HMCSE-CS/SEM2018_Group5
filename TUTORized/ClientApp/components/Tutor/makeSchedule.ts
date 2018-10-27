@@ -6,10 +6,27 @@ import { Appointment } from '../../models/Appointment';
 @Component
 export default class SignUpComponent extends Vue {
 
-    date: string = '';
-    duration: string = '';
-    subject: string = '';
-   
+    appointment = new Appointment();
+
+    //set subject array
+    subjects: any[] = [
+        {subject: 'Math'},
+        {subject: 'CS'},
+        {subject: 'Science'},
+        {subject: 'History'},
+        {subject: 'English'}
+    ];
+
+    //set duration array
+    durations: any[] = [
+        {duration: 1},
+        {duration: 2},
+        {duration: 3},
+        {duration: 4},
+        {duration: 5},
+        {duration: 6},
+    ];
+
     submitFunction() {
 
         $.ajax({
@@ -18,14 +35,22 @@ export default class SignUpComponent extends Vue {
                 'Content-Type': 'application/json'
             },
             type: "POST",
-            url: 'api/user/makeSchedule',
+            url: 'api/tutor/createAppointment',
             data: JSON.stringify({
-               
-                
+                "Id": this.appointment.id,
+                "TutorId": this.appointment.tutorId,
+                "Date": this.appointment.date,
+                "Duration": this.appointment.duration,
+                "Subject": this.appointment.subject,
+                "TutorFirstName": this.appointment.tutorFirstName,
+                "TutorLastName": this.appointment.tutorLastName
             }),
             dataType: 'json',
             complete: function (response) {
-                alert("Scheduled Successfully");
+
+                //alert('Scheduled Successfully');
+                //window.location.href = "/makeSchedule";
+                
             }
         });
     }

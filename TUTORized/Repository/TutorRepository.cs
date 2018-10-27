@@ -46,6 +46,7 @@ namespace TUTORized.Repository
             //Adds to Parameters
             parameters.Add("StudentId", appointment.StudentId);
             parameters.Add("TutorId", appointment.TutorId);
+            //parameters.Add("UserId", loggedInUser.Id);
             parameters.Add("Date", appointment.Date);
             parameters.Add("Duration", appointment.Duration);
             parameters.Add("Subject", appointment.Subject);
