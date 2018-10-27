@@ -12,7 +12,7 @@ export default class Calendar extends Vue {
     isLoaded: boolean = false;
 
     mounted() {
-        UserService.getListOfAppointments().then(result => {
+        UserService.GetListOfAppointments().then(result => {
             this.events = result;
             this.isLoaded = true;
         });

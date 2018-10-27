@@ -2,6 +2,8 @@
 import { Component } from 'vue-property-decorator';
 import $ from 'jquery';
 import { User } from '../../../models/User';
+import UserService from '../../../services/user/userServices';
+import * as Cookie from 'es-cookie';
 
 @Component
 export default class LoginComponent extends Vue{
@@ -9,22 +11,10 @@ export default class LoginComponent extends Vue{
     user = new User();
    
     loginButtonFunction(){     
-        $.ajax({
-            headers: { 
-                'Accept': 'application/json',
-                'Content-Type': 'application/json' 
-            },
-            url: 'api/user/loginUser',
-            type: 'POST',
-            dataType: 'json',
-            data: JSON.stringify({
-                "Email": this.user.email,
-                "Password": this.user.password
-            }),
-            success: function (response) {
-                //window.location.href = "http://localhost:53352/";
-            },
-        }).then(() => {
+        
+        UserService.UserLogin(this.user.email, this.user.password)
+        .then(result => {
+            Cookie.set('role', result.role);
             this.routeToScheduleAppt();
         });
     }

@@ -2,7 +2,7 @@
 import axios from 'axios';
 import { Appointment } from '../../models/Appointment';
 
-export default class MakeSchedule {
+export default class TutorService {
 
     public static addAppointment() {
 
