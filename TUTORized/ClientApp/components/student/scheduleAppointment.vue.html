@@ -11,17 +11,30 @@
         </v-layout>
         <v-layout>
             <v-flex xs12 md8 lg6>
-                <v-card>
-                    <v-card-title class="title">Schedule New Appointments</v-card-title>
-                    <v-card-text>
-                        <v-text-field box v-model="subject" label="Subject"></v-text-field>
-                        <v-text-field box v-model="date" label="Date"></v-text-field>
-                        <v-text-field box v-model="duration" label="Duration"></v-text-field>
-                        <v-card-actions>
-                            <v-btn flat @click="submitFunction">Submit</v-btn>
-                        </v-card-actions>
-                    </v-card-text>
-                </v-card>
+                    <v-select v-if="isLoaded"
+                        v-model="appointment.id"
+                        :items="appointments"
+                        item-text="subject"
+                        item-value="id"
+                        label="Subject">
+                    </v-select>
+                    <v-select v-if="isLoaded"
+                        v-model="appointment.id"
+                        :items="appointments"
+                        item-text="tutorLastName"
+                        item-value="id"
+                        label="Tutor">
+                    </v-select>
+                    <v-select v-if="isLoaded"
+                        v-model="appointment.id"
+                        :items="appointments"
+                        item-text="date"
+                        item-value="id"
+                        label="Date and Time">
+                    </v-select>
+                <v-card-actions>
+                    <v-btn flat @click="submitFunction">Submit</v-btn>
+                </v-card-actions>
             </v-flex>
         </v-layout>
     </div>

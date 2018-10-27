@@ -15,6 +15,7 @@ namespace TUTORized.Repository
     {
         private IDbConnection Connection => new SqlConnection(_connection);
         private readonly string _connection;
+        protected static User loggedInUser = new User();
 
         //default constructor
         public BaseRepository(string connection)

@@ -2,14 +2,24 @@ import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 import $ from 'jquery';
 import { Appointment } from '../../models/Appointment';
+import StudentService from '../../services/student/studentServices';
 
 @Component
 export default class ScheduleAppointment extends Vue {
-
+    appointment = new Appointment(); 
     id: string = '';
-    studentId: string = '';
-    subject: string = '';
-    tutor: string = '';
+
+    events: Array<Appointment> = [];
+    event = new Appointment();
+    selectedEvent = new Appointment();
+    isLoaded: boolean = false;
+
+    mounted() {
+        StudentService.GetListOfAllAvailableAppointments().then(result => {
+            this.events = result;
+            this.isLoaded = true;
+        });
+    }
 
     submitFunction() {
 
@@ -19,10 +29,9 @@ export default class ScheduleAppointment extends Vue {
                 'Content-Type': 'application/json'
             },
             type: "POST",
-            url: 'api/student/scheduleAppointment',
+            url: 'api/student/makeStudentAppointment',
             data: JSON.stringify({
-
-
+                "id": this.appointment.id
             }),
             dataType: 'json',
             complete: function (response) {

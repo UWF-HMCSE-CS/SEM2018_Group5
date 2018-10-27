@@ -28,7 +28,6 @@ namespace TUTORized.Repository
 {
     public class UserRepository : BaseRepository, IUserRepository
     {
-        private static User loggedInUser = new User();
         public UserRepository(string connection) : base(connection)
         {
 

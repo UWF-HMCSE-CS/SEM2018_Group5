@@ -94,8 +94,10 @@ namespace TUTORized.Repository
             var parameters = new DynamicParameters();
 
             //Adds to Parameters
-            parameters.Add("Email", appointment.Id);
-            parameters.Add("Id", appointment.Id); 
+            parameters.Add("Id", appointment.Id);
+            parameters.Add("FirstName", loggedInUser.FirstName);
+            parameters.Add("LastName", loggedInUser.LastName);
+            parameters.Add("UserId", loggedInUser.Id);
 
             var result = await FirstJsonResultAsync<Appointment>("MakeStudentAppointment", parameters);
             return result;
