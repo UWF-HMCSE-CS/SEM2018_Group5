@@ -11,7 +11,7 @@
         </v-layout>
     <v-layout>
         <v-flex xs12 md8 lg6>
-            <h5>Schedule New Appointments: </h5>
+            <h5>Make New Tutoring Appointment For Schdule: </h5>
                  <v-select
                         v-model="appointment.subject" 
                         :items="subjects"
@@ -23,18 +23,18 @@
     </v-layout> 
     <v-layout>
          <v-flex xs12 md8 lg6>     
-            <v-text-field v-model="appointment.date" label="Date" hint="mm/dd/yyyy"></v-text-field>
+            <v-text-field v-model="appointment.date" label="Date & Time" hint="yyyy-mm-dd hh:mm:sc:mls"></v-text-field>
         </v-flex>
     </v-layout>
     <v-layout>
           <v-flex xs12 md8 lg6>     
-                <v-select
+                <!--<v-select
                         v-model="appointment.duration" 
                         :items="durations"
                         item-text="duration"
                         item-value="duration"
                         label="Duration">
-                    </v-select>     
+                    </v-select>-->     
                 <v-actions>
                     <v-btn @click="submitFunction">Submit</v-btn>
                 </v-actions>
