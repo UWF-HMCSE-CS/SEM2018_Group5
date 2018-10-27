@@ -80,7 +80,7 @@ namespace TUTORized.Repository
         /// <returns></returns>
         public async Task<IEnumerable<Appointment>> GetListOfAllAvailableAppointmentsAsync()
         {
-            return await JsonResultAsync<Appointment>("readAvailableAppointmentsAll");
+            return await JsonResultAsync<Appointment>("getAvailableAppointments");
         }
 
         /// <summary>
@@ -99,7 +99,7 @@ namespace TUTORized.Repository
             parameters.Add("LastName", loggedInUser.LastName);
             parameters.Add("UserId", loggedInUser.Id);
 
-            var result = await FirstJsonResultAsync<Appointment>("MakeStudentAppointment", parameters);
+            var result = await FirstJsonResultAsync<Appointment>("updateAppointmentWithStudent", parameters);
             return result;
         }
     }

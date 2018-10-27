@@ -9,17 +9,10 @@ export default class ScheduleAppointment extends Vue {
     appointment = new Appointment(); 
     id: string = '';
 
-    events: Array<Appointment> = [];
+    appointments: Array<Appointment> = [];
     event = new Appointment();
     selectedEvent = new Appointment();
     isLoaded: boolean = false;
-
-    mounted() {
-        StudentService.GetListOfAllAvailableAppointments().then(result => {
-            this.events = result;
-            this.isLoaded = true;
-        });
-    }
 
     submitFunction() {
 
@@ -29,7 +22,7 @@ export default class ScheduleAppointment extends Vue {
                 'Content-Type': 'application/json'
             },
             type: "POST",
-            url: 'api/student/makeStudentAppointment',
+            url: 'api/Student/makeStudentAppointment',
             data: JSON.stringify({
                 "id": this.appointment.id
             }),
@@ -37,6 +30,17 @@ export default class ScheduleAppointment extends Vue {
             complete: function (response) {
                 alert("Scheduled Successfully");
             }
+        });
+    }
+    
+    itemText(appointment: Appointment) {
+        console.log(appointment);
+        return appointment.tutorFirstName + appointment.studentLastName + appointment.date
+    }
+    mounted() {
+        StudentService.GetListOfAllAvailableAppointments().then(result => {
+            this.appointments = result;
+            this.isLoaded = true;
         });
     }
 }

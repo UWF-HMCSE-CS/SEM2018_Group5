@@ -28,7 +28,7 @@ namespace TUTORized.Controllers
             return Ok(await _studentService.ListOfTutorsGetAsync());
         }
 
-        [HttpGet]
+        [HttpGet("getAppointments")]
         [ProducesResponseType(typeof(IList<Appointment>), 200)]
         public async Task<IActionResult> GetListOfAllAvailableAppointments()
         {

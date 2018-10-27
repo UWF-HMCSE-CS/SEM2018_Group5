@@ -11,7 +11,7 @@
         </v-layout>
         <v-layout>
             <v-flex xs12 md8 lg6>
-                <v-select v-if="isLoaded"
+                <!-- <v-select v-if="isLoaded"
                           v-model="appointment.subject"
                           :items="subjects"
                           item-text="subject"
@@ -31,6 +31,19 @@
                           item-text="date"
                           item-value="id"
                           label="Date and Time">
+                </v-select> -->
+                <v-select v-if="isLoaded"
+                        v-model="appointment.id"
+                        :items="appointments"
+                        item-value="id"
+                        label="Available Appointmens"      
+                >
+                <template slot="selection" slot-scope="data">
+                    {{ data.item.tutorFirstName }} {{ data.item.tutorLastName }} {{data.item.date}}
+                  </template>
+                  <template slot="item" slot-scope="data">
+                    {{ data.item.tutorFirstName }} {{ data.item.tutorLastName }} {{data.item.date}}
+                  </template>
                 </v-select>
                 <v-card-actions>
                     <v-btn flat @click="submitFunction">Submit</v-btn>
