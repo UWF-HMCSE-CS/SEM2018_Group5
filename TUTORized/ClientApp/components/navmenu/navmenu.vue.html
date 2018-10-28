@@ -28,6 +28,11 @@
                             Create New Tutoring Appointment Schedule
                         </router-link>
                     </li>
+                    <li>
+                        <router-link v-if="isLoggedIn" to="/" @click.native="logOut">
+                            Log Out
+                        </router-link>
+                    </li>
                 </ul>
             </div>
         </div>

@@ -21,10 +21,21 @@ export default class NavMenu extends Vue {
         return false;
     }
 
+    get isLoggedIn() {
+        if(Cookie.get('role')) {
+            return true;
+        }
+        return false;
+    }
     getRole() {
         this.role = Cookie.get('role');
         this.isLoaded = true;
         return this.role;
+    }
+
+    logOut() {
+        console.log("LOG OUT");
+        Cookie.remove('role');
     }
 
     mounted() {
