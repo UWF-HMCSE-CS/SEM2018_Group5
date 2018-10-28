@@ -11,11 +11,11 @@ export default class LoginComponent extends Vue{
     user = new User();
    
     loginButtonFunction(){     
-        
         UserService.UserLogin(this.user.email, this.user.password)
         .then(result => {
             Cookie.set('role', result.role);
-            this.routeToScheduleAppt();
+            
+            this.routeToHome();
         });
     }
 
@@ -25,9 +25,9 @@ export default class LoginComponent extends Vue{
         });
     }
 
-    routeToScheduleAppt() {
+    routeToHome() {
         this.$router.push({
-            path: '/scheduleappointment'
+            path: '/home'
         });
     }
 

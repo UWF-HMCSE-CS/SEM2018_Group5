@@ -9,7 +9,7 @@ Vue.use(VueRouter);
 
 const routes = [
     { path: '/', component: require('./components/home/login/login.vue.html').default },
-    //{ path: '/', component: require('./components/home/home.vue.html').default },
+    { path: '/home', component: require('./components/home/home.vue.html').default },
     { path: '/signUp', component: require('./components/home/signUp/signUp.vue.html').default },
     { path: '/listAppointments', component: require('./components/calendar/calendar.vue.html').default },
     { path: '/scheduleappointment', component: require('./components/student/scheduleAppointment.vue.html').default },

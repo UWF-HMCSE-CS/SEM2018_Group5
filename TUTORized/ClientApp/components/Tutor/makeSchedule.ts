@@ -3,7 +3,11 @@ import { Component } from 'vue-property-decorator';
 import $ from 'jquery';
 import { Appointment } from '../../models/Appointment';
 
-@Component
+@Component({
+    components: {
+        NavMenu: require('../navmenu/navmenu.vue.html').default
+    }
+})
 export default class SignUpComponent extends Vue {
 
     appointment = new Appointment();

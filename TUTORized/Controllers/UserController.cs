@@ -57,7 +57,7 @@ namespace TUTORized.Controllers
 
             if (user.Password.Equals(result.Password))
             {
-                return Ok("Login Successfully");
+                return Ok(result);
             }
             return BadRequest();
         }

@@ -3,7 +3,12 @@ import { Component } from 'vue-property-decorator';
 import { Appointment } from '../../models/Appointment';
 import UserService from '../../services/user/userServices';
 
-@Component
+
+@Component({
+    components: {
+        NavMenu: require('../navmenu/navmenu.vue.html').default
+    }
+})
 export default class Calendar extends Vue {
 
     events: Array<Appointment> = [];

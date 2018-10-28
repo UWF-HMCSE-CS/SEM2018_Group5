@@ -4,7 +4,11 @@ import { Appointment } from '../../models/Appointment';
 import StudentService from '../../services/student/studentServices';
 
 
-@Component
+@Component({
+    components: {
+        NavMenu: require('../navmenu/navmenu.vue.html').default
+    }
+})
 export default class ScheduleAppointment extends Vue {
     appointment = new Appointment(); 
     id: string = '';
