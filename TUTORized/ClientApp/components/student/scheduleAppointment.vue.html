@@ -1,7 +1,7 @@
 <template>
     <div>
         <nav-menu></nav-menu>
-        <v-layout>
+        <v-layout align-space-around justify-center row fill-height>
             <v-flex>
                 <v-date-picker v-model="date"
                                full-width
@@ -13,38 +13,38 @@
         <v-layout>
             <v-flex xs12 md8 lg6>
                 <!-- <v-select v-if="isLoaded"
-                          v-model="appointment.subject"
-                          :items="subjects"
-                          item-text="subject"
-                          item-value="subject"
-                          label="subject">
-                </v-select>
+              v-model="appointment.subject"
+              :items="subjects"
+              item-text="subject"
+              item-value="subject"
+              label="subject">
+    </v-select>
+    <v-select v-if="isLoaded"
+              v-model="appointment.id"
+              :items="appointments"
+              item-text="tutorLastName"
+              item-value="id"
+              label="Tutor">
+    </v-select>
+    <v-select v-if="isLoaded"
+              v-model="appointment.id"
+              :items="appointments"
+              item-text="date"
+              item-value="id"
+              label="Date and Time">
+    </v-select> -->
+                <h5>Schedule An Appointment: (Please use the calendar above for date referances.)</h5>
                 <v-select v-if="isLoaded"
                           v-model="appointment.id"
                           :items="appointments"
-                          item-text="tutorLastName"
                           item-value="id"
-                          label="Tutor">
-                </v-select>
-                <v-select v-if="isLoaded"
-                          v-model="appointment.id"
-                          :items="appointments"
-                          item-text="date"
-                          item-value="id"
-                          label="Date and Time">
-                </v-select> -->
-                <v-select v-if="isLoaded"
-                        v-model="appointment.id"
-                        :items="appointments"
-                        item-value="id"
-                        label="Available Appointments"      
-                >
-                <template slot="selection" slot-scope="data">
-                    {{ data.item.tutorFirstName }} {{ data.item.tutorLastName }} {{data.item.date}}
-                  </template>
-                  <template slot="item" slot-scope="data">
-                    {{ data.item.tutorFirstName }} {{ data.item.tutorLastName }} {{data.item.date}}
-                  </template>
+                          label="Available Appointments">
+                    <template slot="selection" slot-scope="data">
+                        {{ data.item.tutorFirstName }} {{ data.item.tutorLastName }} {{data.item.date}}
+                    </template>
+                    <template slot="item" slot-scope="data">
+                        {{ data.item.tutorFirstName }} {{ data.item.tutorLastName }} {{data.item.date}}
+                    </template>
                 </v-select>
                 <v-card-actions>
                     <v-btn flat @click="submitFunction">Submit</v-btn>
