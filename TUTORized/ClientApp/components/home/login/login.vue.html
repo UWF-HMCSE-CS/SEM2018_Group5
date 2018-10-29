@@ -1,9 +1,32 @@
 ﻿<template>
-    <v-layout row wrap>
+    <v-content>
+        <v-container fluid fill-height>
+            <v-layout justify-center>
+                <v-flex xs12 sm8 md4>
+                    <v-card class="elevation-12">
+                        <v-toolbar dark color="grey darken-4">
+                            <v-toolbar-title>Login</v-toolbar-title>
+                        </v-toolbar>
+                        <v-card-text>
+                            <v-form>
+                            <v-text-field prepend-icon="person" v-model="user.email" label="Email"></v-text-field>
+                            <v-text-field id="password" prepend-icon="lock" v-model="user.password" label="Password" :type="'password'"></v-text-field>
+                            </v-form>
+                        </v-card-text>
+                        <v-card-actions>
+                            <v-btn flat @click="routeToSignup">Sign Up</v-btn>
+                            <v-btn flat @click="loginButtonFunction">Login</v-btn>
+                        </v-card-actions>
+                    </v-card>
+                </v-flex>
+            </v-layout>
+        </v-container>
+    </v-content>
+    <!-- <v-layout row wrap>
         <v-flex x12 md8 lg6>
             <v-card>
                 <v-card-title class="title">
-                    <span>Login Page</span>
+                    <span>Login</span>
                 </v-card-title>
                 <v-card-text>
                     <v-text-field box v-model="user.email" label="Email"></v-text-field>
@@ -15,9 +38,9 @@
                 </v-card-text>
             </v-card>
         </v-flex>
-    </v-layout>
-    
+    </v-layout> -->
 </template>
+
 <script src="./login.ts"></script>
 
 

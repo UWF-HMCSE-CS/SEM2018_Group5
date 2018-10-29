@@ -57,17 +57,18 @@ namespace TUTORized.Controllers
 
             if (user.Password.Equals(result.Password))
             {
-                return Ok("Login Successfully");
+                return Ok(result);
             }
             return BadRequest();
         }
 
-        [HttpGet("listAppointments")]
-        [ProducesResponseType(typeof(IList<User>), 200)]
-        public async Task<IActionResult> GetListOfUserAppointments([FromBody] User user)
+        [HttpGet]
+        [ProducesResponseType(typeof(IList<Appointment>), 200)]
+        public async Task<IActionResult> GetListOfUserAppointments()
         {
-            string userEmail = user.Email;
-            return Ok(await _userService.GetEntireUserAppointmentListAsync(userEmail));
+            var listOfAppointments = await _userService.GetEntireUserAppointmentListAsync();
+            var test = listOfAppointments;
+            return Ok(test);
         }
     }
 }

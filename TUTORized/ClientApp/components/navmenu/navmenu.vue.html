@@ -1,5 +1,5 @@
 <template>
-    <div class="main-nav">
+    <div v-if="isLoaded" class="main-nav">
         <div class="navbar navbar-inverse">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -14,23 +14,23 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>
-                        <router-link to="/calendar">
+                        <router-link v-if="isStudent || isTutor" to="/listAppointments">
                             Calendar
                         </router-link>
                     </li>
                     <li>
-                        <router-link to="/scheduleappointment">
-                            Schedule Appointment
+                        <router-link v-if="isStudent" to="/scheduleAppointment">
+                            Schedule An Appointment
                         </router-link>
                     </li>
                     <li>
-                        <router-link to="/message">
-                            Message
+                        <router-link v-if="isTutor" to="/makeSchedule">
+                            Create New Appointment
                         </router-link>
                     </li>
                     <li>
-                        <router-link to="/history">
-                            History
+                        <router-link v-if="isLoggedIn" to="/" @click.native="logOut">
+                            Log Out
                         </router-link>
                     </li>
                 </ul>
@@ -39,4 +39,5 @@
     </div>
 </template>
 
+<script src="./navmenu.ts"></script>
 <style src="./navmenu.css" />

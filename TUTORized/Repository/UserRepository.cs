@@ -145,7 +145,9 @@ namespace TUTORized.Repository
 
 
             //Returns the User obj that matches user entered email and password
-            return await FirstJsonResultAsync<User>("readUserByEmailAndPassword", parameters);
+            User user = await FirstJsonResultAsync<User>("readUserByEmailAndPassword", parameters);
+            loggedInUser = user;
+            return user;
         }
 
         /// <summary>
@@ -153,14 +155,15 @@ namespace TUTORized.Repository
         /// </summary>
         /// <param name="userEmail"></param>
         /// <returns></returns>
-        public async Task<IEnumerable<Appointment>> GetEntireUserAppointmentListAsync(string userEmail)
+        public async Task<IEnumerable<Appointment>> GetEntireUserAppointmentListAsync()
         {
+            string loggedInUserEmail = loggedInUser.Email;
             var parameters = new DynamicParameters();
 
             //Adds to Parameters
-            parameters.Add("Email", userEmail);
-
-            return await JsonResultAsync<Appointment>("readAppointmentsByEmail", parameters);
+            parameters.Add("Email", loggedInUserEmail);
+ 
+            return await JsonResultAsync<Appointment>("getAppointmentsByStudentEmail", parameters);
         }
     }
 }
