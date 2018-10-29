@@ -37,7 +37,7 @@
                         v-model="appointment.id"
                         :items="appointments"
                         item-value="id"
-                        label="Available Appointmens"      
+                        label="Available Appointments"      
                 >
                 <template slot="selection" slot-scope="data">
                     {{ data.item.tutorFirstName }} {{ data.item.tutorLastName }} {{data.item.date}}

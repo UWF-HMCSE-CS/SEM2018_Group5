@@ -70,10 +70,8 @@ export default class SignUpComponent extends Vue {
             }),
             dataType: 'json',
             complete: function (response) {
-
-                //alert('Scheduled Successfully');
-                //window.location.href = "/makeSchedule";
-                
+                alert('Scheduled Successfully');
+                window.location.href = "/makeSchedule";
             }
         });
     }

@@ -27,6 +27,8 @@ export default class ScheduleAppointment extends Vue {
                 this.isLoaded = true;
             })
         });
+        alert('Scheduled Successfully');
+        window.location.href = "/scheduleAppointment";
     }
     
     itemText(appointment: Appointment) {
