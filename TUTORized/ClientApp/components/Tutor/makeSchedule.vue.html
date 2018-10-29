@@ -23,20 +23,21 @@
         </v-layout>
         <v-layout>
             <v-flex xs12 md8 lg6>
-                <v-text-field id="year" v-model="inputYear" label="Year" hint="yyyy"></v-text-field>
-                <v-text-field  id="month" v-model="inputMonth" label="Month" hint="mm"></v-text-field>
-                <v-text-field  id="year" v-model="inputDay" label="Day" hint="dd"></v-text-field>
+                <v-text-field id="year" v-model="year" label="Year" hint="yyyy"></v-text-field>
+                <v-text-field id="month" v-model="month" label="Month" hint="mm"></v-text-field>
+                <v-text-field id="day" v-model="day" label="Day" hint="dd"></v-text-field>
+                <v-text-field id="dateTime" v-model="dateTime" label="Time (24 hr format)" hint="hh:mm"></v-text-field>
             </v-flex>
         </v-layout>
         <v-layout>
             <v-flex xs12 md8 lg6>
-                <v-select id="time"
+                <!--<v-select id="dateTime"
                           v-model="dateTime"
                           :items="times"
                           item-text="time"
                           item-value="time"
                           label="Time (24hr format)">
-                </v-select>
+                </v-select>-->
                 <v-actions>
                     <v-btn @click="submitFunction">Submit</v-btn>
                 </v-actions>

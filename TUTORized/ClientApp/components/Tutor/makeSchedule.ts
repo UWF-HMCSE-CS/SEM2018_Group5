@@ -11,6 +11,10 @@ import { Appointment } from '../../models/Appointment';
 export default class SignUpComponent extends Vue {
 
     appointment = new Appointment();
+    year: string = '';
+    month: string = '';
+    day: string = '';
+    dateTime: string = '';
 
     //set subject array
     subjects: any[] = [
@@ -23,19 +27,24 @@ export default class SignUpComponent extends Vue {
 
     //set time array
     times: any[] = [
-        { time: '08: 00' },
-        { time: '09: 00' },
-        { time: '10: 00' },
-        { time: '11: 00' },
-        { time: '12: 00' },
-        { time: '13: 00' },
-        { time: '14: 00' },
-        { time: '15: 00' },
-        { time: '16: 00' },
-    ];
+        { time: '08:00' },
+        { time: '09:00' },
+        { time: '10:00' },
+        { time: '11:00' },
+        { time: '12:00' },
+        { time: '13:00' },
+        { time: '14:00' },
+        { time: '15:00' },
+        { time: '16:00' },
+];
 
     computeDateFunction() {
-        var fullDateTime = '{{year}}-{{month}}-{{day}} {{dateTime}}: 00.000 ';
+        this.year = (<HTMLInputElement>document.getElementById("year")).value;
+        this.month = (<HTMLInputElement>document.getElementById("month")).value;
+        this.day = (<HTMLInputElement>document.getElementById("day")).value;
+
+        this.dateTime = (<HTMLInputElement>document.getElementById("dateTime")).value;
+        var fullDateTime = this.year + '-' + this.month + '-' + this.day + ' ' + this.dateTime + ':00.000';
         this.appointment.date = fullDateTime;
     }
 
