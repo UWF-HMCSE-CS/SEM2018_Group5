@@ -1,18 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.IO;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using TUTORized.Controllers;
 using TUTORized.Models;
-using TUTORized.Repository;
 using TUTORized.Repository.Abstract;
 using TUTORized.Services;
-using TUTORized.Services.Abstract;
 
 namespace TUTORizedTests
 {
@@ -22,7 +15,8 @@ namespace TUTORizedTests
         private readonly UserService _sut;
         private readonly Mock<IUserRepository> _userRepositoryMock;
         private User user;
-        List<User> mockList;
+        private Appointment appointment;
+        List<Appointment> mockList;
 
         public UserServiceTests()
         {
@@ -42,6 +36,18 @@ namespace TUTORizedTests
             user.LastName = "LastName";
             user.Password = "password";
             user.Role = "tutor";
+
+            DateTime dateTime = new DateTime(2018, 03, 20, 00, 00, 00, 000);
+            appointment = new Appointment();
+            appointment.TutorId = "33333";
+            appointment.Date = dateTime;
+            appointment.Duration = "60";
+            appointment.Subject = "Science";
+            appointment.TutorFirstName = "tutorfirst";
+            appointment.TutorLastName = "tutorlast";
+
+            mockList = new List<Appointment>();
+            mockList.Add(appointment);
         }
 
         [TestMethod]
@@ -71,6 +77,24 @@ namespace TUTORizedTests
 
             //ASSERT
             Assert.AreEqual(user.Email, retrievedUser.Email);
+        }
+        
+        [TestMethod]
+        public async Task GetEntireUserAppointmentListAsync_ShouldReturnListOfAppts()
+        {
+            //ARRANGE
+            _userRepositoryMock.Setup(_userRepositoryMock => _userRepositoryMock.GetEntireUserAppointmentListAsync()).Returns(Task.FromResult((IEnumerable<Appointment>)mockList));
+            int appts = 0;
+
+            //ACT
+            var apptList = await _sut.GetEntireUserAppointmentListAsync();
+            foreach (Appointment appt in apptList)
+            {
+                appts++;
+            }
+
+            //ASSERT
+            Assert.IsTrue(appts > 0, "The appointments were not greater than 0");
         }
     }
 }

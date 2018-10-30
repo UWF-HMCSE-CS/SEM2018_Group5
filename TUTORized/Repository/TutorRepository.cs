@@ -56,5 +56,21 @@ namespace TUTORized.Repository
             var result = await FirstJsonResultAsync<Appointment>("createAppointment", parameters);
             return result;
         }
+
+        /// <summary>
+        /// Deletes an Appointment from the Database
+        /// </summary>
+        /// <param></param>
+        /// <returns></returns>
+        public async Task AppointmentDeleteByAppointmentId(string id)
+        {
+            //Initializes Parameters for Stored Procedure
+            var parameters = new DynamicParameters();
+
+            //Adds to Parameters
+            parameters.Add("Id", id);
+
+            await ExecuteAsync("deleteAppointmentByAppointmentId", parameters);
+        }
     }
 }

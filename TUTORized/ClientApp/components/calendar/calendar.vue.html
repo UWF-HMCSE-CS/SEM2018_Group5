@@ -12,7 +12,7 @@
         </v-layout>
         <h5>List of your scheduled appointments: (Please use the calendar above for date referances.)</h5>
         <v-layout>
-            <v-flex xs12 md8 lg6>
+            <v-flex>
                 <ul v-if="isLoaded">
                     <li v-for="event in events">
                         Date: {{ event.date }} |

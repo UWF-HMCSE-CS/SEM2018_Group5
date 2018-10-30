@@ -1,19 +1,12 @@
 ﻿
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.IO;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using TUTORized.Controllers;
 using TUTORized.Models;
-using TUTORized.Repository;
 using TUTORized.Repository.Abstract;
 using TUTORized.Services;
-using TUTORized.Services.Abstract;
 
 namespace TUTORizedTests
 {
@@ -24,6 +17,7 @@ namespace TUTORizedTests
         private readonly Mock<IUserRepository> _userRepositoryMock;
         private readonly Mock<IStudentRepository> _studentRepositoryMock;
         private User user;
+        private Appointment appointment;
         List<User> mockList;
 
         public StudentServiceTests()
@@ -48,7 +42,16 @@ namespace TUTORizedTests
 
             mockList = new List<User>();
             mockList.Add(user);
-            }
+
+            DateTime dateTime = new DateTime(2018, 03, 20, 00, 00, 00, 000);
+            appointment = new Appointment();
+            appointment.TutorId = "33333";
+            appointment.Date = dateTime;
+            appointment.Duration = "60";
+            appointment.Subject = "Science";
+            appointment.TutorFirstName = "tutorfirst";
+            appointment.TutorLastName = "tutorlast";
+        }
 
         [TestMethod]
         public async Task ListOfTutorsGetAsync_ShouldReturnListOfTutors()
@@ -66,6 +69,23 @@ namespace TUTORizedTests
 
             //ASSERT
             Assert.IsTrue(tutors > 0, "The tutors were not greater than 0");
+        }
+        
+        [TestMethod]
+        public async Task MakeStudentAppointment_ShouldUpdateApptSaveToDBAndReturnThatAppt()
+        {
+            //ARRANGE
+            _studentRepositoryMock.Setup(_studentRepositoryMock => _studentRepositoryMock.MakeStudentAppointment(appointment)).Returns(Task.FromResult(appointment));
+
+            //ACT
+            appointment.StudentId = "222222";
+            appointment.StudentFirstName = "studentfirst";
+            appointment.StudentLastName = "studentlast";
+            _sut.MakeStudentAppointment(appointment);
+
+
+            //ASSERT
+            Assert.AreEqual("222222", appointment.StudentId);
         }
     }
 }
