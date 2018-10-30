@@ -17,6 +17,9 @@ wwwroot/dist
 *.userosscache
 *.sln.docstates
 *.vscode
+TUTORized/appsettings.json
+TUTORized/appsettings.Development.json
+
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
