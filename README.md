@@ -11,7 +11,7 @@ git clone https://github.com/UWF-HMCSE-CS/SEM2018_Group5.git
 Or, you can access our website by visiting:  http://tutorized.azurewebsites.net/
 
 ### Installing
-Once downloaded, open the project solution file (.sln) in Visual Studio or any other preferred IDE. 
+If you chose to clone the project, once downloaded, open the project solution file (.sln) in Visual Studio or any other preferred IDE. 
 Once the project has been loaded, you want to install the node packages before executing the program. 
 
 If you are using Microsoft's Visual Studio, you can install the node packages by:
