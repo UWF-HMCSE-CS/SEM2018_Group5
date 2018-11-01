@@ -84,8 +84,8 @@ namespace TUTORizedTests
             _sut.MakeStudentAppointment(appointment);
 
 
-            //ASSERT
-            Assert.AreEqual("222222", appointment.StudentId);
+            //ASSERT - broken on purpose
+            Assert.AreEqual("122222", appointment.StudentId);
         }
     }
 }
