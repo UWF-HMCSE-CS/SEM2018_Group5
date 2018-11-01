@@ -53,7 +53,7 @@ namespace TUTORizedTests
         {
             //ARRANGE
             string email = "wesTest@test.com";
-            string userId = "2";//"A12E8839-FB3B-4C14-AC64-D71657490985";
+            string userId = "A12E8839-FB3B-4C14-AC64-D71657490985";
 
             //ACT
             User user = await _userRepository.GetUserByEmailAsync(email);
