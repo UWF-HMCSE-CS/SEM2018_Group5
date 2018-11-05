@@ -5,9 +5,8 @@ VisualStudioVersion = 15.0.28010.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TUTORized", "TUTORized\TUTORized.csproj", "{868FEAA2-87E6-4368-9F5E-FB42D8AB04C7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TUTORizedTests", "TUTORizedTests\TUTORizedTests.csproj", "{F89F9F3D-F72E-4F5A-B7BA-8531D34944BF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TUTORizedTests", "TUTORizedTests\TUTORizedTests.csproj", "{EE0FC589-BAFB-47EA-A907-CC2663666188}"
 EndProject
-
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,17 +17,13 @@ Global
 		{868FEAA2-87E6-4368-9F5E-FB42D8AB04C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{868FEAA2-87E6-4368-9F5E-FB42D8AB04C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{868FEAA2-87E6-4368-9F5E-FB42D8AB04C7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F89F9F3D-F72E-4F5A-B7BA-8531D34944BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F89F9F3D-F72E-4F5A-B7BA-8531D34944BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F89F9F3D-F72E-4F5A-B7BA-8531D34944BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F89F9F3D-F72E-4F5A-B7BA-8531D34944BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE0FC589-BAFB-47EA-A907-CC2663666188}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE0FC589-BAFB-47EA-A907-CC2663666188}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE0FC589-BAFB-47EA-A907-CC2663666188}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE0FC589-BAFB-47EA-A907-CC2663666188}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{868FEAA2-87E6-4368-9F5E-FB42D8AB04C7} = {394D2960-1724-4130-B97C-B1ED88A01E42}
-		{F89F9F3D-F72E-4F5A-B7BA-8531D34944BF} = {13BDCE8D-2FBD-4FDF-80A1-FC86FB11029B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9CF5A3AB-90D7-4A08-9F64-197CEEF91A6C}

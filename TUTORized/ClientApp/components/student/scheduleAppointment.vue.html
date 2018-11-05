@@ -1,0 +1,71 @@
+<template>
+    <div>
+        <nav-menu></nav-menu>
+        <v-layout align-space-around justify-center row fill-height>
+            <v-flex>
+                <v-date-picker v-model="date"
+                               full-width
+                               landscape
+                               class="mt-3">
+                </v-date-picker>
+            </v-flex>
+        </v-layout>
+        <h5>Schedule An Appointment: (Please use the calendar above for date referances.)</h5>
+        <v-layout>
+            <v-flex xs12 md8 lg6>
+                <!-- <v-select v-if="isLoaded"
+                      v-model="appointment.subject"
+                      :items="subjects"
+                      item-text="subject"
+                      item-value="subject"
+                      label="subject">
+            </v-select>
+            <v-select v-if="isLoaded"
+                      v-model="appointment.id"
+                      :items="appointments"
+                      item-text="tutorLastName"
+                      item-value="id"
+                      label="Tutor">
+            </v-select>
+            <v-select v-if="isLoaded"
+                      v-model="appointment.id"
+                      :items="appointments"
+                      item-text="date"
+                      item-value="id"
+                      label="Date and Time">
+            </v-select> -->
+                <v-select v-if="isLoaded"
+                          v-model="appointment.id"
+                          :items="appointments"
+                          item-value="id"
+                          label="Available Appointments">
+                    <template slot="selection" slot-scope="data">
+                        {{ data.item.tutorFirstName }} {{ data.item.tutorLastName }} {{data.item.date}}
+                    </template>
+                    <template slot="item" slot-scope="data">
+                        {{ data.item.tutorFirstName }} {{ data.item.tutorLastName }} {{data.item.date}}
+                    </template>
+                </v-select>
+                <v-card-actions>
+                    <v-btn flat @click="submitFunction">Submit</v-btn>
+                </v-card-actions>
+            </v-flex>
+        </v-layout>
+    </div>
+</template>
+<script src="./scheduleAppointment.ts"></script>
+
+<!--KEPT OLD CODE HERE IN CASE WE NEED TO REVERT or JUST AS AN EXAMPLE FOR LATER-->
+<!--<v-layout>
+        <v-flex xs12 md8 lg6>
+            <v-select v-if="isLoaded"
+                v-model="selectedTutor.id"
+                :items="tutors"
+                item-text="lastName"
+                item-value="id"
+                label="All Tutors">
+            </v-select>
+        </v-flex>
+    </v-layout>
+</template>
+<script src="./scheduleAppointment.ts"></script>-->

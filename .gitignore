@@ -8,6 +8,7 @@
 *.user
 *.userosscache
 *.sln.docstates
+*.vscode
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -26,10 +27,12 @@ Bin/
 obj/
 Obj/
 
+
 # Visual Studio 2015 cache/options directory
 .vs/
-TUTORized/wwwroot/dist/
-
+wwwroot/dist
+TUTORized/*.vscode
+TUTORized/*.nyc_output
 /yarn.lock
 
 # MSTest test Results

@@ -1,0 +1,29 @@
+﻿<template>
+    <v-layout row wrap>
+        <v-flex xs12 md8 lg6>
+            <v-card>
+                <v-card-title class="title">
+                    Sign Up
+                </v-card-title>
+                <v-card-text>
+                    <v-text-field box v-model="user.firstName" label="First Name"></v-text-field>
+                    <v-text-field box v-model="user.lastName" label="Last Name"></v-text-field>
+                    <v-text-field box v-model="user.email" label="Email"></v-text-field>
+                    <v-text-field box v-model="user.password" label="Password" :type="'password'"></v-text-field>
+                    <v-text-field box v-model="confirmPassword" label="Confirm Password" :type="'password'"></v-text-field>
+                    <v-select
+                        v-model="user.role" 
+                        :items="roles"
+                        item-text="role"
+                        item-value="role"
+                        label="Role">
+                    </v-select>
+                    <v-card-actions>
+                        <v-btn flat @click="signUpFunction">Sign up</v-btn>
+                    </v-card-actions>
+                </v-card-text>
+            </v-card>
+        </v-flex>
+    </v-layout>
+</template>
+<script src="./signUp.ts"></script>

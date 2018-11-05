@@ -1,22 +1,34 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
     <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
     <IsPackable>false</IsPackable>
-    <UserSecretsId>c02f1207-6a9d-4a0f-9c5e-bef7739c0051</UserSecretsId>
+    <UserSecretsId>04ca71b5-5671-43f4-a15a-940f3271214b</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Dapper" Version="1.50.5" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.7" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.4" />
   </ItemGroup>
 
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.3" />
   </ItemGroup>
-
+  <ItemGroup>
+    <None Remove="ClientApp\components\home\signUp\signUp.css" />
+    <None Remove="ClientApp\components\home\signUp\signUp.js" />
+    <None Remove="ClientApp\components\counter\counter.ts" />
+    <None Remove="ClientApp\components\fetchdata\fetchdata.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="ClientApp\components\home\login\login.cs" />
+    <Compile Remove="ClientApp\components\home\signUp\userRegistration.cs" />
+    <Compile Remove="Controllers\SignUpControllers.cs" />
+    <Compile Remove="Controllers\SampleDataController.cs" />
+  </ItemGroup>
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">
     <!-- Ensure Node.js is installed -->
     <Exec Command="node --version" ContinueOnError="true">
