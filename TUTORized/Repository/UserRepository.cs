@@ -174,10 +174,12 @@ namespace TUTORized.Repository
         public async Task<IEnumerable<User>> GetListOfUsersWorkedWithAsync()
         {
             string loggedInUserId = loggedInUser.Id;
+            string loggedInUserRole = loggedInUser.Role;
             var parameters = new DynamicParameters();
 
             //Adds to Parameters
             parameters.Add("Id", loggedInUserId);
+            parameters.Add("Role", loggedInUserRole);
 
             return await JsonResultAsync<User>("getUsersWorkedWith", parameters);
         }

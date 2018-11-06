@@ -9,7 +9,7 @@ import UserService from '../../services/user/userServices';
         NavMenu: require('../navmenu/navmenu.vue.html').default
     }
 })
-export default class Calendar extends Vue {
+export default class ListOfUsersWorkedWith extends Vue {
 
     users: Array<User> = [];
     user = new User();
