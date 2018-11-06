@@ -64,5 +64,14 @@ namespace TUTORized.Services
             return await _userRepository.GetEntireUserAppointmentListAsync();
         }
 
+        /// <summary>
+        /// Retreives the list of the users (tutors or students) you have worked with.
+        /// </summary>
+        /// <returns></returns>
+        public async Task<IEnumerable<User>> GetListOfUsersWorkedWithAsync()
+        {
+            return await _userRepository.GetListOfUsersWorkedWithAsync();
+        }
+
     }
 }

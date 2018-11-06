@@ -165,5 +165,21 @@ namespace TUTORized.Repository
  
             return await JsonResultAsync<Appointment>("getAppointmentsByStudentEmail", parameters);
         }
+
+        /// <summary>
+        /// retreives a list of users (either tutor or student) that the logged in user has worked with
+        /// </summary>
+        /// <param></param>
+        /// <returns></returns>
+        public async Task<IEnumerable<User>> GetListOfUsersWorkedWithAsync()
+        {
+            string loggedInUserId = loggedInUser.Id;
+            var parameters = new DynamicParameters();
+
+            //Adds to Parameters
+            parameters.Add("Id", loggedInUserId);
+
+            return await JsonResultAsync<User>("getUsersWorkedWith", parameters);
+        }
     }
 }
