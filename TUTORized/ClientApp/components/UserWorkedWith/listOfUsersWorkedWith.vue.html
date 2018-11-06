@@ -9,6 +9,9 @@
                         Name: {{ user.FirstName }} {{ user.LastName }}
                         Email: {{ user.Email }}
                     </li>
+                    <li v-show="users.length == 0">
+                        Sorry, you have not worked with anyone yet.
+                    </li>
                 </ul>
             </v-flex>
         </v-layout>
