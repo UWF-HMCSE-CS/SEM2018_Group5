@@ -2,23 +2,26 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using TUTORized.Hubs;
 using TUTORized.Repository;
 using TUTORized.Repository.Abstract;
 using TUTORized.Services;
 using TUTORized.Services.Abstract;
+using Microsoft.AspNetCore.SignalR;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 
 namespace TUTORized
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IServiceCollection addSignalR)
         {
             Configuration = configuration;
+            addSignalR = addSignalR;
         }
 
         public IConfiguration Configuration { get; }
@@ -27,6 +30,12 @@ namespace TUTORized
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddCors(options => options.AddPolicy("CorsPolicy", builder =>
+              {
+                  builder.AllowAnyMethod().AllowAnyHeader()
+                  .WithOrigins("http://localhost:53349/")
+                  .AllowCredentials();
+              }));
 
             services.AddSingleton<IUserService, UserService>();
             services.AddSingleton<IUserRepository>(provider =>
@@ -58,7 +67,15 @@ namespace TUTORized
             }
 
             app.UseStaticFiles();
+            app.UseCookiePolicy();
+            app.UseCors("CorsPolicy");
 
+            
+             app.UseSignalR(route =>
+                {
+                    route.MapHub<ChatHub>("/chatHub");
+                });
+                
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
