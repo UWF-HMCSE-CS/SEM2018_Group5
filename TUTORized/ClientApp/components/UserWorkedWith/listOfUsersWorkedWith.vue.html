@@ -6,11 +6,16 @@
             <v-flex>
                 <ul v-if="isLoaded">
                     <li v-for="user in users">
+                        <div v-if="user.Id !== null">
                             Name: {{ user.firstName }} {{ user.lastName }} Email: {{ user.email }}
+                        </div>
+                        <div v-else="user.Id == null">
+                            Sorry, you have not worked with anyone yet.
+                        </div>
                     </li>
-                    <li v-show="users.length == 0">
+                    <!--<li v-show="user.Id == null">
                         Sorry, you have not worked with anyone yet.
-                    </li>
+                    </li>-->
                 </ul>
             </v-flex>
         </v-layout>

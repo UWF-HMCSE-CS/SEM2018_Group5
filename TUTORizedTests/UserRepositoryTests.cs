@@ -1,12 +1,7 @@
 
 using System;
-using System.Data.SqlClient;
-using System.IO;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using TUTORized.Controllers;
 using TUTORized.Models;
 using TUTORized.Repository;
 using TUTORized.Repository.Abstract;

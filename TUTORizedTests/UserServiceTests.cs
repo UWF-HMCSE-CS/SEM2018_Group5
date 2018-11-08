@@ -17,6 +17,7 @@ namespace TUTORizedTests
         private User user;
         private Appointment appointment;
         List<Appointment> mockList;
+        List<User> mockUserList;
 
         public UserServiceTests()
         {
@@ -36,6 +37,9 @@ namespace TUTORizedTests
             user.LastName = "LastName";
             user.Password = "password";
             user.Role = "tutor";
+
+            mockUserList = new List<User>();
+            mockUserList.Add(user);
 
             DateTime dateTime = new DateTime(2018, 03, 20, 00, 00, 00, 000);
             appointment = new Appointment();
@@ -95,6 +99,24 @@ namespace TUTORizedTests
 
             //ASSERT
             Assert.IsTrue(appts > 0, "The appointments were not greater than 0");
+        }
+
+        [TestMethod]
+        public async Task GetListOfUsersWorkedWithAsync_ShouldReturnListOfUsersWorkedWith()
+        {
+            //ARRANGE
+            _userRepositoryMock.Setup(_userRepositoryMock => _userRepositoryMock.GetListOfUsersWorkedWithAsync()).Returns(Task.FromResult((IEnumerable<User>)mockUserList));
+            int users = 0;
+
+            //ACT
+            var userList = await _sut.GetListOfUsersWorkedWithAsync();
+            foreach (User mockUser in userList)
+            {
+                users++;
+            }
+
+            //ASSERT
+            Assert.IsTrue(users > 0, "The number of users were not greater than 0");
         }
     }
 }
