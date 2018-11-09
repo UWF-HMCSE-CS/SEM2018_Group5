@@ -4,19 +4,16 @@
         <h5>Here is a list of people you have worked with:</h5>
         <v-layout>
             <v-flex>
-                <ul v-if="isLoaded">
-                    <li v-for="user in users">
-                        <div v-if="user.Id !== null">
-                            Name: {{ user.firstName }} {{ user.lastName }} Email: {{ user.email }}
-                        </div>
-                        <div v-else="user.Id == null">
-                            Sorry, you have not worked with anyone yet.
-                        </div>
-                    </li>
-                    <!--<li v-show="user.Id == null">
+                <div v-if="isLoaded">
+                    <ul v-if="users.length != 0">
+                        <li v-for="user in users">
+                             Name: {{ user.firstName }} {{ user.lastName }} Email: {{ user.email }}
+                        </li>
+                    </ul>
+                    <ul v-else>
                         Sorry, you have not worked with anyone yet.
-                    </li>-->
-                </ul>
+                    </ul>
+                </div>
             </v-flex>
         </v-layout>
     </div>
