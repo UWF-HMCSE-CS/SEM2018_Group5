@@ -94,7 +94,21 @@ After reading the description above, you must have figured out that our applicat
 8. The appointment you just confirmed will be displayed on your calendar along with the date, time and the name of your tutor.
 ![image](https://user-images.githubusercontent.com/14351534/47765495-39f07600-dc98-11e8-9a9e-9d1eddf4c0b4.png)
 
+### Viewing Users (Tutors or Students) you have worked with
+1. After you have logged in (discribed above), select the correct tab based on what "Role" you are logged in under. 
+  
+  A) Logged in as "Tutor"
+  
+  
+  B) Logged in as "Student"
 
+
+2. Next you will be able to see who you have worked with, or if you have not worked with anyone yet.
+
+  A) Displays the Users you have worked with
+  
+  
+  B) Informs you that you have not worked with another User yet
 
 
 ## Running the tests
