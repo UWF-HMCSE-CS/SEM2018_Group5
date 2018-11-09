@@ -70,5 +70,14 @@ namespace TUTORized.Controllers
             var test = listOfAppointments;
             return Ok(test);
         }
+
+        [HttpGet("getListOfUsersWorkedWith")]
+        [ProducesResponseType(typeof(IList<User>), 200)]
+        public async Task<IActionResult> GetListOfUsersWorkedWithAsync()
+        {
+            var listOfUsersWorkedWith = await _userService.GetListOfUsersWorkedWithAsync();
+            var test = listOfUsersWorkedWith;
+            return Ok(test);
+        }
     }
 }
