@@ -11,11 +11,17 @@ using TUTORized.Repository;
 using TUTORized.Repository.Abstract;
 using TUTORized.Services;
 using TUTORized.Services.Abstract;
+using Microsoft.AspNetCore.App;
+using SignalRWebPack.Hubs;
 
 namespace TUTORized
 {
+    
     public class Startup
     {
+
+       
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -24,6 +30,7 @@ namespace TUTORized
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
+
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
@@ -39,6 +46,8 @@ namespace TUTORized
             services.AddSingleton<ITutorService, TutorService>();
             services.AddSingleton<ITutorRepository>(provider =>
                 new TutorRepository(Configuration.GetConnectionString("tma")));
+
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,6 +66,7 @@ namespace TUTORized
                 app.UseExceptionHandler("/Home/Error");
             }
 
+            app.UseDefaultFiles();
             app.UseStaticFiles();
 
             app.UseMvc(routes =>
@@ -68,6 +78,11 @@ namespace TUTORized
                 routes.MapSpaFallbackRoute(
                     name: "spa-fallback",
                     defaults: new { controller = "Home", action = "Index" });
+            });
+
+            app.UseSignalR(options =>
+            {
+                options.MapHub<ChatHub>("/hub");
             });
         }
     }
