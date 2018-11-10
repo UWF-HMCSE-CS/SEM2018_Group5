@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SignalRWebPack.Hubs;
 using TUTORized.Repository;
 using TUTORized.Repository.Abstract;
 using TUTORized.Services;
@@ -15,8 +16,10 @@ using SignalRChat.Hubs;
 
 namespace TUTORized
 {
+    
     public class Startup
     {
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -25,6 +28,7 @@ namespace TUTORized
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
+
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
@@ -60,6 +64,7 @@ namespace TUTORized
                 app.UseExceptionHandler("/Home/Error");
             }
 
+            app.UseDefaultFiles();
             app.UseStaticFiles();
 
             app.UseSignalR(routes =>
@@ -76,6 +81,11 @@ namespace TUTORized
                 routes.MapSpaFallbackRoute(
                     name: "spa-fallback",
                     defaults: new { controller = "Home", action = "Index" });
+            });
+
+            app.UseSignalR(options =>
+            {
+                options.MapHub<ChatHub>("/hub");
             });
         }
     }
