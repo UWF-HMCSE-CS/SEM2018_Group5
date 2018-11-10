@@ -7,13 +7,14 @@
     <IsPackable>false</IsPackable>
     <UserSecretsId>04ca71b5-5671-43f4-a15a-940f3271214b</UserSecretsId>
     <ApplicationIcon />
-    <OutputType>Library</OutputType>
+    <OutputType>WinExe</OutputType>
     <StartupObject />
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Dapper" Version="1.50.5" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.7" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.0.4" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.4" />
   </ItemGroup>
 

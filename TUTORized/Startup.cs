@@ -7,20 +7,17 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SignalRWebPack.Hubs;
 using TUTORized.Repository;
 using TUTORized.Repository.Abstract;
 using TUTORized.Services;
 using TUTORized.Services.Abstract;
-using Microsoft.AspNetCore.App;
-using SignalRWebPack.Hubs;
 
 namespace TUTORized
 {
     
     public class Startup
     {
-
-       
 
         public Startup(IConfiguration configuration)
         {
