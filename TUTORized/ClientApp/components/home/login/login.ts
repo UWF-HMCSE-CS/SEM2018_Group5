@@ -30,14 +30,12 @@ export default class LoginComponent extends Vue{
 
         if(this.userInputValidation())
         {
-
             UserService.UserLogin(this.user.email, this.user.password)
             .then(result => {
                 Cookie.set('role', result.role);
                 
                 this.routeToHome();
             });
-
         }     
        
     }

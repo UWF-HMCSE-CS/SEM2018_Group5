@@ -32,10 +32,10 @@ export default class SignUpComponent extends Vue {
                 }
                 
             }else{
-                alert("Confirm password doesn't match, please try again");
+                alert("Password doesn't match, please try again");
             }
         }else{
-            alert("Please enter your first name");
+            alert("Please check your inputs.");
         }
 
     }
