@@ -15,6 +15,7 @@ export default class SignUpComponent extends Vue {
     month: string = '';
     day: string = '';
     dateTime: string = '';
+    isUserInputValidated: boolean = false;
 
     //set subject array
     subjects: any[] = [
@@ -38,6 +39,49 @@ export default class SignUpComponent extends Vue {
         { time: '16:00' },
 ];
 
+
+    //validating user input
+    validatTutorInputFunction()
+    {
+        if(this.appointment.subject.length != 0)
+        {
+            if(this.year.length === 4)
+            {
+                if(this.month.length == 2)
+                {
+                    if(this.day.length == 2)
+                    {
+                        if(this.dateTime.length == 5 && this.dateTime.charAt(2) == ':')
+                        {
+
+                            this.isUserInputValidated = true;
+                            return true;
+
+                        }else{
+                            alert("Please enter the 'Time' follow this format 'hh:mm' and also contains ':'");
+                        }
+
+                    }else{
+                        alert("Please enter the 'Day' follow this format 'dd' ");
+                    }
+
+                }else{
+                    alert("Please enter the 'Month' follow this format 'mm' ");
+                }
+
+            }else{
+                alert("Please enter the 'Year' follow this format 'yyyy' ");
+            }
+        }else{
+            alert("Please select a subject");
+        }
+    
+    }
+
+
+
+
+
     computeDateFunction() {
         this.year = (<HTMLInputElement>document.getElementById("year")).value;
         this.month = (<HTMLInputElement>document.getElementById("month")).value;
@@ -51,29 +95,33 @@ export default class SignUpComponent extends Vue {
     submitFunction() {
 
         this.computeDateFunction();
+        if(this.validatTutorInputFunction())
+        {
 
-        $.ajax({
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            type: "POST",
-            url: 'api/tutor/createAppointment',
-            data: JSON.stringify({
-                "Id": this.appointment.id,
-                "TutorId": this.appointment.tutorId,
-                "Date": this.appointment.date,
-                "Duration": this.appointment.duration,
-                "Subject": this.appointment.subject,
-                "TutorFirstName": this.appointment.tutorFirstName,
-                "TutorLastName": this.appointment.tutorLastName
-            }),
-            dataType: 'json',
-            complete: function (response) {
-                alert('Scheduled Successfully');
-                window.location.href = "/makeSchedule";
-            }
-        });
+            $.ajax({
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                type: "POST",
+                url: 'api/tutor/createAppointment',
+                data: JSON.stringify({
+                    "Id": this.appointment.id,
+                    "TutorId": this.appointment.tutorId,
+                    "Date": this.appointment.date,
+                    "Duration": this.appointment.duration,
+                    "Subject": this.appointment.subject,
+                    "TutorFirstName": this.appointment.tutorFirstName,
+                    "TutorLastName": this.appointment.tutorLastName
+                }),
+                dataType: 'json',
+                complete: function (response) {
+                    alert('Scheduled Successfully');
+                    window.location.href = "/makeSchedule";
+                }
+            });
+
+        }
     }
 }
 
