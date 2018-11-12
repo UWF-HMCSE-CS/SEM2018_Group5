@@ -43,26 +43,29 @@ export default class SignUpComponent extends Vue {
 
     signUpFunction() {
 
-        $.ajax({
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            type: "POST",
-            url: 'api/user/registerUser',
-            data: JSON.stringify({
-                "Firstname": this.user.firstName,
-                "Lastname": this.user.lastName,
-                "Email": this.user.email,
-                "Password": this.user.password,
-                "Role": this.user.role
-            }),
-            dataType: 'json',
-            complete: function (response) {
-                 window.location.href = "/";
-            }
+        if(this.validatUserInoutFunction())
+        {
+            $.ajax({
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                type: "POST",
+                url: 'api/user/registerUser',
+                data: JSON.stringify({
+                    "Firstname": this.user.firstName,
+                    "Lastname": this.user.lastName,
+                    "Email": this.user.email,
+                    "Password": this.user.password,
+                    "Role": this.user.role
+                }),
+                dataType: 'json',
+                complete: function (response) {
+                    window.location.href = "/";
+                }
 
-        });
+            });
+    }
     }
 
 
