@@ -90,29 +90,32 @@ export default class SignUpComponent extends Vue {
     submitFunction() {
 
         this.computeDateFunction();
+        if(this.validatTutorInputFunction())
+        {
+            $.ajax({
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                type: "POST",
+                url: 'api/tutor/createAppointment',
+                data: JSON.stringify({
+                    "Id": this.appointment.id,
+                    "TutorId": this.appointment.tutorId,
+                    "Date": this.appointment.date,
+                    "Duration": this.appointment.duration,
+                    "Subject": this.appointment.subject,
+                    "TutorFirstName": this.appointment.tutorFirstName,
+                    "TutorLastName": this.appointment.tutorLastName
+                }),
+                dataType: 'json',
+                complete: function (response) {
+                    alert('Scheduled Successfully');
+                    window.location.href = "/makeSchedule";
+                }
+            });
 
-        $.ajax({
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            type: "POST",
-            url: 'api/tutor/createAppointment',
-            data: JSON.stringify({
-                "Id": this.appointment.id,
-                "TutorId": this.appointment.tutorId,
-                "Date": this.appointment.date,
-                "Duration": this.appointment.duration,
-                "Subject": this.appointment.subject,
-                "TutorFirstName": this.appointment.tutorFirstName,
-                "TutorLastName": this.appointment.tutorLastName
-            }),
-            dataType: 'json',
-            complete: function (response) {
-                alert('Scheduled Successfully');
-                window.location.href = "/makeSchedule";
-            }
-        });
+        }
     }
 }
 
