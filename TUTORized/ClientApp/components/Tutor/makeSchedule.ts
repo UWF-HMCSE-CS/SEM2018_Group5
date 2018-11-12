@@ -39,7 +39,7 @@ export default class SignUpComponent extends Vue {
         { time: '16:00' },
 ];
 
-
+    //user input validation
     validatTutorInputFunction()
     {
         if(this.appointment.subject.length != 0)
