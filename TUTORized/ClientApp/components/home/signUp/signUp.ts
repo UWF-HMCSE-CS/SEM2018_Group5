@@ -30,7 +30,7 @@ export default class SignUpComponent extends Vue {
                 }else{
                     alert("Please select a role");
                 }
-                
+
             }else{
                 alert("Password doesn't match, please try again");
             }
