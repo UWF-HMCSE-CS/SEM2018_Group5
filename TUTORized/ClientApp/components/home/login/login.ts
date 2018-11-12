@@ -9,35 +9,14 @@ import * as Cookie from 'es-cookie';
 export default class LoginComponent extends Vue{
     
     user = new User();
-    
-    //field validation
-    userInputValidation()
-    {
-        if(this.user.email.length != 0)
-        {
-            if(this.user.password.length != 0)
-            {
-                return true;
-            }else{
-                alert("Please enter your password");
-            }
-        }else{
-            alert("Please enter your email");
-        }
-    }
    
-    loginButtonFunction(){
-
-        if(this.userInputValidation())
-        {
-            UserService.UserLogin(this.user.email, this.user.password)
-            .then(result => {
-                Cookie.set('role', result.role);
-                
-                this.routeToHome();
-            });
-        }     
-       
+    loginButtonFunction(){     
+        UserService.UserLogin(this.user.email, this.user.password)
+        .then(result => {
+            Cookie.set('role', result.role);
+            
+            this.routeToHome();
+        });
     }
 
     routeToSignup(){
