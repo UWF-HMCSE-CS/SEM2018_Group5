@@ -40,7 +40,6 @@ export default class SignUpComponent extends Vue {
 ];
 
 
-    //validating the user input
     validatTutorInputFunction()
     {
         if(this.appointment.subject.length != 0)
