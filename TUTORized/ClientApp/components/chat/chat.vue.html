@@ -14,6 +14,7 @@
             <v-flex>
                 <div v-if="isLoaded">
 
+                    <form name = "asdf">
                         <ul v-if="users.length != 0">
                             <v-list v-for="user in users">
                                 <input type="radio" class="radioClass" name="usersNames" value="0"> {{ user.firstName}} {{ user.lastName }}
@@ -25,7 +26,8 @@
                                 -->
                             </v-list>
                         </ul>
-
+                    </form>
+                    
                     <ul v-else>
                         Sorry, you have not worked with anyone yet.
                     </ul>
