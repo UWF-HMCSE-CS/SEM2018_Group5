@@ -16,7 +16,7 @@
 
                         <ul v-if="users.length != 0">
                             <v-list v-for="user in users">
-                                <input type="radio" name="usersNames"> {{ user.firstName}} {{ user.lastName }}
+                                <input type="radio" class="radioClass" name="usersNames"> {{ user.firstName}} {{ user.lastName }}
                                 <!--
                                 <v-radio
                                     :label="user.firstName"
@@ -31,11 +31,14 @@
                     </ul>
 
                 </div>
-
-                <input type="text">Message:
-                <v-btn flat @click="chatFunction">Send Message!</v-btn>
             </v-flex>
         </v-layout>
+
+        <label>Message:</label>
+        <input type="text" />
+    
+        <v-btn flat @click="chatFunction">Send!</v-btn>
+
     </div>
 </template>
 

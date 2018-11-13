@@ -22,4 +22,12 @@ export default class ChatUser extends Vue {
             this.isLoaded = true;
         });
     }
+
+    chatFunction(){
+        $(".radioClass").change(function(){
+            alert("test2");
+            var selected_value = $(this).val();
+            alert(selected_value);
+        })
+    }
 }
