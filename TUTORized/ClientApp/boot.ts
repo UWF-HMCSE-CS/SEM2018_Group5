@@ -14,10 +14,9 @@ const routes = [
     { path: '/listAppointments', component: require('./components/calendar/calendar.vue.html').default },
     { path: '/scheduleappointment', component: require('./components/student/scheduleAppointment.vue.html').default },
     { path: '/makeSchedule', component: require('./components/Tutor/makeSchedule.vue.html').default },
-
+    { path: '/ListOfUsersWorkedWith', component: require('./components/UserWorkedWith/ListOfUsersWorkedWith.vue.html').default },
     { path: '/chat', component: require('./components/chat/chat.vue.html').default },
-
-    { path: '/ListOfUsersWorkedWith', component: require('./components/UserWorkedWith/ListOfUsersWorkedWith.vue.html').default }
+    { path: '/logout', component: require('./components/home/login/login.vue.html').default },
 
 ];
 

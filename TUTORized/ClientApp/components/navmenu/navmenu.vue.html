@@ -40,11 +40,11 @@
                     </li>
                     <li>
                         <router-link v-if="isStudent || isTutor" to="/chat">
-                            Chat
+                                Chat
                         </router-link>
                     </li>
                     <li>
-                        <router-link v-if="isLoggedIn" to="/" @click.native="logOut">
+                        <router-link v-if="isLoggedIn" to="/logout" @click.native="logOut">
                             Log Out
                         </router-link>
                     </li>

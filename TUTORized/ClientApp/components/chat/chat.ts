@@ -1,36 +1,25 @@
+import Vue from 'vue';
+import { Component } from 'vue-property-decorator';
+import { User } from '../../models/User';
+import UserService from '../../services/user/userServices';
 
-import * as signalR from "@aspnet/signalr";
 
-const divMessages: HTMLDivElement = document.querySelector("#divMessages");
-const tbMessage: HTMLInputElement = document.querySelector("#tbMessage");
-const btnSend: HTMLButtonElement = document.querySelector("#btnSend");
-const username = new Date().getTime();
-
-const connection = new signalR.HubConnectionBuilder()
-    .withUrl("/hub")
-    .build();
-
-connection.start().catch(err => document.write(err));
-
-connection.on("messageReceived", (username: string, message: string) => {
-    let m = document.createElement("div");
-
-    m.innerHTML =
-        `<div class="message__author">${username}</div><div>${message}</div>`;
-
-    divMessages.appendChild(m);
-    divMessages.scrollTop = divMessages.scrollHeight;
-});
-
-tbMessage.addEventListener("keyup", (e: KeyboardEvent) => {
-    if (e.keyCode === 13) {
-        send();
+@Component({
+    components: {
+        NavMenu: require('../navmenu/navmenu.vue.html').default
     }
-});
+})
+export default class ChatUser extends Vue {
 
-btnSend.addEventListener("click", send);
+    users: Array<User> = [];
+    user = new User();
+    selectedUser = new User();
+    isLoaded: boolean = false;
 
-function send() {
-    connection.send("newMessage", username, tbMessage.value)
-    .then(() => tbMessage.value = "");
+    mounted() {
+        UserService.GetListOfUsersWorkedWith().then(result => {
+            this.users = result;
+            this.isLoaded = true;
+        });
+    }
 }
