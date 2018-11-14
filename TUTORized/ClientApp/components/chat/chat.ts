@@ -29,12 +29,12 @@ export default class ChatUser extends Vue {
 
     computeMessageFunction(){
         this.message = this.message = (<HTMLInputElement>document.getElementById("message")).value;
-        alert(this.message);
+        alert("Message sent successfully");
     }
 
 
     chatFunction(){
-        alert(this.computeMessageFunction);
+        this.computeMessageFunction();
         /*
 
         var found_it;
