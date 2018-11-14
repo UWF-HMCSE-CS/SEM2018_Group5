@@ -77,7 +77,7 @@ export default class ChatUser extends Vue {
             
         }
         */
-    }
+    
         /*
         selectFunction(){
             $('input[type="radio"]').on('click',function(){
@@ -88,8 +88,8 @@ export default class ChatUser extends Vue {
             });
         }
         */
-        
 
+    }
 
 
     
