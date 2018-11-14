@@ -14,6 +14,7 @@ export default class ChatUser extends Vue {
 
     users: Array<User> = [];
     user = new User();
+    message: string = '';
     selectedUser = new User();
     isLoaded: boolean = false;
 
@@ -26,11 +27,14 @@ export default class ChatUser extends Vue {
     }
 
 
-
+    computeMessageFunction(){
+        this.message = this.message = (<HTMLInputElement>document.getElementById("message")).value;
+        alert(this.message);
+    }
 
 
     chatFunction(){
-        alert("test");
+        alert(this.computeMessageFunction);
         /*
 
         var found_it;
