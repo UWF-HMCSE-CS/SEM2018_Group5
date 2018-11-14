@@ -1,40 +1,38 @@
 <template>
     <div>
         <nav-menu></nav-menu>
-        <!--
-        <div v-for="user in users">
-            <div v-if="user.role == 'tutor'">
-                Select a tutor to chat with, write a message and send that message:
-            </div>
-        </div>
-        -->
         <h5>Select a user to chat with, write a message and send that message:</h5> 
 
         <v-layout>
+                <v-flex>
+                    <v-select v-model="user"
+                              :items="users.firstName"
+                              item-text="usersNames"
+                              item-value="usersNames"
+                              label="Select a user">
+                    </v-select>
+                </v-flex>
+        </v-layout>
+
+        <!--
+        <v-layout>
             <v-flex>
                 <div v-if="isLoaded">
-
-                    <form name = "asdf">
                         <ul v-if="users.length != 0">
                             <v-list v-for="user in users">
                                 <input type="radio" class="radioClass" name="usersNames" value="0"> {{ user.firstName}} {{ user.lastName }}
-                                <!--
-                                <v-radio
-                                    :label="user.firstName"
-                                    :value="0">
-                                </v-radio>
-                                -->
+                                
                             </v-list>
                         </ul>
-                    </form>
                     
-                    <ul v-else>
-                        Sorry, you have not worked with anyone yet.
-                    </ul>
+                        <ul v-else>
+                            Sorry, you have not worked with anyone yet.
+                        </ul>
 
                 </div>
             </v-flex>
         </v-layout>
+    -->
 
         <label>Message:</label>
         <input type="text" />

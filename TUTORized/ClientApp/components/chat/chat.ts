@@ -10,14 +10,13 @@ import UserService from '../../services/user/userServices';
     }
 })
 
-
-
 export default class ChatUser extends Vue {
 
     users: Array<User> = [];
     user = new User();
     selectedUser = new User();
     isLoaded: boolean = false;
+
 
     mounted() {
         UserService.GetListOfUsersWorkedWith().then(result => {
@@ -31,6 +30,8 @@ export default class ChatUser extends Vue {
 
 
     chatFunction(){
+
+        /*
 
         var found_it;
 
@@ -47,6 +48,7 @@ export default class ChatUser extends Vue {
                 // ...
             }
         }
+        */
 
         /*
             $('input[type=radio]').on("change",function() {
@@ -87,7 +89,6 @@ export default class ChatUser extends Vue {
         }
         */
         
-
 
 
 
