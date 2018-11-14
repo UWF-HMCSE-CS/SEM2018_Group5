@@ -14,7 +14,11 @@
                               item-value="user.id"
                               label="Select A Member To Chat With:">
                     </v-select>
-                    
+                    <!--
+                        To add first and last name, use this:
+                        https://codepen.io/anon/pen/PEpaMM?editors=1011
+
+                    -->
                 </v-flex>
         </v-layout>
 
@@ -40,10 +44,33 @@
         </v-layout>
     -->
 
+    <v-layout>
+            <v-flex xs12 md8 lg6>
+                <v-text-field id="message" v-model="message" label="Message"></v-text-field>
+            </v-flex>
+    </v-layout>
+
+    <v-layout>
+            <v-flex xs12 md8 lg6>
+                <!--<v-select id="dateTime"
+                      v-model="dateTime"
+                      :items="times"
+                      item-text="time"
+                      item-value="time"
+                      label="Time (24hr format)">
+            </v-select>-->
+                <v-actions>
+                    <v-btn @click="chatFunction">Submit</v-btn>
+                </v-actions>
+            </v-flex>
+        </v-layout>
+
+    <!--
         <label>Message:</label>
         <input type="text" />
     
         <v-btn flat @click="chatFunction">Send!</v-btn>
+    -->    
 
     </div>
 </template>

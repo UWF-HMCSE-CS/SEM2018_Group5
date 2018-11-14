@@ -30,7 +30,7 @@ export default class ChatUser extends Vue {
 
 
     chatFunction(){
-
+        alert("test");
         /*
 
         var found_it;
