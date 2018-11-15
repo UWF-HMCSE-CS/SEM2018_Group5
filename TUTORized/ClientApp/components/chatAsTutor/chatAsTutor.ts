@@ -5,6 +5,7 @@ import { Message } from '../../models/Message';
 import UserService from '../../services/user/userServices';
 
 
+
 @Component({
     components: {
         NavMenu: require('../navmenu/navmenu.vue.html').default
@@ -21,6 +22,7 @@ export default class ChatUser extends Vue {
 
     messageTemp = new Message();
     messages: string = '';
+ //   msgs: Array<Message> = [];
 
     
     isLoaded: boolean = false;
@@ -31,12 +33,22 @@ export default class ChatUser extends Vue {
             this.users = result;
             this.isLoaded = true;
         });
+
+        /*
+        ChatService.GetListOfMessages().then(result => {
+            this.msgs = result;
+            this.isLoaded = true;
+        })
+        */
     }
+
+ 
 
 
     computeMessageFunction(){
-        this.messages = (<HTMLInputElement>document.getElementById("message")).value;
-     // alert(this.messages);
+        this.messageTemp.messageBody = (<HTMLInputElement>document.getElementById("message")).value;
+        this.messageTemp.messageBody = (<HTMLInputElement>document.getElementById("message")).value;
+    //    alert(this.messageTemp.messageBody);
         
     }
 
@@ -48,19 +60,24 @@ export default class ChatUser extends Vue {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
+                
             },
+            
             type: "POST",
-            url: 'api/chat/sendMessage',
+            url: 'api/chatAsTutor/createMessage',
             data: JSON.stringify({
                 "Id": this.messageTemp.id,
-                "FromUserId": this.messageTemp.fromUserId,
-                "ToUserId": this.messageTemp.toUserId,
-                "MessageBody": this.messageTemp.messageBody
+                "TutorId": this.messageTemp.tutorId,
+                "SendToId": this.user.id,
+                "MessageBody": this.messageTemp.messageBody,
+                "TutorFirstName": this.messageTemp.tutorFirstName,
+                "TutorLastName": this.messageTemp.tutorLastName
+                
             }),
             dataType: 'json',
             complete: function (response) {
                 alert("Message sent successfully");
-                window.location.href = "/chat";
+                window.location.href = "/chatAsTutor";
             }
         });
 
@@ -114,7 +131,6 @@ export default class ChatUser extends Vue {
         /*
         selectFunction(){
             $('input[type="radio"]').on('click',function(){
-                alert("test");
                 var value = $(this).val();
                 var name = $(this).attr('name');
                 alert(name);

@@ -39,8 +39,13 @@
                         </router-link>
                     </li>
                     <li>
-                        <router-link v-if="isStudent || isTutor" to="/chat">
-                                Chat
+                        <router-link v-if="isTutor" to="/chatAsTutor">
+                                Chat With A Student
+                        </router-link>
+                    </li>
+                    <li>
+                        <router-link v-if="isStudent" to="/chatAsStudent">
+                                Chat With A Tutor
                         </router-link>
                     </li>
                     <li>

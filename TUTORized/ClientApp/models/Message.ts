@@ -1,15 +1,26 @@
 export class Message {
     id: string;
-    fromUserId: string;
-    toUserId: string;
+    studentId: string;
+    tutorId: string;
+    sendToId: string;
     messageBody: string;
+    studentFirstName: string;
+    studentLastName: string;
+    tutorFirstName: string;
+    tutorLastName: string;
+    
     
 
     constructor() {
         this.id = "";
-        this.fromUserId = "";
-        this.toUserId = "";
+        this.studentId = "";
+        this.tutorId = "";
+        this.sendToId = "";
         this.messageBody = "";
+        this.studentFirstName = "";
+        this.studentLastName = "";
+        this.tutorFirstName = "";
+        this.tutorLastName = "";
         
     }
 }

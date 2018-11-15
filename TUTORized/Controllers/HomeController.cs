@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using TUTORized.Models;
 using TUTORized.Repository;
 using TUTORized.Repository.Abstract;
 using TUTORized.Services;
@@ -12,18 +13,29 @@ namespace TUTORized.Controllers
     {
         //FOR TESTING PURPOSES ONLY
         private readonly IUserService _userService;
-        private readonly IUserRepository _userRepository;
+    //    private readonly IChatAsTutorService _chatAsTutorService;
 
         public HomeController(IUserService userService)
         {
             _userService = userService;
+     //       _chatAsTutorService = chatAsTutorService;
         }
 
+        /*
+        public async Task<IActionResult> Index()
+        {
+            ChatAsTutorController cc = new ChatAsTutorController(_chatAsTutorService);
+            
+            await cc.CreateTutorMessage("adsf");
+            return View();
+        }
+        */
+        
         public IActionResult Index()
         {
             return View();
         }
-
+        
         public IActionResult Error()
         {
             ViewData["RequestId"] = Activity.Current?.Id ?? HttpContext.TraceIdentifier;

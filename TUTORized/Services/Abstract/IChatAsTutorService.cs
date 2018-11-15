@@ -16,14 +16,16 @@ with each other.
 @author Wenwen Xu
 @version 1.0
 CEN4053    "TUTORized" SEM- Group 5's class project
-File Name: IChatRepository.cs 
-    This is the interface for the TutorRepository class.
+File Name: IChatService.cs 
+    This class is the interface for the TutorService class.
 */
 
-namespace TUTORized.Repository.Abstract
+namespace TUTORized.Services.Abstract
 {
-    public interface IChatRepository
+    public interface IChatAsTutorService
     {
-        Task<Message> SendMessage(Message message);
+        Task<Message> CreateMessage(Message message);
+
+    //    Task<IEnumerable<Message>> GetEntireUserMessageListAsync();
     }
 }

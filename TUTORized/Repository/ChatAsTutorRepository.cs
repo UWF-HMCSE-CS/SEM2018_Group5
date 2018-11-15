@@ -26,28 +26,43 @@ File Name: ChatRepository.cs
 
 namespace TUTORized.Repository
 {
-    public class ChatRepository : BaseRepository, IChatRepository
+    public class ChatAsTutorRepository : BaseRepository, IChatAsTutorRepository
     {
-        public ChatRepository(string connection) : base(connection)
+        public ChatAsTutorRepository(string connection) : base(connection)
         {
 
         }
 
         
-        public async Task<Message> SendMessage(Message message)
+        public async Task<Message> CreateMessage(Message message)
         {
             //Initializes Parameters for Stored Procedure
             var parameters = new DynamicParameters();
 
             //Adds to Parameters
             parameters.Add("UserId", loggedInUser.Id);
-            parameters.Add("FromUserId", message.FromUserId);
-            parameters.Add("ToUserId", message.ToUserId);
-            parameters.Add("MessaageBody", message.MessageBody);
+            parameters.Add("SendToId", message.SendToId);
+            parameters.Add("MessageBody", message.MessageBody);
+            parameters.Add("TutorFirstName", loggedInUser.FirstName);
+            parameters.Add("TutorLastName", loggedInUser.LastName);
 
-            var result = await FirstJsonResultAsync<Message>("createMessage", parameters);
+            var result = await FirstJsonResultAsync<Message>("createMessageAsTutor", parameters);
             return result;
         }
+
+        /* 
+        public async Task<IEnumerable<Message>> GetEntireUserMessageListAsync()
+        {
+            string loggedInUserEmail = loggedInUser.Email;
+            var parameters = new DynamicParameters();
+
+            //Adds to Parameters
+            parameters.Add("Email", loggedInUserEmail);
+ 
+            return await JsonResultAsync<Message>("getAppointmentsByStudentEmail", parameters);
+        }
+
+        */
 
         
     }

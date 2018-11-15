@@ -24,19 +24,26 @@ File Name: ChatService.cs
 
 namespace TUTORized.Services
 {
-    public class ChatService : IChatService
+    public class ChatAsTutorService : IChatAsTutorService
     {
-        private readonly IChatRepository _chatRepository;
+        private readonly IChatAsTutorRepository _chatAsTutorRepository;
 
-        public ChatService(IChatRepository chatRepository)
+        public ChatAsTutorService(IChatAsTutorRepository chatAsTutorRepository)
         {
-            _chatRepository = chatRepository;
+            _chatAsTutorRepository = chatAsTutorRepository;
         }
 
       
-        public async Task<Message> SendMessage(Message message)
+        public async Task<Message> CreateMessage(Message message)
         {
-            return await _chatRepository.SendMessage(message);
+            return await _chatAsTutorRepository.CreateMessage(message);
         }
+
+        /* 
+        public async Task<IEnumerable<Appointment>> GetEntireUserMessageListAsync()
+        {
+            return await _chatRepository.GetEntireUserMessageListAsync();
+        }
+        */
     }
 }
