@@ -28,29 +28,15 @@ namespace TUTORized.Models
         [JsonProperty("id")]
         public string Id { get; set; }
 
-        [JsonProperty("studentId")]
-        public string StudentId { get; set; }
+        [JsonProperty("fromUserId")]
+        public string FromUserId { get; set; }
 
-        [JsonProperty("tutorId")]
-        public string TutorId { get; set; }
-
-        [JsonProperty("sendToId")]
-        public string SendToId { get; set; }
+        [JsonProperty("toUserId")]
+        public string ToUserId { get; set; }
 
         [JsonProperty("messageBody")]
-        public DateTime MessageBody { get; set; }
+        public string MessageBody { get; set; }
 
-        [JsonProperty("studentFirstName")]
-        public string StudentFirstName { get; set; }
-
-        [JsonProperty("studentLastName")]
-        public string StudentLastName { get; set; }
-
-        [JsonProperty("tutorFirstName")]
-        public string TutorFirstName { get; set; }
-
-        [JsonProperty("tutorLastName")]
-        public string TutorLastName { get; set; }
 
 
 

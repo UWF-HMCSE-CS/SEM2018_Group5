@@ -2,7 +2,7 @@
     <div>
         <nav-menu></nav-menu>
 
-        <h5>Select a tutor to chat with, write a message and send that message:</h5> 
+        <h5>Select a user to chat with, write a message and send that message:</h5> 
 
         <!--
             To add first and last name, use this:
@@ -17,7 +17,7 @@
                     :items="users"
                     item-text="email"
                     item-value="user.id"
-                    label="Select A Tutor To Chat With:">
+                    label="Select A User To Chat With:">
                   </v-select>
               </v-flex>
         </v-layout>
@@ -30,7 +30,7 @@
             </v-flex>
         </v-layout>
 
-        <!--Send button sends the message to the tutor-->
+        <!--Send button sends the message to the student-->
         <v-layout>
             <v-flex xs12 md8 lg6>
                  <v-actions>
@@ -47,4 +47,4 @@
     </div>
 </template>
 
-<script src="./chatAsStudent.ts"></script>
+<script src="./chat.ts"></script>
