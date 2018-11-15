@@ -60,11 +60,31 @@
                       label="Time (24hr format)">
             </v-select>-->
                 <v-actions>
-                    <v-btn @click="chatFunction">Send</v-btn>
+                    <v-btn @click="sendButtonFunction">Send</v-btn>
                 </v-actions>
             </v-flex>
-        </v-layout>
+    </v-layout>
 
+
+    <h5>Here is the chat history:</h5> 
+
+<!--
+    <v-layout>
+            <v-flex>
+                <ul v-if="isLoaded">
+                    <li v-for="event in events">
+                        Date: {{ event.date }} |
+                        Duration: {{ event.duration }} mins |
+                        Subject: {{ event.subject }} |
+                        Student: {{ event.studentFirstName }} 
+                        {{ event.studentLastName }} |
+                        Tutor: {{ event.tutorFirstName }} 
+                        {{ event.tutorLastName }}
+                    </li>
+                </ul>
+            </v-flex>
+        </v-layout>
+-->
     <!--
         <label>Message:</label>
         <input type="text" />

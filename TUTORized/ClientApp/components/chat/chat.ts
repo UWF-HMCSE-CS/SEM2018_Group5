@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 import { User } from '../../models/User';
+import { Message } from '../../models/Message';
 import UserService from '../../services/user/userServices';
 
 
@@ -12,10 +13,16 @@ import UserService from '../../services/user/userServices';
 
 export default class ChatUser extends Vue {
 
-    users: Array<User> = [];
+    
     user = new User();
-    message: string = '';
+    users: Array<User> = [];
+
     selectedUser = new User();
+
+    messageTemp = new Message();
+    messages: string = '';
+
+    
     isLoaded: boolean = false;
 
 
@@ -28,13 +35,35 @@ export default class ChatUser extends Vue {
 
 
     computeMessageFunction(){
-        this.message = this.message = (<HTMLInputElement>document.getElementById("message")).value;
-        alert("Message sent successfully");
+        this.messages = (<HTMLInputElement>document.getElementById("message")).value;
+     // alert(this.messages);
+        
     }
 
 
-    chatFunction(){
+    sendButtonFunction(){
         this.computeMessageFunction();
+
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: "POST",
+            url: 'api/chat/sendMessage',
+            data: JSON.stringify({
+                "Id": this.messageTemp.id,
+                "FromUserId": this.messageTemp.fromUserId,
+                "ToUserId": this.messageTemp.toUserId,
+                "MessageBody": this.messageTemp.messageBody
+            }),
+            dataType: 'json',
+            complete: function (response) {
+                alert("Message sent successfully");
+                window.location.href = "/chat";
+            }
+        });
+
         /*
 
         var found_it;
