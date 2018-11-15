@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -22,11 +22,9 @@ File Name: IChatService.cs
 
 namespace TUTORized.Services.Abstract
 {
-    public interface IChatAsTutorService
+    public interface IChatAsStudentService
     {
         Task<Message> CreateMessage(Message message);
-
-        Task<IEnumerable<Message>> GetEntireUserMessagesListAsync();
 
     }
 }

@@ -3,6 +3,7 @@ import { Component } from 'vue-property-decorator';
 import { User } from '../../models/User';
 import { Message } from '../../models/Message';
 import UserService from '../../services/user/userServices';
+import ChatAsTutorServices from '../../services/chat/chatAsTutorServices';
 
 
 
@@ -22,9 +23,8 @@ export default class ChatUser extends Vue {
 
     messageTemp = new Message();
     messages: string = '';
- //   msgs: Array<Message> = [];
 
-    
+    msgs: Array<Message> = [];
     isLoaded: boolean = false;
 
 
@@ -34,12 +34,12 @@ export default class ChatUser extends Vue {
             this.isLoaded = true;
         });
 
-        /*
-        ChatService.GetListOfMessages().then(result => {
+        ChatAsTutorServices.GetListOfMessages().then(result => {
             this.msgs = result;
             this.isLoaded = true;
         })
-        */
+
+        
     }
 
  
@@ -47,7 +47,7 @@ export default class ChatUser extends Vue {
 
     computeMessageFunction(){
         this.messageTemp.messageBody = (<HTMLInputElement>document.getElementById("message")).value;
-        this.messageTemp.messageBody = (<HTMLInputElement>document.getElementById("message")).value;
+        
     //    alert(this.messageTemp.messageBody);
         
     }
@@ -81,71 +81,7 @@ export default class ChatUser extends Vue {
             }
         });
 
-        /*
-
-        var found_it;
-
-        for (var i=0; i<document.asdf.usersNames.length; i++)  {
-        if (document.asdf.usersNames[i].checked)  {
-    
-        found_it = document.asdf.usersNames[i].value
-    
-        }
-        } 
-
-        for (var i = 0; i < document.asdf.radio_name.length; i++) {
-            if (document.asdf.radio_name[i].checked) {
-                // ...
-            }
-        }
-        */
-
-        /*
-            $('input[type=radio]').on("change",function() {
-                alert($(this).val());
-            });  
-        */
-        /*
-        $(".radioClass").change(function(){
-            alert("test2");
-            var selected_value = $(this).val();
-            alert(selected_value);
-        })
-        */
-
-        /*
-        // go through the users in User and see which user's radio button is checked and get the value for it
-        for(var i = 0; i < this.users.length; i++){
-            document.getElementsByName(this.users[i]).checked
-            
-        }
-        */
-
-        /*
-        for(var i = 0; i < this.users.length; i++){
-            
-            
-        }
-        */
-    
-        /*
-        selectFunction(){
-            $('input[type="radio"]').on('click',function(){
-                var value = $(this).val();
-                var name = $(this).attr('name');
-                alert(name);
-            });
-        }
-        */
-
     }
-
-
-    
-
-    
-
-    
 
     
 }

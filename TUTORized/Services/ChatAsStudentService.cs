@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -24,24 +24,19 @@ File Name: ChatService.cs
 
 namespace TUTORized.Services
 {
-    public class ChatAsTutorService : IChatAsTutorService
+    public class ChatAsStudentService : IChatAsStudentService
     {
-        private readonly IChatAsTutorRepository _chatAsTutorRepository;
+        private readonly IChatAsStudentRepository _chatAsStudentRepository;
 
-        public ChatAsTutorService(IChatAsTutorRepository chatAsTutorRepository)
+        public ChatAsStudentService(IChatAsStudentRepository chatAsStudentRepository)
         {
-            _chatAsTutorRepository = chatAsTutorRepository;
+            _chatAsStudentRepository = chatAsStudentRepository;
         }
 
-      
+
         public async Task<Message> CreateMessage(Message message)
         {
-            return await _chatAsTutorRepository.CreateMessage(message);
-        }
-
-        public async Task<IEnumerable<Message>> GetEntireUserMessagesListAsync()
-        {
-            return await _chatAsTutorRepository.GetEntireUserMessagesListAsync();
+            return await _chatAsStudentRepository.CreateMessage(message);
         }
 
     }

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -26,14 +26,14 @@ File Name: ChatRepository.cs
 
 namespace TUTORized.Repository
 {
-    public class ChatAsTutorRepository : BaseRepository, IChatAsTutorRepository
+    public class ChatAsStudentRepository : BaseRepository, IChatAsStudentRepository
     {
-        public ChatAsTutorRepository(string connection) : base(connection)
+        public ChatAsStudentRepository(string connection) : base(connection)
         {
 
         }
 
-        
+
         public async Task<Message> CreateMessage(Message message)
         {
             //Initializes Parameters for Stored Procedure
@@ -43,28 +43,15 @@ namespace TUTORized.Repository
             parameters.Add("UserId", loggedInUser.Id);
             parameters.Add("SendToId", message.SendToId);
             parameters.Add("MessageBody", message.MessageBody);
-            parameters.Add("TutorFirstName", loggedInUser.FirstName);
-            parameters.Add("TutorLastName", loggedInUser.LastName);
+            parameters.Add("StudentFirstName", loggedInUser.FirstName);
+            parameters.Add("StudentLastName", loggedInUser.LastName);
 
-            var result = await FirstJsonResultAsync<Message>("createMessageAsTutor", parameters);
+            var result = await FirstJsonResultAsync<Message>("createMessageAsStudent", parameters);
             return result;
         }
 
-        public async Task<IEnumerable<Message>> GetEntireUserMessagesListAsync()
-        {
-            string loggedInUserId = loggedInUser.Id;
-            var parameters = new DynamicParameters();
-
-            //Adds to Parameters
-            parameters.Add("Id", loggedInUserId);
- 
-            
-            return await JsonResultAsync<Message>("getMessagesByStudentId", parameters);
-            /********************** NEED TO CREATE THIS SP^^^ *****************/
-        }
 
 
 
-        
     }
 }

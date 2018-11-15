@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,17 +16,14 @@ with each other.
 @author Wenwen Xu
 @version 1.0
 CEN4053    "TUTORized" SEM- Group 5's class project
-File Name: IChatService.cs 
-    This class is the interface for the TutorService class.
+File Name: IChatRepository.cs 
+    This is the interface for the TutorRepository class.
 */
 
-namespace TUTORized.Services.Abstract
+namespace TUTORized.Repository.Abstract
 {
-    public interface IChatAsTutorService
+    public interface IChatAsStudentRepository
     {
         Task<Message> CreateMessage(Message message);
-
-        Task<IEnumerable<Message>> GetEntireUserMessagesListAsync();
-
     }
 }

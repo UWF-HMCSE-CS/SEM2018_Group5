@@ -24,23 +24,15 @@ namespace TUTORized.Controllers
             return Ok(await _chatAsTutorService.CreateMessage(message));
         }
 
-        internal Task CreateTutorMessage(string v)
-        {
-            throw new NotImplementedException();
-        }
-
-
-        /* 
         [HttpGet("getListOfMessages")]
         [ProducesResponseType(typeof(IList<Message>), 200)]
         public async Task<IActionResult> GetListOfUserMessages()
         {
-            var listOfMessages = await _chatService.GetEntireUserMessageListAsync();
+            var listOfMessages = await _chatAsTutorService.GetEntireUserMessagesListAsync();
             var test = listOfMessages;
             return Ok(test);
         }
 
-        */
     }
 
 }

@@ -25,5 +25,7 @@ namespace TUTORized.Repository.Abstract
     public interface IChatAsTutorRepository
     {
         Task<Message> CreateMessage(Message message);
+
+        Task<IEnumerable<Message>> GetEntireUserMessagesListAsync();
     }
 }
