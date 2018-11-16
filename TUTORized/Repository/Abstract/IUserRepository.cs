@@ -41,5 +41,9 @@ namespace TUTORized.Repository.Abstract
         Task<IEnumerable<User>> GetListOfUsersWorkedWithAsync();
 
         Task<Message> SendMessageAsync(Message message);
+
+        Task<IEnumerable<Message>> GetListOfUsersSentMessagesAsync();
+
+        Task<IEnumerable<Message>> GetListOfUsersReceivedMessagesAsync();
     }
 }

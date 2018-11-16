@@ -50,4 +50,24 @@ export default class UserService {
                 console.log(error);
             })
     }
+
+    public static GetListOfUsersReceivedMessages(): Promise<Array<Message>> {
+        return axios.get('api/user/getListOfUsersReceivedMessages')
+            .then(response => {
+                return response.data;
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
+    public static GetListOfUsersSentMessages(): Promise<Array<Message>> {
+        return axios.get('api/user/getListOfUsersSentMessages')
+            .then(response => {
+                return response.data;
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
 }

@@ -82,5 +82,15 @@ namespace TUTORized.Services
             return await _userRepository.SendMessageAsync(message);
         }
 
+        public async Task<IEnumerable<Message>> GetListOfUsersReceivedMessagesAsync()
+        {
+            return await _userRepository.GetListOfUsersReceivedMessagesAsync();
+        }
+
+        public async Task<IEnumerable<Message>> GetListOfUsersSentMessagesAsync()
+        {
+            return await _userRepository.GetListOfUsersSentMessagesAsync(); 
+        }
+
     }
 }

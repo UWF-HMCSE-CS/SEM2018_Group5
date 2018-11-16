@@ -32,11 +32,26 @@
                 </v-actions>
             </v-flex>
         </v-layout>
-
-        <!--This will show the chat between you and the student chosen-->
-        <h5>Here is the chat history:</h5>
-
-        <!--Need to write the code to display the messages-->
+        <h5>List of your recieved messages:</h5>
+        <v-layout>
+            <v-flex>
+                <ul v-if="receivedMessagesIsLoaded">
+                    <li v-for="receivedMessage in receivedMessages">
+                        Message: {{ receivedMessage.messageBody }} 
+                    </li>
+                </ul>
+            </v-flex>
+        </v-layout>
+        <h5>List of your sent messages:</h5>
+        <v-layout>
+            <v-flex>
+                <ul v-if="sentMessagesIsLoaded">
+                    <li v-for="sentMessage in sentMessages">
+                        Message: {{ sentMessage.messageBody }} 
+                    </li>
+                </ul>
+            </v-flex>
+        </v-layout>
     </div>
 </template>
 

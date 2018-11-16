@@ -16,23 +16,35 @@ export default class Chat extends Vue {
     user = new User();
     selectedUser = new User();
     message: Message = new Message();
-    isLoaded: boolean = false;
+    sentMessages: Array<Message> = [];
+    sentMessage = new Message();
+    receivedMessages: Array<Message> = [];
+    receivedMessage = new Message();
+    usersIsLoaded: boolean = false;
+    receivedMessagesIsLoaded: boolean = false;
+    sentMessagesIsLoaded: boolean = false;
 
     mounted() {
         UserService.GetListOfUsersWorkedWith().then(result => {
             this.users = result;
-            this.isLoaded = true;
+            this.usersIsLoaded = true;
+        });
+
+        UserService.GetListOfUsersReceivedMessages().then(result => {
+            this.receivedMessages = result;
+            this.receivedMessagesIsLoaded = true;
+        });
+
+        UserService.GetListOfUsersSentMessages().then(result => {
+            this.sentMessages = result;
+            this.sentMessagesIsLoaded = true;
         });
     }
 
     submit() {
-        // var toUserId = (<HTMLInputElement>document.getElementById("selected")).value;
-        // alert(toUserId);
-        // var messageBody = (<HTMLInputElement>document.getElementById("msg")).value;
-        // UserService.sendMessage(toUserId, messageBody);
-        // alert('Message sent successfully');
-
         console.log(this.selectedUser.id);
         UserService.sendMessage(this.selectedUser.id, this.message.messageBody);
+        alert('Message Sent Successfully');
+        window.location.href = "/chat";
     }
 }
