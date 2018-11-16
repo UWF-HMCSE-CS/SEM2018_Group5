@@ -43,6 +43,12 @@ namespace TUTORized.Controllers
             return Ok(await _userService.RegisterUser(user));
         }
 
+        [HttpPost("sendMessage")]
+        public async Task<IActionResult> SendMessage([FromBody] Message message)
+        {
+            return Ok(await _userService.SendMessage(message));
+        }
+
         [HttpPost("loginUser")]
         public async Task<IActionResult> LoginUser([FromBody] User user)
         {
@@ -81,11 +87,7 @@ namespace TUTORized.Controllers
         }
 
  
-        [HttpPost("getMessages")]
-        public async Task<IActionResult> GetMessageAsync([FromBody] Message message)
-        {
-            return Ok(await _userService.GetMessageAsync(message));
-        }
+
 
         /*
         [HttpGet("getListOfMessages")]

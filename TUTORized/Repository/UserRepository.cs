@@ -54,6 +54,42 @@ namespace TUTORized.Repository
             return result;
         }
 
+        public async Task<Message> SendMessageAsync(Message message){
+            
+            var parameters = new DynamicParameters();
+
+            parameters.Add("FromUserId", message.FromUserId);
+            parameters.Add("ToUserId", message.ToUserId);
+            parameters.Add("MessageBody", message.MessageBody);
+
+            var result = await FirstJsonResultAsync<Message>("createMessage", parameters);
+            return result;
+
+            /* 
+            string loggedInUserId = loggedInUser.Id;
+            string loggedInUserRole = loggedInUser.Role;
+            
+            if(loggedInUserRole == "Tutor"){
+                parameters.Add("FromUserId", loggedInUserId);
+            }
+
+            // need a way to find out how to get toUserId but until then
+            // for test purposes, putting in a place holder here
+            parameters.Add("ToUserId", "testToUserId");
+
+            if(loggedInUserRole == "Student"){
+                parameters.Add("FromUserId", loggedInUserId);
+            }
+            
+            parameters.Add("MessageBody", message.MessageBody);
+            
+            
+            Message asdf = await FirstJsonResultAsync<Message>("createMessage", parameters); 
+            return asdf;   
+            */
+
+        }
+
 
 
         /// <summary>
@@ -184,37 +220,7 @@ namespace TUTORized.Repository
             return await JsonResultAsync<User>("getUsersWorkedWith", parameters);
         }
 
-        /// <summary>
-        /// retreives message (either tutor or student) 
-        /// </summary>
-        /// <param></param>
-        /// <returns></returns>
-        public async Task<Message> GetMessageAsync(Message message){
-            
-            string loggedInUserId = loggedInUser.Id;
-            string loggedInUserRole = loggedInUser.Role;
-
-            var parameters = new DynamicParameters();
-            
-            
-            if(loggedInUserRole == "Tutor"){
-                parameters.Add("FromUserId", loggedInUserId);
-            }
-
-            // need a way to find out how to get toUserId but until then
-            // for test purposes, putting in a place holder here
-            parameters.Add("ToUserId", "testToUserId");
-
-            if(loggedInUserRole == "Student"){
-                parameters.Add("FromUserId", loggedInUserId);
-            }
-            
-            parameters.Add("MessageBody", message.MessageBody);
-            
-
-            Message asdf = await FirstJsonResultAsync<Message>("createMessage", parameters); 
-            return asdf;   
-
-        }
+        
+        
     }
 }
