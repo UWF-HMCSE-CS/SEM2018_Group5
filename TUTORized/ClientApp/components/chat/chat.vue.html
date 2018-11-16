@@ -1,0 +1,58 @@
+﻿<template>
+    <div>
+        <nav-menu></nav-menu>
+
+        <h5>Select a user to chat with, write a message and send that message:</h5>
+
+        <!--This lists all the students a tutor has worked with-->
+        <v-layout>
+            <v-flex xs12 md8 lg6>
+                <v-select id="selected"
+                          v-model="selectedUser.id"
+                          :items="users"
+                          item-text="email"
+                          item-value="id"
+                          label="Select A User To Message:">
+                </v-select>
+            </v-flex>
+        </v-layout>
+
+        <!--This is where you type the message to be sent-->
+        <v-layout>
+            <v-flex xs12 md8 lg6>
+                <v-text-field v-model="message.messageBody" label="Message"></v-text-field>
+            </v-flex>
+        </v-layout>
+
+        <!--Send button sends the message-->
+        <v-layout>
+            <v-flex xs12 md8 lg6>
+                <v-actions>
+                    <v-btn @click="submit">Send</v-btn>
+                </v-actions>
+            </v-flex>
+        </v-layout>
+        <h5>List of your recieved messages:</h5>
+        <v-layout>
+            <v-flex>
+                <ul v-if="receivedMessagesIsLoaded">
+                    <li v-for="receivedMessage in receivedMessages">
+                        Message: {{ receivedMessage.messageBody }} 
+                    </li>
+                </ul>
+            </v-flex>
+        </v-layout>
+        <h5>List of your sent messages:</h5>
+        <v-layout>
+            <v-flex>
+                <ul v-if="sentMessagesIsLoaded">
+                    <li v-for="sentMessage in sentMessages">
+                        Message: {{ sentMessage.messageBody }} 
+                    </li>
+                </ul>
+            </v-flex>
+        </v-layout>
+    </div>
+</template>
+
+<script src="./chat.ts"></script>

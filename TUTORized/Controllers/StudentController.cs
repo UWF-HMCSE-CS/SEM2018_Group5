@@ -29,14 +29,14 @@ namespace TUTORized.Controllers
         }
 
         [HttpGet("getAppointments")]
-        [ProducesResponseType(typeof(IList<Appointment>), 200)]
+        [ProducesResponseType(typeof(IList<Models.Appointment>), 200)]
         public async Task<IActionResult> GetListOfAllAvailableAppointments()
         {
             return Ok(await _studentService.GetListOfAllAvailableAppointmentsAsync());
         }
 
         [HttpPost("makeStudentAppointment")]
-        public async Task<IActionResult> MakeStudentAppointment([FromBody] Appointment appointment)
+        public async Task<IActionResult> MakeStudentAppointment([FromBody] Models.Appointment appointment)
         {
             return Ok(await _studentService.MakeStudentAppointment(appointment));
         }

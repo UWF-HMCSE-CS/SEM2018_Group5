@@ -38,7 +38,7 @@ namespace TUTORized.Services
         /// information to the Database
         /// </summary>
         /// <param name="user"></param>
-        public async Task<Appointment> CreateAppointment(Appointment appointment)
+        public async Task<Models.Appointment> CreateAppointment(Models.Appointment appointment)
         {
             return await _tutorRepository.CreateAppointment(appointment);
         }

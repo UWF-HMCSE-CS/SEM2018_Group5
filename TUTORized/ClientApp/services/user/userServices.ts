@@ -1,6 +1,7 @@
 ﻿import { User } from '../../models/User';
 import axios from 'axios';
 import { Appointment } from '../../models/Appointment';
+import { Message } from '../../models/Message';
 
 export default class UserService {
 
@@ -35,5 +36,38 @@ export default class UserService {
         .catch(error => {
             console.log(error);
         })
+    }
+
+    public static sendMessage(toUserId: string, messageBody: string): Promise<Message> {
+        return axios.post('api/user/sendMessage', {
+            ToUserId: toUserId,
+            MessageBody: messageBody
+        })
+            .then(response => {
+                return response.data;
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
+    public static GetListOfUsersReceivedMessages(): Promise<Array<Message>> {
+        return axios.get('api/user/getListOfUsersReceivedMessages')
+            .then(response => {
+                return response.data;
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
+    public static GetListOfUsersSentMessages(): Promise<Array<Message>> {
+        return axios.get('api/user/getListOfUsersSentMessages')
+            .then(response => {
+                return response.data;
+            })
+            .catch(error => {
+                console.log(error);
+            })
     }
 }

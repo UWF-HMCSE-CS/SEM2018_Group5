@@ -46,7 +46,7 @@ namespace TUTORized.Services
         /// Retreives the entire list of available appointments
         /// </summary>
         /// <returns></returns>
-        public async Task<IEnumerable<Appointment>> GetListOfAllAvailableAppointmentsAsync()
+        public async Task<IEnumerable<Models.Appointment>> GetListOfAllAvailableAppointmentsAsync()
         {
             return await _studentRepository.GetListOfAllAvailableAppointmentsAsync();
         }
@@ -55,7 +55,7 @@ namespace TUTORized.Services
         /// Allows a student to make an appointment
         /// </summary>
         /// <param></param>
-        public async Task<Appointment> MakeStudentAppointment(Appointment appointment)
+        public async Task<Models.Appointment> MakeStudentAppointment(Models.Appointment appointment)
         {
             return await _studentRepository.MakeStudentAppointment(appointment);
         }
