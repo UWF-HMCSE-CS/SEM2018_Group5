@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -18,6 +19,8 @@ namespace TUTORizedTests
         private Appointment appointment;
         List<Appointment> mockList;
         List<User> mockUserList;
+        private Message mockMessage;
+        private List<Message> mockMessageList;
 
         public UserServiceTests()
         {
@@ -52,6 +55,15 @@ namespace TUTORizedTests
 
             mockList = new List<Appointment>();
             mockList.Add(appointment);
+
+            mockMessage = new Message()
+            {
+                MessageBody = "Test Body"
+            };
+
+            mockMessageList = new List<Message>();
+            mockMessageList.Add(mockMessage);
+
         }
 
         [TestMethod]
@@ -117,6 +129,41 @@ namespace TUTORizedTests
 
             //ASSERT
             Assert.IsTrue(users > 0, "The number of users were not greater than 0");
+        }
+
+        [TestMethod]
+        public async Task SendMessageAsync_ShouldReturnMessageInputINotDb()
+        {
+            _userRepositoryMock.Setup(_userRepositoryMock => _userRepositoryMock.SendMessageAsync(mockMessage))
+                .Returns(Task.FromResult((Message)mockMessage));
+
+            var sentMessage = await _sut.SendMessageAsync(mockMessage);
+
+            Assert.AreEqual(sentMessage.MessageBody, mockMessage.MessageBody);
+        }
+
+        [TestMethod]
+        public async Task GetListOfUsersReceivedMessagesAsync_ShouldRetrieveMessages()
+        {
+            _userRepositoryMock.Setup(_userRepositoryMock => _userRepositoryMock.GetListOfUsersReceivedMessagesAsync())
+                .Returns(Task.FromResult((IEnumerable<Message>) mockMessageList));
+
+            var messageList = await _sut.GetListOfUsersReceivedMessagesAsync();
+
+            Assert.IsTrue(messageList.Any(), "The number of messages were not greater than 0");
+
+        }
+
+        [TestMethod]
+        public async Task GetListOfUsersSentMessagesAsync_ShouldRetrieveMessages()
+        {
+            _userRepositoryMock.Setup(_userRepositoryMock => _userRepositoryMock.GetListOfUsersSentMessagesAsync())
+                .Returns(Task.FromResult((IEnumerable<Message>)mockMessageList));
+
+            var messageList = await _sut.GetListOfUsersSentMessagesAsync();
+
+            Assert.IsTrue(messageList.Any(), "The number of messages were not greater than 0");
+
         }
     }
 }
