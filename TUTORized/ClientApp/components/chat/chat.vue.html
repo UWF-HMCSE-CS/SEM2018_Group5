@@ -8,7 +8,7 @@
         <v-layout>
             <v-flex xs12 md8 lg6>
                 <v-select id="selected"
-                          v-model="user.id"
+                          v-model="selectedUser.id"
                           :items="users"
                           item-text="email"
                           item-value="id"
@@ -20,7 +20,7 @@
         <!--This is where you type the message to be sent-->
         <v-layout>
             <v-flex xs12 md8 lg6>
-                <v-text-field id="msg" v-model="msg" label="Message"></v-text-field>
+                <v-text-field v-model="message.messageBody" label="Message"></v-text-field>
             </v-flex>
         </v-layout>
 
@@ -28,7 +28,7 @@
         <v-layout>
             <v-flex xs12 md8 lg6>
                 <v-actions>
-                    <v-btn @click="sendButtonFunction">Send</v-btn>
+                    <v-btn @click="submit">Send</v-btn>
                 </v-actions>
             </v-flex>
         </v-layout>

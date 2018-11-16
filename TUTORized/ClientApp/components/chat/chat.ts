@@ -25,11 +25,14 @@ export default class Chat extends Vue {
         });
     }
 
-    sendButtonFunction() {
-        var toUserId = (<HTMLInputElement>document.getElementById("selected")).value;
-        alert(toUserId);
-        var messageBody = (<HTMLInputElement>document.getElementById("msg")).value;
-        UserService.sendMessage(toUserId, messageBody);
-        alert('Message sent successfully');
+    submit() {
+        // var toUserId = (<HTMLInputElement>document.getElementById("selected")).value;
+        // alert(toUserId);
+        // var messageBody = (<HTMLInputElement>document.getElementById("msg")).value;
+        // UserService.sendMessage(toUserId, messageBody);
+        // alert('Message sent successfully');
+
+        console.log(this.selectedUser.id);
+        UserService.sendMessage(this.selectedUser.id, this.message.messageBody);
     }
 }
