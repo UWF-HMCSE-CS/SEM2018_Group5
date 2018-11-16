@@ -79,5 +79,24 @@ namespace TUTORized.Controllers
             var test = listOfUsersWorkedWith;
             return Ok(test);
         }
+
+ 
+        [HttpPost("getMessages")]
+        public async Task<IActionResult> GetMessageAsync([FromBody] Message message)
+        {
+            return Ok(await _userService.GetMessageAsync(message));
+        }
+
+        /*
+        [HttpGet("getListOfMessages")]
+        [ProducesResponseType(typeof(IList<Message>), 200)]
+        public async Task<IActionResult> GetListOfMessages(Message message)
+        {
+            var listOfMessages = await _userService.GetEntireUserMessageListAsync(message);
+            var test = listOfMessages;
+            return Ok(test);
+        }
+
+        */
     }
 }

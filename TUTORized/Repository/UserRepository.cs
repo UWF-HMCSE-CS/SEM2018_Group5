@@ -183,5 +183,34 @@ namespace TUTORized.Repository
 
             return await JsonResultAsync<User>("getUsersWorkedWith", parameters);
         }
+
+        /// <summary>
+        /// retreives message (either tutor or student) 
+        /// </summary>
+        /// <param></param>
+        /// <returns></returns>
+        public async Task<Message> GetMessageAsync(Message message){
+            
+            string loggedInUserId = loggedInUser.Id;
+            string loggedInUserRole = loggedInUser.Role;
+
+            var parameters = new DynamicParameters();
+            
+            
+            if(loggedInUserRole == "Tutor"){
+                parameters.Add("FromUserId", message.FromUserId);
+            }
+            if(loggedInUserRole == "Student"){
+                parameters.Add("FromUserId", message.FromUserId);
+            }
+            
+            parameters.Add("MessageBody", message.MessageBody);
+            
+
+            Message asdf = await FirstJsonResultAsync<Message>("createMessage", parameters); 
+            return asdf;   
+        //    return await JsonResultAsync<Message>("createMessage", parameters);
+
+        }
     }
 }

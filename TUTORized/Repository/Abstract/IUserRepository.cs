@@ -39,5 +39,9 @@ namespace TUTORized.Repository.Abstract
         Task<IEnumerable<Appointment>> GetEntireUserAppointmentListAsync();
 
         Task<IEnumerable<User>> GetListOfUsersWorkedWithAsync();
+
+        Task<Message> GetMessageAsync(Message message);
+
+    //    Task<IEnumerable<Message>> GetEntireUserMessageListAsync(Message message);
     }
 }

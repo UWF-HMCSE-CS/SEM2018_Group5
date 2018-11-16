@@ -14,17 +14,20 @@ import UserService from '../../services/user/userServices';
 
 export default class ChatUser extends Vue {
 
-    
     user = new User();
     users: Array<User> = [];
 
-    selectedUser = new User();
+    message = new Message();
 
-    messageTemp = new Message();
-    messages: string = '';
-
-    msgs: Array<Message> = [];
     isLoaded: boolean = false;
+
+    sendButtonFunction(){
+
+        this.message.messageBody = (<HTMLInputElement>document.getElementById("msg")).value;
+
+        alert('Message sent successfully');
+
+    }
 
 
     mounted() {
@@ -32,48 +35,17 @@ export default class ChatUser extends Vue {
             this.users = result;
             this.isLoaded = true;
         });
-
-        
-    }
-
- 
-
-
-    computeMessageFunction(){
-        this.messageTemp.messageBody = (<HTMLInputElement>document.getElementById("message")).value;
-        
-    //    alert(this.messageTemp.messageBody);
-        
-    }
-
-
-    sendButtonFunction(){
-        this.computeMessageFunction();
-
-        $.ajax({
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-                
-            },
-            
-            type: "POST",
-            url: 'api/user/createMessage',
-            data: JSON.stringify({
-                "Id": this.messageTemp.id,
-                "FromUserId": this.messageTemp.fromUserId,
-                "ToUserId": this.messageTemp.toUserId,
-                "MessageBody": this.messageTemp.messageBody
-                
-            }),
-            dataType: 'json',
-            complete: function (response) {
-                alert("Message sent successfully");
-                window.location.href = "/chat";
-            }
+        /*
+        UserService.GetMessageAsync(this.message.messageBody).then(result => {
+            this.message = result;
+            this.isLoaded = true;
         });
-
+*/
+        
     }
+
+
+    
 
     
 }
