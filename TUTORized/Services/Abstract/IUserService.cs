@@ -28,7 +28,7 @@ namespace TUTORized.Services.Abstract
 
         Task<User> LoginUser(string email, string password);
 
-        Task<IEnumerable<Models.Message>> GetEntireUserAppointmentListAsync();
+        Task<IEnumerable<Models.Appointment>> GetEntireUserAppointmentListAsync();
 
         Task<IEnumerable<User>> GetListOfUsersWorkedWithAsync();
 

@@ -63,7 +63,7 @@ namespace TUTORized.Controllers
         }
 
         [HttpGet]
-        [ProducesResponseType(typeof(IList<Models.Message>), 200)]
+        [ProducesResponseType(typeof(IList<Models.Appointment>), 200)]
         public async Task<IActionResult> GetListOfUserAppointments()
         {
             var listOfAppointments = await _userService.GetEntireUserAppointmentListAsync();

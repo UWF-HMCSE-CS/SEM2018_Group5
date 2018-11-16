@@ -7,15 +7,15 @@
         <!--This lists all the students a tutor has worked with-->
         <v-layout>
             <v-flex xs12 md8 lg6>
-                <v-select v-model="user.id"
+                <v-select id="selected"
+                          v-model="user.id"
                           :items="users"
                           item-text="email"
-                          item-value="user.id"
-                          label="Select A User To Chat With:">
+                          item-value="id"
+                          label="Select A User To Message:">
                 </v-select>
             </v-flex>
         </v-layout>
-
 
         <!--This is where you type the message to be sent-->
         <v-layout>
@@ -24,7 +24,7 @@
             </v-flex>
         </v-layout>
 
-        <!--Send button sends the message to the student-->
+        <!--Send button sends the message-->
         <v-layout>
             <v-flex xs12 md8 lg6>
                 <v-actions>
@@ -33,13 +33,10 @@
             </v-flex>
         </v-layout>
 
-
         <!--This will show the chat between you and the student chosen-->
         <h5>Here is the chat history:</h5>
 
         <!--Need to write the code to display the messages-->
-
-
     </div>
 </template>
 

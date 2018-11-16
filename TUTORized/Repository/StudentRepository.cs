@@ -78,9 +78,9 @@ namespace TUTORized.Repository
         /// Retrieves all available appointments from the database
         /// </summary>
         /// <returns></returns>
-        public async Task<IEnumerable<Models.Message>> GetListOfAllAvailableAppointmentsAsync()
+        public async Task<IEnumerable<Models.Appointment>> GetListOfAllAvailableAppointmentsAsync()
         {
-            return await JsonResultAsync<Models.Message>("getAvailableAppointments");
+            return await JsonResultAsync<Models.Appointment>("getAvailableAppointments");
         }
 
         /// <summary>
@@ -88,7 +88,7 @@ namespace TUTORized.Repository
         /// </summary>
         /// <param></param>
         /// <returns></returns>
-        public async Task<Models.Message> MakeStudentAppointment(Models.Message appointment)
+        public async Task<Models.Appointment> MakeStudentAppointment(Models.Appointment appointment)
         {
             //Initializes Parameters for Stored Procedure
             var parameters = new DynamicParameters();
@@ -99,7 +99,7 @@ namespace TUTORized.Repository
             parameters.Add("LastName", loggedInUser.LastName);
             parameters.Add("UserId", loggedInUser.Id);
 
-            var result = await FirstJsonResultAsync<Models.Message>("updateAppointmentWithStudent", parameters);
+            var result = await FirstJsonResultAsync<Models.Appointment>("updateAppointmentWithStudent", parameters);
             return result;
         }
     }
