@@ -200,6 +200,11 @@ namespace TUTORized.Repository
             if(loggedInUserRole == "Tutor"){
                 parameters.Add("FromUserId", message.FromUserId);
             }
+
+            // need a way to find out how to get toUserId but until then
+            // for test purposes, putting in a place holder here
+            parameters.Add("ToUserId", "test");
+
             if(loggedInUserRole == "Student"){
                 parameters.Add("FromUserId", message.FromUserId);
             }
@@ -209,7 +214,6 @@ namespace TUTORized.Repository
 
             Message asdf = await FirstJsonResultAsync<Message>("createMessage", parameters); 
             return asdf;   
-        //    return await JsonResultAsync<Message>("createMessage", parameters);
 
         }
     }

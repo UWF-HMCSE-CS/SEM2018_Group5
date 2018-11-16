@@ -21,27 +21,26 @@ export default class ChatUser extends Vue {
 
     isLoaded: boolean = false;
 
+    mounted() {
+        UserService.GetListOfUsersWorkedWith().then(result => {
+            this.users = result;
+            this.isLoaded = true;
+        });
+    }
+
+    mounted2() {
+        UserService.GetMessageAsync(this.message.messageBody).then(result => {
+            this.message = result;
+            this.isLoaded = true;
+        });
+    }
+
     sendButtonFunction(){
 
         this.message.messageBody = (<HTMLInputElement>document.getElementById("msg")).value;
 
         alert('Message sent successfully');
 
-    }
-
-
-    mounted() {
-        UserService.GetListOfUsersWorkedWith().then(result => {
-            this.users = result;
-            this.isLoaded = true;
-        });
-        /*
-        UserService.GetMessageAsync(this.message.messageBody).then(result => {
-            this.message = result;
-            this.isLoaded = true;
-        });
-*/
-        
     }
 
 

@@ -13,26 +13,17 @@ namespace TUTORized.Controllers
     {
         //FOR TESTING PURPOSES ONLY
         private readonly IUserService _userService;
-    //    private readonly IChatAsTutorService _chatAsTutorService;
 
         public HomeController(IUserService userService)
         {
             _userService = userService;
-     //       _chatAsTutorService = chatAsTutorService;
         }
 
-        /*
-        public async Task<IActionResult> Index()
-        {
-            ChatAsTutorController cc = new ChatAsTutorController(_chatAsTutorService);
-            
-            await cc.CreateTutorMessage("adsf");
-            return View();
-        }
-        */
+
         
         public IActionResult Index()
         {
+            
             return View();
         }
         
