@@ -24,7 +24,7 @@ namespace TUTORized.Repository.Abstract
 {
     public interface ITutorRepository
     {
-        Task<Appointment> CreateAppointment(Appointment appointment);
+        Task<Models.Message> CreateAppointment(Models.Message appointment);
 
         Task AppointmentDeleteByAppointmentId(string Id);
     }

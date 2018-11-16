@@ -59,7 +59,7 @@ namespace TUTORized.Services
         /// Retreives the entire list of the users appointments
         /// </summary>
         /// <returns></returns>
-        public async Task<IEnumerable<Appointment>> GetEntireUserAppointmentListAsync()
+        public async Task<IEnumerable<Models.Message>> GetEntireUserAppointmentListAsync()
         {
             return await _userRepository.GetEntireUserAppointmentListAsync();
         }
@@ -71,6 +71,15 @@ namespace TUTORized.Services
         public async Task<IEnumerable<User>> GetListOfUsersWorkedWithAsync()
         {
             return await _userRepository.GetListOfUsersWorkedWithAsync();
+        }
+
+        /// <summary>
+        /// Used to send a message
+        /// </summary>
+        /// <param></param>
+        public async Task<Message> SendMessageAsync(Message message)
+        {
+            return await _userRepository.SendMessageAsync(message);
         }
 
     }

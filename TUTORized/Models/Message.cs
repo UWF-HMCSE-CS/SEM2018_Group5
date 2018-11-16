@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TUTORized.Models;
+using Newtonsoft.Json;
+using TUTORized.Repository;
 
 /**
 TUTORized is a web application designed for use in 
@@ -16,18 +17,24 @@ with each other.
 @author Wenwen Xu
 @version 1.0
 CEN4053    "TUTORized" SEM- Group 5's class project
-File Name: IStudentService.cs 
-    This class is the interface for the StudentService class.
+File Name: Message.cs 
+    This class is the Message Model. 
 */
 
-namespace TUTORized.Services.Abstract
+namespace TUTORized.Models
 {
-    public interface IStudentService
+    public class Message
     {
-        Task<IEnumerable<User>> ListOfTutorsGetAsync();
+        [JsonProperty("id")]
+        public string Id { get; set; }
 
-        Task<IEnumerable<Models.Message>> GetListOfAllAvailableAppointmentsAsync();
+        [JsonProperty("fromUserId")]
+        public string FromUserId { get; set; }
 
-        Task<Models.Message> MakeStudentAppointment(Models.Message appointment);
+        [JsonProperty("toUserId")]
+        public string ToUserId { get; set; }
+
+        [JsonProperty("messageBody")]
+        public DateTime MessageBody { get; set; }
     }
 }

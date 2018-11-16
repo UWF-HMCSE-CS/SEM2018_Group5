@@ -30,8 +30,8 @@ namespace TUTORized.Repository.Abstract
 
         Task<IEnumerable<User>> GetTutorListBySubjectAsync(string subject);
 
-        Task<IEnumerable<Appointment>> GetListOfAllAvailableAppointmentsAsync();
+        Task<IEnumerable<Models.Message>> GetListOfAllAvailableAppointmentsAsync();
 
-        Task<Appointment> MakeStudentAppointment(Appointment appointment);
+        Task<Models.Message> MakeStudentAppointment(Models.Message appointment);
     }
 }

@@ -63,7 +63,7 @@ namespace TUTORized.Controllers
         }
 
         [HttpGet]
-        [ProducesResponseType(typeof(IList<Appointment>), 200)]
+        [ProducesResponseType(typeof(IList<Models.Message>), 200)]
         public async Task<IActionResult> GetListOfUserAppointments()
         {
             var listOfAppointments = await _userService.GetEntireUserAppointmentListAsync();
@@ -78,6 +78,12 @@ namespace TUTORized.Controllers
             var listOfUsersWorkedWith = await _userService.GetListOfUsersWorkedWithAsync();
             var test = listOfUsersWorkedWith;
             return Ok(test);
+        }
+
+        [HttpPost("sendMessage")]
+        public async Task<IActionResult> SendMessageAsync([FromBody] Message message)
+        {
+            return Ok(await _userService.SendMessageAsync(message));
         }
     }
 }

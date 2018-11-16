@@ -23,7 +23,7 @@ File Name: Appointment.cs
 
 namespace TUTORized.Models
 {
-    public class Appointment
+    public class Message
     {
         [JsonProperty("id")]
         public string Id { get; set; }

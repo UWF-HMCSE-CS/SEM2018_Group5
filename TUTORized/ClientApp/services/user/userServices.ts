@@ -1,6 +1,7 @@
 ﻿import { User } from '../../models/User';
 import axios from 'axios';
 import { Appointment } from '../../models/Appointment';
+import { Message } from '../../models/Message';
 
 export default class UserService {
 
@@ -35,5 +36,18 @@ export default class UserService {
         .catch(error => {
             console.log(error);
         })
+    }
+
+    public static sendMessage(message: Message): Promise<Message> {
+        return axios.post('api/user/sendMessage', {
+            ToUserId: message.toUserId,
+            MessageBody: message.messageBody
+        })
+            .then(response => {
+                return response.data;
+            })
+            .catch(error => {
+                console.log(error);
+            })
     }
 }
