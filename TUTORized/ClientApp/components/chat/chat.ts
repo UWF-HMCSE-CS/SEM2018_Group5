@@ -25,29 +25,19 @@ export default class ChatUser extends Vue {
 
         this.message.messageBody = (<HTMLInputElement>document.getElementById("msg")).value;
 
-        alert('Message sent successfully');
-
-        
-
     }
 
-
+    
     mounted() {
         UserService.GetListOfUsersWorkedWith().then(result => {
             this.users = result;
             this.isLoaded = true;
         });
-    }
-
-    mounted2() {
         UserService.GetMessageAsync(this.message.messageBody).then(result => {
             this.message = result;
             this.isLoaded = true;
+            alert("test");
         });
     }
 
-
-    
-
-    
 }

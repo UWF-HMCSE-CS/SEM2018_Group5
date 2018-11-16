@@ -198,15 +198,15 @@ namespace TUTORized.Repository
             
             
             if(loggedInUserRole == "Tutor"){
-                parameters.Add("FromUserId", message.FromUserId);
+                parameters.Add("FromUserId", loggedInUserId);
             }
 
             // need a way to find out how to get toUserId but until then
             // for test purposes, putting in a place holder here
-            parameters.Add("ToUserId", "test");
+            parameters.Add("ToUserId", "testToUserId");
 
             if(loggedInUserRole == "Student"){
-                parameters.Add("FromUserId", message.FromUserId);
+                parameters.Add("FromUserId", loggedInUserId);
             }
             
             parameters.Add("MessageBody", message.MessageBody);
