@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using TUTORized.Hubs;
 using TUTORized.Repository;
 using TUTORized.Repository.Abstract;
 using TUTORized.Services;
@@ -44,7 +43,7 @@ namespace TUTORized
             services.AddSingleton<ITutorRepository>(provider =>
                 new TutorRepository(Configuration.GetConnectionString("tma")));
 
-            services.AddSignalR();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -63,13 +62,8 @@ namespace TUTORized
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            app.UseDefaultFiles();
             app.UseStaticFiles();
 
-            app.UseSignalR(routes =>
-            {
-                routes.MapHub<ChatHub>("/chatHub");
-            });
 
             app.UseMvc(routes =>
             {
@@ -82,10 +76,7 @@ namespace TUTORized
                     defaults: new { controller = "Home", action = "Index" });
             });
 
-            app.UseSignalR(options =>
-            {
-                options.MapHub<ChatHub>("/hub");
-            });
+
         }
     }
 }

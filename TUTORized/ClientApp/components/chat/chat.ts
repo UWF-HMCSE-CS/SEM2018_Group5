@@ -21,6 +21,17 @@ export default class ChatUser extends Vue {
 
     isLoaded: boolean = false;
 
+    sendButtonFunction(){
+
+        this.message.messageBody = (<HTMLInputElement>document.getElementById("msg")).value;
+
+        alert('Message sent successfully');
+
+        
+
+    }
+
+
     mounted() {
         UserService.GetListOfUsersWorkedWith().then(result => {
             this.users = result;
@@ -33,14 +44,6 @@ export default class ChatUser extends Vue {
             this.message = result;
             this.isLoaded = true;
         });
-    }
-
-    sendButtonFunction(){
-
-        this.message.messageBody = (<HTMLInputElement>document.getElementById("msg")).value;
-
-        alert('Message sent successfully');
-
     }
 
 
