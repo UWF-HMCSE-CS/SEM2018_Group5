@@ -2,13 +2,26 @@ import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 import $ from 'jquery';
 import { Message } from '../../models/Message';
+import { User } from '../../models/User';
+import UserService from '../../services/user/userServices';
 
 @Component
 export default class ChatComponent extends Vue {
 
     message = new Message();
 
+    user = new User();
+    users: Array<User> = [];
+
+    isLoaded: boolean = false;
     
+
+    mounted() {
+        UserService.GetListOfUsersWorkedWith().then(result => {
+            this.users = result;
+            this.isLoaded = true;
+        });
+        }
 
     sendButtonFunction() {
 
@@ -20,8 +33,7 @@ export default class ChatComponent extends Vue {
             type: "POST",
             url: 'api/user/sendMessage',
             data: JSON.stringify({
-                "FromUserId": this.message.fromUserId,
-                "ToUserId": this.message.toUserId,
+                "ToUserId": this.user.id,
                 "MessageBody": this.message.messageBody
             }),
             dataType: 'json',

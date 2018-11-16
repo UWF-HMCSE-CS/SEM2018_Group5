@@ -58,7 +58,9 @@ namespace TUTORized.Repository
             
             var parameters = new DynamicParameters();
 
-            parameters.Add("FromUserId", message.FromUserId);
+            string loggedInUserId = loggedInUser.Id;
+
+            parameters.Add("FromUserId", loggedInUserId);
             parameters.Add("ToUserId", message.ToUserId);
             parameters.Add("MessageBody", message.MessageBody);
 
