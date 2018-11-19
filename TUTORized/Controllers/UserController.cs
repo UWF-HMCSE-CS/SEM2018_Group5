@@ -43,12 +43,6 @@ namespace TUTORized.Controllers
             return Ok(await _userService.RegisterUser(user));
         }
 
-        [HttpPost("sendMessage")]
-        public async Task<IActionResult> SendMessage([FromBody] Message message)
-        {
-            return Ok(await _userService.SendMessage(message));
-        }
-
         [HttpPost("loginUser")]
         public async Task<IActionResult> LoginUser([FromBody] User user)
         {
@@ -86,19 +80,28 @@ namespace TUTORized.Controllers
             return Ok(test);
         }
 
- 
-
-
-        /*
-        [HttpGet("getListOfMessages")]
-        [ProducesResponseType(typeof(IList<Message>), 200)]
-        public async Task<IActionResult> GetListOfMessages(Message message)
+        [HttpPost("sendMessage")]
+        public async Task<IActionResult> SendMessageAsync([FromBody] Message message)
         {
-            var listOfMessages = await _userService.GetEntireUserMessageListAsync(message);
-            var test = listOfMessages;
+            return Ok(await _userService.SendMessageAsync(message));
+        }
+
+        [HttpGet("getListOfUsersReceivedMessages")]
+        [ProducesResponseType(typeof(IList<Message>), 200)]
+        public async Task<IActionResult> GetListOfUsersReceivedMessagesAsync()
+        {
+            var listOfMessagesRecieved = await _userService.GetListOfUsersReceivedMessagesAsync();
+            var test = listOfMessagesRecieved;
             return Ok(test);
         }
 
-        */
+        [HttpGet("getListOfUsersSentMessages")]
+        [ProducesResponseType(typeof(IList<Message>), 200)]
+        public async Task<IActionResult> GetListOfUsersSentMessagesAsync()
+        {
+            var listOfMessagesSent = await _userService.GetListOfUsersSentMessagesAsync();
+            var test = listOfMessagesSent;
+            return Ok(test);
+        }
     }
 }

@@ -15,13 +15,11 @@ const routes = [
     { path: '/scheduleappointment', component: require('./components/student/scheduleAppointment.vue.html').default },
     { path: '/makeSchedule', component: require('./components/Tutor/makeSchedule.vue.html').default },
     { path: '/ListOfUsersWorkedWith', component: require('./components/UserWorkedWith/ListOfUsersWorkedWith.vue.html').default },
-    { path: '/chat', component: require('./components/chat/chat.vue.html').default },
-    { path: '/logout', component: require('./components/home/login/login.vue.html').default },
-
+    { path: '/chat', component: require('./components/chat/chat.vue.html').default }
 ];
 
 new Vue({
     el: '#app-root',
     router: new VueRouter({ mode: 'history', routes: routes }),
-    render: h => h(require('./components/app/app.vue.html').default )
+    render: h => h(require('./components/app/app.vue.html').default)
 });
