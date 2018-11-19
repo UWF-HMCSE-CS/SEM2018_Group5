@@ -43,7 +43,7 @@ export default class Chat extends Vue {
 
     submit() {
         console.log(this.selectedUser.id);
-        UserService.sendMessage(this.selectedUser.id, this.message.messageBody);
+        UserService.sendMessage(this.selectedUser, this.message.messageBody);
         alert('Message Sent Successfully');
         window.location.href = "/chat";
     }

@@ -191,7 +191,7 @@ namespace TUTORized.Repository
         /// <returns></returns>
         public async Task<Message> SendMessageAsync(Message message)
         {
-            string toUserId = message.ToUserId;
+            string toUserId = message.ToUser.Id;
             string fromUserId = loggedInUser.Id;
             string messageBody = message.MessageBody;
 

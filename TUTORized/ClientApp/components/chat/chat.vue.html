@@ -37,7 +37,7 @@
             <v-flex>
                 <ul v-if="receivedMessagesIsLoaded">
                     <li v-for="receivedMessage in receivedMessages">
-                        Message: {{ receivedMessage.messageBody }} 
+                        {{ receivedMessage.fromUser.firstName }} {{ receivedMessage.fromUser.lastName }} sent you: {{ receivedMessage.messageBody }}
                     </li>
                 </ul>
             </v-flex>
@@ -47,7 +47,7 @@
             <v-flex>
                 <ul v-if="sentMessagesIsLoaded">
                     <li v-for="sentMessage in sentMessages">
-                        Message: {{ sentMessage.messageBody }} 
+                        You sent {{ sentMessage.toUser.firstName }} {{ sentMessage.toUser.lastName }}: {{ sentMessage.messageBody }}
                     </li>
                 </ul>
             </v-flex>
