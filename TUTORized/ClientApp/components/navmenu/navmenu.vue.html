@@ -39,12 +39,13 @@
                         </router-link>
                     </li>
                     <li>
-                        <router-link v-if="isStudent || isTutor" to="/chat">
-                            Messages
+                        <router-link v-if="isTutor || isStudent" to="/chat">
+                                Chat
                         </router-link>
                     </li>
+                    </li>
                     <li>
-                        <router-link v-if="isLoggedIn" to="/" @click.native="logOut">
+                        <router-link v-if="isLoggedIn" to="/logout" @click.native="logOut">
                             Log Out
                         </router-link>
                     </li>
@@ -55,4 +56,4 @@
 </template>
 
 <script src="./navmenu.ts"></script>
-<style src="./navmenu.css" />
+<style src="./navmenu.css"></style>

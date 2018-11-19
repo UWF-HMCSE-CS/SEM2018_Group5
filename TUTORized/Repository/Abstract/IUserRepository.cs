@@ -26,6 +26,8 @@ namespace TUTORized.Repository.Abstract
     {
         Task<User> UserProfileCreateAsync(User user);
 
+        Task<Message> SendMessageAsync(Message message);
+
         Task<User> GetUserByEmailAsync(string email);
 
         Task<User> GetUserByIdAsync(string Id);
@@ -40,10 +42,8 @@ namespace TUTORized.Repository.Abstract
 
         Task<IEnumerable<User>> GetListOfUsersWorkedWithAsync();
 
-        Task<Message> SendMessageAsync(Message message);
+        
 
-        Task<IEnumerable<Message>> GetListOfUsersSentMessagesAsync();
-
-        Task<IEnumerable<Message>> GetListOfUsersReceivedMessagesAsync();
+    //    Task<IEnumerable<Message>> GetEntireUserMessageListAsync(Message message);
     }
 }

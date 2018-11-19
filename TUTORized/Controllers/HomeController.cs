@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using TUTORized.Models;
 using TUTORized.Repository;
 using TUTORized.Repository.Abstract;
 using TUTORized.Services;
@@ -12,18 +13,20 @@ namespace TUTORized.Controllers
     {
         //FOR TESTING PURPOSES ONLY
         private readonly IUserService _userService;
-        private readonly IUserRepository _userRepository;
 
         public HomeController(IUserService userService)
         {
             _userService = userService;
         }
 
+
+        
         public IActionResult Index()
         {
+            
             return View();
         }
-
+        
         public IActionResult Error()
         {
             ViewData["RequestId"] = Activity.Current?.Id ?? HttpContext.TraceIdentifier;

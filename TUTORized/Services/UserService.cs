@@ -43,6 +43,12 @@ namespace TUTORized.Services
             return await _userRepository.UserProfileCreateAsync(user);
         }
 
+        public async Task<Message> SendMessage(Message message)
+        {
+               return await _userRepository.SendMessageAsync(message);
+
+        }
+
         /// <summary>
         /// Used to login an user by matching the entered email and password to the one provided in the db
         /// </summary>
@@ -73,24 +79,12 @@ namespace TUTORized.Services
             return await _userRepository.GetListOfUsersWorkedWithAsync();
         }
 
-        /// <summary>
-        /// Used to send a message
-        /// </summary>
-        /// <param></param>
-        public async Task<Message> SendMessageAsync(Message message)
+        
+        /*
+        public async Task<IEnumerable<Message>> GetEntireUserMessageListAsync(Message message)
         {
-            return await _userRepository.SendMessageAsync(message);
+            return await _userRepository.GetEntireUserMessageListAsync(message);
         }
-
-        public async Task<IEnumerable<Message>> GetListOfUsersReceivedMessagesAsync()
-        {
-            return await _userRepository.GetListOfUsersReceivedMessagesAsync();
-        }
-
-        public async Task<IEnumerable<Message>> GetListOfUsersSentMessagesAsync()
-        {
-            return await _userRepository.GetListOfUsersSentMessagesAsync(); 
-        }
-
+         */
     }
 }

@@ -15,6 +15,18 @@ export default class UserService {
             })
     }
 
+    public static GetMessageAsync(messageMessageBody: string): Promise<Message> {
+        return axios.post('api/User/getMessages', {
+            messageBody: messageMessageBody
+            })
+            .then( response => {
+                return response.data;
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+
     public static GetListOfAppointments(): Promise<Array<Appointment>> {
         return axios.get('api/user')
             .then(response => {
