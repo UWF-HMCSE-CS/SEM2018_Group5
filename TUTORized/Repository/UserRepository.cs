@@ -162,7 +162,7 @@ namespace TUTORized.Repository
 
             //Adds to Parameters
             parameters.Add("Email", loggedInUserEmail);
- 
+
             return await JsonResultAsync<Models.Appointment>("getAppointmentsByStudentEmail", parameters);
         }
 
@@ -231,9 +231,9 @@ namespace TUTORized.Repository
         /// <returns></returns>
         public async Task<IEnumerable<Message>> GetListOfUsersReceivedMessagesAsync()
         {
-            string loggedInUserId = loggedInUser.Id; 
+            string loggedInUserId = loggedInUser.Id;
 
-            var parameters = new DynamicParameters(); 
+            var parameters = new DynamicParameters();
 
             //Adds to Parameters
             parameters.Add("ToUserId", loggedInUserId);
