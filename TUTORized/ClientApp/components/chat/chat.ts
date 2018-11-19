@@ -1,4 +1,73 @@
-﻿import Vue from 'vue';
+import Vue from 'vue';
+import { Component } from 'vue-property-decorator';
+import $ from 'jquery';
+import { Message } from '../../models/Message';
+import { User } from '../../models/User';
+import UserService from '../../services/user/userServices';
+
+@Component
+export default class ChatComponent extends Vue {
+
+    message = new Message();
+
+    user = new User();
+    users: Array<User> = [];
+
+    isLoaded: boolean = false;
+    
+
+    mounted() {
+        UserService.GetListOfUsersWorkedWith().then(result => {
+            this.users = result;
+            this.isLoaded = true;
+        });
+        }
+
+    sendButtonFunction() {
+
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: "POST",
+            url: 'api/user/sendMessage',
+            data: JSON.stringify({
+                "ToUserId": this.user.id,
+                "MessageBody": this.message.messageBody
+            }),
+            dataType: 'json',
+            complete: function (response) {
+                 alert("success");
+            }
+
+        });
+    }
+
+
+}
+
+import {ComponentOptions} from 'Vue';
+
+export declare type VueClass = {
+    new (): Vue;
+} & typeof Vue;
+export declare type DecoratedClass = VueClass & {
+    __decorators__?: ((options: ComponentOptions<Vue>) => void)[];
+};
+
+
+
+
+   
+
+    
+
+
+
+
+/*
+import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 import { User } from '../../models/User';
 import { Message } from '../../models/Message';
@@ -10,41 +79,37 @@ import UserService from '../../services/user/userServices';
         NavMenu: require('../navmenu/navmenu.vue.html').default
     }
 })
-export default class Chat extends Vue {
 
-    users: Array<User> = [];
+export default class ChatUser extends Vue {
+
     user = new User();
-    selectedUser = new User();
-    message: Message = new Message();
-    sentMessages: Array<Message> = [];
-    sentMessage = new Message();
-    receivedMessages: Array<Message> = [];
-    receivedMessage = new Message();
-    usersIsLoaded: boolean = false;
-    receivedMessagesIsLoaded: boolean = false;
-    sentMessagesIsLoaded: boolean = false;
+    users: Array<User> = [];
 
+    message = new Message();
+
+    isLoaded: boolean = false;
+
+    sendButtonFunction(){
+
+        this.message.messageBody = (<HTMLInputElement>document.getElementById("msg")).value;
+
+    }
+
+    
     mounted() {
         UserService.GetListOfUsersWorkedWith().then(result => {
             this.users = result;
-            this.usersIsLoaded = true;
+            this.isLoaded = true;
         });
-
-        UserService.GetListOfUsersReceivedMessages().then(result => {
-            this.receivedMessages = result;
-            this.receivedMessagesIsLoaded = true;
-        });
-
-        UserService.GetListOfUsersSentMessages().then(result => {
-            this.sentMessages = result;
-            this.sentMessagesIsLoaded = true;
+        UserService.GetMessageAsync(this.message.messageBody).then(result => {
+            this.message = result;
+            this.isLoaded = true;
         });
     }
 
-    submit() {
-        console.log(this.selectedUser.id);
-        UserService.sendMessage(this.selectedUser.id, this.message.messageBody);
-        alert('Message Sent Successfully');
-        window.location.href = "/chat";
-    }
 }
+
+*/
+
+
+

@@ -14,8 +14,10 @@ using TUTORized.Services.Abstract;
 
 namespace TUTORized
 {
+    
     public class Startup
     {
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -24,6 +26,7 @@ namespace TUTORized
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
+
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
@@ -39,6 +42,8 @@ namespace TUTORized
             services.AddSingleton<ITutorService, TutorService>();
             services.AddSingleton<ITutorRepository>(provider =>
                 new TutorRepository(Configuration.GetConnectionString("tma")));
+
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,6 +64,7 @@ namespace TUTORized
 
             app.UseStaticFiles();
 
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
@@ -69,6 +75,8 @@ namespace TUTORized
                     name: "spa-fallback",
                     defaults: new { controller = "Home", action = "Index" });
             });
+
+
         }
     }
 }

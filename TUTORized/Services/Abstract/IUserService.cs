@@ -26,16 +26,15 @@ namespace TUTORized.Services.Abstract
     {
         Task<User> RegisterUser(User user);
 
+        Task<Message> SendMessage(Message message);
+
         Task<User> LoginUser(string email, string password);
 
         Task<IEnumerable<Models.Appointment>> GetEntireUserAppointmentListAsync();
 
         Task<IEnumerable<User>> GetListOfUsersWorkedWithAsync();
 
-        Task<Message> SendMessageAsync(Message message);
-
-        Task<IEnumerable<Message>> GetListOfUsersSentMessagesAsync();
-
-        Task<IEnumerable<Message>> GetListOfUsersReceivedMessagesAsync();
+        
+    //    Task<IEnumerable<Message>> GetEntireUserMessageListAsync(Message messsage);
     }
 }

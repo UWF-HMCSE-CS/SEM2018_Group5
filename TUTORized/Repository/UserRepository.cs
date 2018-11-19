@@ -54,6 +54,44 @@ namespace TUTORized.Repository
             return result;
         }
 
+        public async Task<Message> SendMessageAsync(Message message){
+            
+            var parameters = new DynamicParameters();
+
+            string loggedInUserId = loggedInUser.Id;
+
+            parameters.Add("FromUserId", loggedInUserId);
+            parameters.Add("ToUserId", message.ToUserId);
+            parameters.Add("MessageBody", message.MessageBody);
+
+            var result = await FirstJsonResultAsync<Message>("createMessage", parameters);
+            return result;
+
+            /* 
+            string loggedInUserId = loggedInUser.Id;
+            string loggedInUserRole = loggedInUser.Role;
+            
+            if(loggedInUserRole == "Tutor"){
+                parameters.Add("FromUserId", loggedInUserId);
+            }
+
+            // need a way to find out how to get toUserId but until then
+            // for test purposes, putting in a place holder here
+            parameters.Add("ToUserId", "testToUserId");
+
+            if(loggedInUserRole == "Student"){
+                parameters.Add("FromUserId", loggedInUserId);
+            }
+            
+            parameters.Add("MessageBody", message.MessageBody);
+            
+            
+            Message asdf = await FirstJsonResultAsync<Message>("createMessage", parameters); 
+            return asdf;   
+            */
+
+        }
+
 
 
         /// <summary>
@@ -184,61 +222,7 @@ namespace TUTORized.Repository
             return await JsonResultAsync<User>("getUsersWorkedWith", parameters);
         }
 
-        /// <summary>
-        /// Creates a database entry of a Message object
-        /// </summary>
-        /// <param></param>
-        /// <returns></returns>
-        public async Task<Message> SendMessageAsync(Message message)
-        {
-            string toUserId = message.ToUserId;
-            string fromUserId = loggedInUser.Id;
-            string messageBody = message.MessageBody;
-
-            //Initializes Parameters for Stored Procedure
-            var parameters = new DynamicParameters();
-
-            //Adds to Parameters
-            parameters.Add("ToUserId", toUserId);
-            parameters.Add("FromUserId", fromUserId);
-            parameters.Add("MessageBody", messageBody);
-
-            var result = await FirstJsonResultAsync<Message>("createMessage", parameters);
-            return result;
-        }
-
-        /// <summary>
-        /// retreives a list of the users sent messages
-        /// </summary>
-        /// <param></param>
-        /// <returns></returns>
-        public async Task<IEnumerable<Message>> GetListOfUsersSentMessagesAsync()
-        {
-            string loggedInUserId = loggedInUser.Id;
-
-            var parameters = new DynamicParameters();
-
-            //Adds to Parameters
-            parameters.Add("FromUserId", loggedInUserId);
-
-            return await JsonResultAsync<Message>("readMessagesSent", parameters);
-        }
-
-        /// <summary>
-        /// retreives a list of the users received messages
-        /// </summary>
-        /// <param></param>
-        /// <returns></returns>
-        public async Task<IEnumerable<Message>> GetListOfUsersReceivedMessagesAsync()
-        {
-            string loggedInUserId = loggedInUser.Id; 
-
-            var parameters = new DynamicParameters(); 
-
-            //Adds to Parameters
-            parameters.Add("ToUserId", loggedInUserId);
-
-            return await JsonResultAsync<Message>("readMessagesReceived", parameters);
-        }
+        
+        
     }
 }
