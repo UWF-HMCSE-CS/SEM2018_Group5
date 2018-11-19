@@ -28,11 +28,11 @@ namespace TUTORized.Models
         [JsonProperty("id")]
         public string Id { get; set; }
 
-        [JsonProperty("fromUserId")]
-        public string FromUserId { get; set; }
+        [JsonProperty("fromUser")]
+        public User FromUser { get; set; }
 
-        [JsonProperty("toUserId")]
-        public string ToUserId { get; set; }
+        [JsonProperty("toUser")]
+        public User ToUser { get; set; }
 
         [JsonProperty("messageBody")]
         public string MessageBody { get; set; }

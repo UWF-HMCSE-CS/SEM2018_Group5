@@ -50,9 +50,9 @@ export default class UserService {
         })
     }
 
-    public static sendMessage(toUserId: string, messageBody: string): Promise<Message> {
+    public static sendMessage(toUser: User, messageBody: string): Promise<Message> {
         return axios.post('api/user/sendMessage', {
-            ToUserId: toUserId,
+            ToUser: toUser,
             MessageBody: messageBody
         })
             .then(response => {
