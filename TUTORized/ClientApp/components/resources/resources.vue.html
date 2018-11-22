@@ -1,0 +1,30 @@
+<template>
+    <div>
+        <h5>Select a user to share resources with, upload your file and share it with the user:</h5>
+
+        <!--This lists all the students a tutor has worked with-->
+        <v-layout>
+            <v-flex xs12 md8 lg6>
+              <v-select id="selected"
+                  v-model="selectedUser.id"
+                  :items="users"
+                  item-text="email"
+                  item-value="id"
+                  label="Select A User To Share A File With:">
+                </v-select>
+            </v-flex>
+        </v-layout>
+
+        <div class="large-6 medium-8 small-12 cell">
+            <label>File
+                <input type="file" id="file" ref="file" v-on:change="handleFileUpload()"/>
+            </label>
+
+                    <v-actions>
+                        <v-btn @click="submitFile()">Share</v-btn>
+                    </v-actions>
+        </div>
+    </div>
+</template>
+
+<script src="./resources.ts"/>

@@ -15,7 +15,8 @@ const routes = [
     { path: '/scheduleappointment', component: require('./components/student/scheduleAppointment.vue.html').default },
     { path: '/makeSchedule', component: require('./components/Tutor/makeSchedule.vue.html').default },
     { path: '/ListOfUsersWorkedWith', component: require('./components/UserWorkedWith/ListOfUsersWorkedWith.vue.html').default },
-    { path: '/chat', component: require('./components/chat/chat.vue.html').default }
+    { path: '/chat', component: require('./components/chat/chat.vue.html').default },
+    { path: '/resources', component: require('./components/resources/resources.vue.html').default }
 ];
 
 new Vue({
