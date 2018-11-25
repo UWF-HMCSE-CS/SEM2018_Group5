@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using TUTORized.Extensions;
 using TUTORized.Repository;
 using TUTORized.Repository.Abstract;
 using TUTORized.Services;
@@ -30,6 +31,9 @@ namespace TUTORized
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            //Email Service Extension
+            services.AddEmailServices(Configuration);
 
             services.AddSingleton<IUserService, UserService>();
             services.AddSingleton<IUserRepository>(provider =>

@@ -28,6 +28,8 @@ namespace TUTORized.Services
     {
         private readonly IStudentRepository _studentRepository;
 
+        private readonly IMessageService _messageService;
+
         public StudentService(IStudentRepository studentRepository)
         {
             _studentRepository = studentRepository;
@@ -46,7 +48,7 @@ namespace TUTORized.Services
         /// Retreives the entire list of available appointments
         /// </summary>
         /// <returns></returns>
-        public async Task<IEnumerable<Models.Appointment>> GetListOfAllAvailableAppointmentsAsync()
+        public async Task<IEnumerable<Appointment>> GetListOfAllAvailableAppointmentsAsync()
         {
             return await _studentRepository.GetListOfAllAvailableAppointmentsAsync();
         }
@@ -55,8 +57,10 @@ namespace TUTORized.Services
         /// Allows a student to make an appointment
         /// </summary>
         /// <param></param>
-        public async Task<Models.Appointment> MakeStudentAppointment(Models.Appointment appointment)
+        public async Task<Appointment> MakeStudentAppointment(Appointment appointment)
         {
+            //Need to retrieve student Email.  Efficient way? (Other than making an additional call to the db).
+            //var email = 
             return await _studentRepository.MakeStudentAppointment(appointment);
         }
     }
