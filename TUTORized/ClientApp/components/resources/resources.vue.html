@@ -15,15 +15,20 @@
             </v-flex>
         </v-layout>
 
-        <div class="large-6 medium-8 small-12 cell">
-            <label>File
-                <input type="file" id="file" ref="file" v-on:change="handleFileUpload()"/>
-            </label>
+        <h5>Share files: </h5>
 
-                    <v-actions>
-                        <v-btn @click="submitFile()">Share</v-btn>
-                    </v-actions>
-        </div>
+        <label>File
+            <input type="file" id="file" ref="file" v-on:change="handleFileUpload()"/>
+        </label>
+
+        <v-layout>
+            <v-flex xs12 md8 lg6>
+                <v-actions>
+                    <v-btn @click="submitFileFunction()">Submit</v-btn>
+                </v-actions>
+            </v-flex>
+        </v-layout>
+        
     </div>
 </template>
 

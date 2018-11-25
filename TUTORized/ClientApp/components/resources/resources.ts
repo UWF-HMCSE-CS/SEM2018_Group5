@@ -11,12 +11,12 @@ import UserService from '../../services/user/userServices';
 })
 export default class Chat extends Vue {
 
-
     users: Array<User> = [];
     user = new User();
     selectedUser = new User();
     usersIsLoaded: boolean = false;
 
+    
     mounted() {
         UserService.GetListOfUsersWorkedWith().then(result => {
             this.users = result;
