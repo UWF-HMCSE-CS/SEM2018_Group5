@@ -10,10 +10,12 @@ import * as Cookie from 'es-cookie';
     }
 })
 export default class ScheduleAppointment extends Vue {
+
     appointment = new Appointment(); 
     id: string = '';
     email: string = '';
     appointments: Array<Appointment> = [];
+    tempAppointments: Array<Appointment> = [];
     event = new Appointment();
     selectedEvent = new Appointment();
     isLoaded: boolean = false;
@@ -31,6 +33,15 @@ export default class ScheduleAppointment extends Vue {
         alert('Scheduled Successfully');
         window.location.href = "/scheduleAppointment";
     }
+
+    filterFunction(search: string) {
+        this.appointments = this.getFilteredAppointments(search);
+        alert('Filtered Successfully');
+    }
+
+    resetFilterFunction() {
+        window.location.href = "/scheduleAppointment";
+    }
     
     itemText(appointment: Appointment) {
         return appointment.tutorFirstName + appointment.studentLastName + appointment.date
@@ -43,6 +54,26 @@ export default class ScheduleAppointment extends Vue {
             this.isLoaded = true;
         });
     }
+
+    getFilteredAppointments(search) {
+        var tempApptCounter = 0;
+
+        for (var index: number = 0; index < this.appointments.length; index++) {
+            if (this.appointments[index].tutorFirstName === search) {
+                this.tempAppointments[tempApptCounter++] = this.appointments[index];
+            }
+            if (this.appointments[index].tutorLastName === search) {
+                this.tempAppointments[tempApptCounter++] = this.appointments[index];
+            }
+            if (this.appointments[index].subject === search) {
+                this.tempAppointments[tempApptCounter++] = this.appointments[index];
+            }
+            if (this.appointments[index].date === search) {
+                this.tempAppointments[tempApptCounter++] = this.appointments[index];
+            }
+        }
+        return this.tempAppointments;
+    }
 }
 
 import { ComponentOptions } from 'Vue';
@@ -53,9 +84,6 @@ export declare type VueClass = {
 export declare type DecoratedClass = VueClass & {
     __decorators__?: ((options: ComponentOptions<Vue>) => void)[];
 };
-
-
-
 
 /*import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
