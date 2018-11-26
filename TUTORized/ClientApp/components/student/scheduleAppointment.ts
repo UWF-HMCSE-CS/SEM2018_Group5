@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import { Component } from 'vue-property-decorator';
+import { Component, Watch } from 'vue-property-decorator';
 import { Appointment } from '../../models/Appointment';
 import StudentService from '../../services/student/studentServices';
 
@@ -16,10 +16,12 @@ export default class ScheduleAppointment extends Vue {
     appointments: Array<Appointment> = [];
     event = new Appointment();
     selectedEvent = new Appointment();
+    tempAppointments: Array<Appointment> = [];
+    search: string = '';
     isLoaded: boolean = false;
+    isUpdated: boolean = false;
 
     submitFunction() {
-
         this.isLoaded = false;
         StudentService.MakeStudentAppointment(this.appointment.id).then(x => {
             StudentService.GetListOfAllAvailableAppointments().then(result => {
@@ -28,6 +30,16 @@ export default class ScheduleAppointment extends Vue {
             })
         });
         alert('Scheduled Successfully');
+        window.location.href = "/scheduleAppointment";
+    }
+
+    filterFunction(search: string) {
+        //this.resetFilter();
+        this.appointments = this.getFilteredAppointments(search);
+        alert('Filtered Successfully');
+    }
+
+    resetFilterFunction() {
         window.location.href = "/scheduleAppointment";
     }
     
@@ -41,7 +53,35 @@ export default class ScheduleAppointment extends Vue {
             this.isLoaded = true;
         });
     }
+
+    getFilteredAppointments(search){
+        var tempApptCounter = 0;
+
+        for (var index: number = 0; index < this.appointments.length; index++) {
+            if (this.appointments[index].tutorFirstName === search) {
+                this.tempAppointments[tempApptCounter++] = this.appointments[index];
+            }
+            if (this.appointments[index].tutorLastName === search) {
+                this.tempAppointments[tempApptCounter++] = this.appointments[index];
+            }
+            if (this.appointments[index].subject === search) {
+                this.tempAppointments[tempApptCounter++] = this.appointments[index];
+            }
+            if (this.appointments[index].date === search) {
+                this.tempAppointments[tempApptCounter++] = this.appointments[index];
+            }
+        }
+        return this.tempAppointments;
+    }
+
+    resetFilter() {
+        StudentService.GetListOfAllAvailableAppointments().then(result => {
+            this.appointments = result;
+            this.isUpdated = true;
+        })
+    }
 }
+
 
 import { ComponentOptions } from 'Vue';
 
