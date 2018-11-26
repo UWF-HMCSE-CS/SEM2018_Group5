@@ -15,7 +15,25 @@ namespace TUTORized.Services
 
         public static string SendGridApiKey;
 
-        public Task SendEmailAsync(string email, string subject, string message)
+        public Task SendAppointmentMadeEmailAsync(string email, string subject, string message)
+        {
+            var client = new SendGridClient(SendGridApiKey);
+
+            var msg = new SendGridMessage
+            {
+                TemplateId = SendGridTutorizedTemplate,
+                From = new EmailAddress("noReply@noReply.com", "Tutorized"),
+                Subject = subject,
+                PlainTextContent = message,
+                HtmlContent = message
+            };
+
+            msg.AddTo(new EmailAddress(email));
+
+            return client.SendEmailAsync(msg);
+        }
+
+        public Task SendConfirmEmailAsync(string email, string subject, string message)
         {
             var client = new SendGridClient(SendGridApiKey);
 

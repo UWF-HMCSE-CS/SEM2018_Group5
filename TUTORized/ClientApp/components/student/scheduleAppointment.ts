@@ -2,7 +2,7 @@ import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 import { Appointment } from '../../models/Appointment';
 import StudentService from '../../services/student/studentServices';
-
+import * as Cookie from 'es-cookie';
 
 @Component({
     components: {
@@ -12,16 +12,17 @@ import StudentService from '../../services/student/studentServices';
 export default class ScheduleAppointment extends Vue {
     appointment = new Appointment(); 
     id: string = '';
-
+    email: string = '';
     appointments: Array<Appointment> = [];
     event = new Appointment();
     selectedEvent = new Appointment();
     isLoaded: boolean = false;
 
     submitFunction() {
-
+        this.email = Cookie.get('email');
+        console.log(this.appointment.tutorId);
         this.isLoaded = false;
-        StudentService.MakeStudentAppointment(this.appointment.id).then(x => {
+        StudentService.MakeStudentAppointment(this.appointment, this.email).then(x => {
             StudentService.GetListOfAllAvailableAppointments().then(result => {
                 this.appointments = result;
                 this.isLoaded = true;
@@ -37,6 +38,7 @@ export default class ScheduleAppointment extends Vue {
 
     mounted() {
         StudentService.GetListOfAllAvailableAppointments().then(result => {
+            console.log(result);
             this.appointments = result;
             this.isLoaded = true;
         });

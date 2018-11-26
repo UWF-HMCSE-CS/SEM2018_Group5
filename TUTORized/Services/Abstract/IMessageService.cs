@@ -7,6 +7,8 @@ namespace TUTORized.Services.Abstract
 {
     public interface IMessageService
     {
-        Task SendEmailAsync(string email, string subject, string message);
+        Task SendAppointmentMadeEmailAsync(string email, string subject, string message);
+
+        Task SendConfirmEmailAsync(string email, string subject, string message);
     }
 }

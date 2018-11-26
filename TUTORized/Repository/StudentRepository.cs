@@ -49,6 +49,15 @@ namespace TUTORized.Repository
             return await FirstJsonResultAsync<User>("readUserByEmail", parameters);
         }
 
+        public async Task<string> GetStudentEmailById(string id)
+        {
+            var parameters = new DynamicParameters();
+
+            parameters.Add("StudentId", id);
+
+            return await FirstJsonResultAsync<string>("getUserEmailFromTutorId", parameters);
+        }
+
         /// <summary>
         /// Retrieves all Tutors from the database
         /// </summary>

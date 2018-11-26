@@ -14,9 +14,8 @@
         <v-layout>
             <v-flex xs12 md8 lg6>
                 <v-select v-if="isLoaded"
-                          v-model="appointment.id"
+                          v-model="appointment"
                           :items="appointments"
-                          item-value="id"
                           label="Available Appointments">
                     <template slot="selection" slot-scope="data">
                         {{ data.item.tutorFirstName }} {{ data.item.tutorLastName }} {{data.item.date}}

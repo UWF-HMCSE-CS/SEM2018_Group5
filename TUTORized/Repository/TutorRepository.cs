@@ -57,6 +57,15 @@ namespace TUTORized.Repository
             return result;
         }
 
+        public async Task<string> GetTutorEmailById(string id)
+        {
+            var parameters = new DynamicParameters();
+
+            parameters.Add("TutorId", id);
+
+            return await JsonResultAsync("getUserEmailFromTutorId", parameters);
+        }
+
         /// <summary>
         /// Deletes an Appointment from the Database
         /// </summary>

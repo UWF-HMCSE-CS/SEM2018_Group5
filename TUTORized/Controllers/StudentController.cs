@@ -33,10 +33,10 @@ namespace TUTORized.Controllers
             return Ok(await _studentService.GetListOfAllAvailableAppointmentsAsync());
         }
 
-        [HttpPost("makeStudentAppointment")]
-        public async Task<IActionResult> MakeStudentAppointment([FromBody] Appointment appointment)
+        [HttpPost("makeStudentAppointment/{email}")]
+        public async Task<IActionResult> MakeStudentAppointment([FromBody] Appointment appointment, string email)
         {
-            return Ok(await _studentService.MakeStudentAppointment(appointment));
+            return Ok(await _studentService.MakeStudentAppointment(appointment, email));
         }
     }
 }
