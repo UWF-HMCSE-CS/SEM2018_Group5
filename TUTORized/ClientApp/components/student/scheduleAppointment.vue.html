@@ -24,9 +24,8 @@
                     <v-btn id="reset" flat @click="resetFilterFunction()">Reset Filter</v-btn>
                 </v-card-actions>
                 <v-select v-if="isLoaded"
-                          v-model="appointment.id"
+                          v-model="appointment"
                           :items="appointments"
-                          item-value="id"
                           label="Available Appointments">
                     <template slot="selection" slot-scope="data">
                         {{ data.item.tutorFirstName }} {{ data.item.tutorLastName }} is available for {{data.item.subject}} on {{data.item.date}}

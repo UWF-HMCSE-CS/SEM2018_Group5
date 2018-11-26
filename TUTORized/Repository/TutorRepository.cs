@@ -38,7 +38,7 @@ namespace TUTORized.Repository
         /// </summary>
         /// <param name="appointment"></param>
         /// <returns></returns>
-        public async Task<Models.Appointment> CreateAppointment(Models.Appointment appointment)
+        public async Task<Appointment> CreateAppointment(Appointment appointment)
         {
             //Initializes Parameters for Stored Procedure
             var parameters = new DynamicParameters();
@@ -53,8 +53,17 @@ namespace TUTORized.Repository
             parameters.Add("TutorFirstName", loggedInUser.FirstName);
             parameters.Add("TutorLastName", loggedInUser.LastName);
 
-            var result = await FirstJsonResultAsync<Models.Appointment>("createAppointment", parameters);
+            var result = await FirstJsonResultAsync<Appointment>("createAppointment", parameters);
             return result;
+        }
+
+        public async Task<string> GetTutorEmailById(string id)
+        {
+            var parameters = new DynamicParameters();
+
+            parameters.Add("TutorId", id);
+
+            return await JsonResultAsync("getUserEmailFromTutorId", parameters);
         }
 
         /// <summary>

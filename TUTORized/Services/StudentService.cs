@@ -28,9 +28,16 @@ namespace TUTORized.Services
     {
         private readonly IStudentRepository _studentRepository;
 
-        public StudentService(IStudentRepository studentRepository)
+        private readonly IMessageService _messageService;
+
+        private readonly ITutorRepository _tutorRepository;
+
+        public StudentService(IStudentRepository studentRepository, IMessageService messageService, 
+            ITutorRepository tutorRepository)
         {
             _studentRepository = studentRepository;
+            _messageService = messageService;
+            _tutorRepository = tutorRepository;
         }
 
         /// <summary>
@@ -46,7 +53,7 @@ namespace TUTORized.Services
         /// Retreives the entire list of available appointments
         /// </summary>
         /// <returns></returns>
-        public async Task<IEnumerable<Models.Appointment>> GetListOfAllAvailableAppointmentsAsync()
+        public async Task<IEnumerable<Appointment>> GetListOfAllAvailableAppointmentsAsync()
         {
             return await _studentRepository.GetListOfAllAvailableAppointmentsAsync();
         }
@@ -55,8 +62,17 @@ namespace TUTORized.Services
         /// Allows a student to make an appointment
         /// </summary>
         /// <param></param>
-        public async Task<Models.Appointment> MakeStudentAppointment(Models.Appointment appointment)
+        public async Task<Appointment> MakeStudentAppointment(Appointment appointment, string email)
         {
+            var toEmail = await _tutorRepository.GetTutorEmailById(appointment.TutorId);
+            var subject = "An appointment has been booked";
+            var message = appointment.StudentFirstName + " " + appointment.StudentLastName + " has booked an " +
+                          "appointment on " + appointment.Date + " for help in " + appointment.Subject;
+
+            await _messageService.SendAppointmentMadeEmailAsync(toEmail, subject, message);
+
+            message = "You have booked an appointment on " + appointment.Date + " for help in " + appointment.Subject;
+            await _messageService.SendConfirmEmailAsync(email, subject, message);
             return await _studentRepository.MakeStudentAppointment(appointment);
         }
     }

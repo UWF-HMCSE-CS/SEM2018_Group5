@@ -26,6 +26,8 @@ namespace TUTORized.Repository.Abstract
     {
         Task<User> GetTutorByEmailAsync(string email);
 
+        Task<string> GetStudentEmailById(string id);
+
         Task<IEnumerable<User>> GetEntireTutorListAsync();
 
         Task<IEnumerable<User>> GetTutorListBySubjectAsync(string subject);
