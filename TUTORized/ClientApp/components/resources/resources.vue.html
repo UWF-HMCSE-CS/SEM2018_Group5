@@ -1,35 +1,44 @@
 <template>
-    <div>
-        <h5>Select a user to share resources with, upload your file and share it with the user:</h5>
+  <div>
+    <nav-menu></nav-menu>
 
-        <!--This lists all the students a tutor has worked with-->
-        <v-layout>
-            <v-flex xs12 md8 lg6>
-              <v-select id="selected"
-                  v-model="selectedUser.id"
-                  :items="users"
-                  item-text="email"
-                  item-value="id"
-                  label="Select A User To Share A File With:">
-                </v-select>
-            </v-flex>
-        </v-layout>
+    <h5>Select a user to chat with, write a message and send that message:</h5>
 
-        <h5>Share files: </h5>
+    <!--This lists all the students a tutor has worked with-->
+    <v-layout>
+        <v-flex xs12 md8 lg6>
+            <v-select id="selected"
+                      v-model="selectedUser.id"
+                      :items="users"
+                      item-text="email"
+                      item-value="id"
+                      label="Select A User To Message:">
+            </v-select>
+        </v-flex>
+    </v-layout>
 
-        <label>File
-            <input type="file" id="file" ref="file" v-on:change="handleFileUpload()"/>
-        </label>
-
-        <v-layout>
-            <v-flex xs12 md8 lg6>
-                <v-actions>
-                    <v-btn @click="submitFileFunction()">Submit</v-btn>
-                </v-actions>
-            </v-flex>
-        </v-layout>
         
-    </div>
+            <!--UPLOAD-->
+                <form enctype="multipart/form-data" novalidate >
+                  <h1>Upload images</h1>
+                  <div class="dropbox">
+                    <input type="file" multiple :name="uploadFieldName" :disabled="isSaving" @change="filesChange($event.target.name, $event.target.files); fileCount = $event.target.files.length"
+                      accept="image/*" class="input-file">
+                      <p >
+                        Drag your file(s) here to begin<br> or click to browse
+                      </p>
+                      <p>
+                        Uploading {{ fileCount }} files...
+                      </p>
+                  </div>
+                </form>
+
+
+ 
+
+
+  </div>
 </template>
 
-<script src="./resources.ts"/>
+<script src="./resources.ts"></script>
+<script src="./resources.js"></script>
