@@ -55,20 +55,21 @@ export default class ScheduleAppointment extends Vue {
         });
     }
 
-    getFilteredAppointments(search) {
+    getFilteredAppointments(search: string) {
         var tempApptCounter = 0;
+        var lowerCaseSearch = search.toString().toLowerCase();
 
         for (var index: number = 0; index < this.appointments.length; index++) {
-            if (this.appointments[index].tutorFirstName === search) {
+            if (this.appointments[index].tutorFirstName.toLowerCase() === lowerCaseSearch) {
                 this.tempAppointments[tempApptCounter++] = this.appointments[index];
             }
-            if (this.appointments[index].tutorLastName === search) {
+            if (this.appointments[index].tutorLastName.toLowerCase() === lowerCaseSearch) {
                 this.tempAppointments[tempApptCounter++] = this.appointments[index];
             }
-            if (this.appointments[index].subject === search) {
+            if (this.appointments[index].subject.toLowerCase() === lowerCaseSearch) {
                 this.tempAppointments[tempApptCounter++] = this.appointments[index];
             }
-            if (this.appointments[index].date === search) {
+            if (this.appointments[index].date.toLowerCase() === lowerCaseSearch) {
                 this.tempAppointments[tempApptCounter++] = this.appointments[index];
             }
         }
