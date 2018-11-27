@@ -26,6 +26,13 @@ export default class Chat extends Vue {
         });
     }
 
+    handleFileUpload(){
+        alert("inside upload");
+    }
+    submitFile(){
+        alert("inside button");
+    }
+
 
     
 }

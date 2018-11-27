@@ -17,28 +17,18 @@
         </v-flex>
     </v-layout>
 
-        
-            <!--UPLOAD-->
-                <form enctype="multipart/form-data" novalidate >
-                  <h1>Upload images</h1>
-                  <div class="dropbox">
-                    <input type="file" multiple :name="uploadFieldName" :disabled="isSaving" @change="filesChange($event.target.name, $event.target.files); fileCount = $event.target.files.length"
-                      accept="image/*" class="input-file">
-                      <p >
-                        Drag your file(s) here to begin<br> or click to browse
-                      </p>
-                      <p>
-                        Uploading {{ fileCount }} files...
-                      </p>
-                  </div>
-                </form>
 
+    <div class="large-6 medium-8 small-12 cell">
+      <label>File
+          <input type="file" id="file" ref="file" v-on:change="handleFileUpload()"/>
+      </label>
 
- 
-
+              <v-actions>
+                  <v-btn @click="submitFile()">Share</v-btn>
+              </v-actions>
+    </div>
 
   </div>
 </template>
 
 <script src="./resources.ts"></script>
-<script src="./resources.js"></script>
