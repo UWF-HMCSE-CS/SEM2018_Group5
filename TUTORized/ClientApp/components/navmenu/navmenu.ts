@@ -34,8 +34,11 @@ export default class NavMenu extends Vue {
     }
 
     logOut() {
-        console.log("LOG OUT");
         Cookie.remove('role');
+        this.$router.push({
+            path: '/'
+        });
+
     }
 
     mounted() {
