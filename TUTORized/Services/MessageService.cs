@@ -22,13 +22,12 @@ namespace TUTORized.Services
             var msg = new SendGridMessage
             {
                 TemplateId = SendGridTutorizedTemplate,
-                From = new EmailAddress("noReply@noReply.com", "Tutorized"),
+                From = new EmailAddress("noReply@noReply.net", "Tutorized"),
                 Subject = subject,
                 PlainTextContent = message,
                 HtmlContent = message
             };
 
-            msg.AddTo(new EmailAddress(email));
 
             return client.SendEmailAsync(msg);
         }
@@ -40,13 +39,12 @@ namespace TUTORized.Services
             var msg = new SendGridMessage
             {
                 TemplateId = SendGridTutorizedTemplate,
-                From = new EmailAddress("wpe1@students.uwf.edu", "Tutorized"),
+                From = new EmailAddress("noReply@noReply.net", "Tutorized"),
                 Subject = subject,
                 PlainTextContent = message,
                 HtmlContent = message
             };
 
-            msg.AddTo(new EmailAddress(email));
 
             return client.SendEmailAsync(msg);
         }
