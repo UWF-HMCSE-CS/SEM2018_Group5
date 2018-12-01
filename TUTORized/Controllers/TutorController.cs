@@ -38,5 +38,4 @@ namespace TUTORized.Controllers
             return Ok(await _tutorService.UpgradeStudentToTutorAsync(user));
         }
     }
-
 }
