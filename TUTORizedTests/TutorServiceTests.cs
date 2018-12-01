@@ -15,6 +15,7 @@ namespace TUTORizedTests
         private readonly TutorService _sut;
         private readonly Mock<ITutorRepository> _tutorRepositoryMock;
         private Appointment appointment;
+        private User user;
         List<User> mockList;
 
         public TutorServiceTests()
@@ -40,6 +41,16 @@ namespace TUTORizedTests
             appointment.StudentLastName = "studentlast";
             appointment.TutorFirstName = "tutorfirst";
             appointment.TutorLastName = "tutorlast";
+
+            user = new User();
+            user.Email = "TutorServiceTest@email.com";
+            user.FirstName = "FirstName";
+            user.LastName = "LastName";
+            user.Password = "password";
+            user.Role = "Student";
+
+            mockList = new List<User>();
+            mockList.Add(user);
         }
 
         [TestMethod]
@@ -54,6 +65,38 @@ namespace TUTORizedTests
 
             //ASSERT 
             _tutorRepositoryMock.Verify((_tutorRepositoryMock => _tutorRepositoryMock.CreateAppointment(appointment)), Times.Once);
+        }
+
+        [TestMethod]
+        public async Task GetEntireStudentListAsync_ShouldReturnListOfStudents()
+        {
+            //ARRANGE
+            _tutorRepositoryMock.Setup(_tutorRepositoryMock => _tutorRepositoryMock.GetEntireStudentListAsync()).Returns(Task.FromResult((IEnumerable<User>)mockList));
+            int students = 0;
+
+            //ACT
+            var studentList = await _sut.GetEntireStudentListAsync();
+            foreach (User student in studentList)
+            {
+                students++;
+            }
+
+            //ASSERT
+            Assert.IsTrue(students > 0, "The students were not greater than 0");
+        }
+
+        [TestMethod]
+        public async Task UpgradeStudentToTutorAsync_ShouldUpdateUserRoleToTutorAndReturnUpdatedUser()
+        {
+            //ARRANGE
+            _tutorRepositoryMock.Setup(_tutorRepositoryMock => _tutorRepositoryMock.UserProfileUpdateAsync(user)).Returns(Task.FromResult(user));
+
+            //ACT
+            await _sut.UpgradeStudentToTutorAsync(user);
+
+
+            //ASSERT
+            Assert.AreEqual("Tutor", user.Role);
         }
     }
 }
