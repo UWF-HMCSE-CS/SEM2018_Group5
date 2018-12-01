@@ -15,12 +15,11 @@
             <v-flex>
                 <ul v-if="isLoaded">
                     <li v-for="event in events">
-                        Date: {{ event.date }} |
-                        Duration: {{ event.duration }} mins |
-                        Subject: {{ event.subject }} |
-                        Student: {{ event.studentFirstName }} 
-                        {{ event.studentLastName }} |
-                        Tutor: {{ event.tutorFirstName }} 
+                        {{ itemText(event.date) }} for {{ event.duration }} mins in
+                        {{ event.subject }}: 
+                        Student- {{ event.studentFirstName }}
+                        {{ event.studentLastName }} &
+                        Tutor- {{ event.tutorFirstName }}
                         {{ event.tutorLastName }}
                     </li>
                 </ul>
