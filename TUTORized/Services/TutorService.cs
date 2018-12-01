@@ -38,9 +38,28 @@ namespace TUTORized.Services
         /// information to the Database
         /// </summary>
         /// <param name="user"></param>
-        public async Task<Models.Appointment> CreateAppointment(Models.Appointment appointment)
+        public async Task<Appointment> CreateAppointment(Appointment appointment)
         {
             return await _tutorRepository.CreateAppointment(appointment);
+        }
+
+        /// <summary>
+        /// Retrieves all Students from the database
+        /// </summary>
+        /// <returns></returns>
+        public async Task<IEnumerable<User>> GetEntireStudentListAsync()
+        {
+            return await _tutorRepository.GetEntireStudentListAsync();
+        }
+
+        /// <summary>
+        /// Updates a User's role from Student to Tutor
+        /// </summary>
+        /// <returns></returns>
+        public async Task<User> UpgradeStudentToTutorAsync(User user)
+        { 
+            user.Role = "Tutor";
+            return await _tutorRepository.UserProfileUpdateAsync(user);
         }
     }
 }
