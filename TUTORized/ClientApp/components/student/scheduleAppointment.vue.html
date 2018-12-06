@@ -30,10 +30,10 @@
                           label="Available Appointments"
                           dark>
                     <template slot="selection" slot-scope="data">
-                        {{ data.item.tutorFirstName }} {{ data.item.tutorLastName }} is available for {{data.item.subject}} on {{data.item.date}}
+                        {{ data.item.tutorFirstName }} {{ data.item.tutorLastName }} is available for {{data.item.subject}} on {{dateText(data.item.date)}}
                     </template>
                     <template slot="item" slot-scope="data">
-                        {{ data.item.tutorFirstName }} {{ data.item.tutorLastName }} is available for {{data.item.subject}} on {{data.item.date}}
+                        {{ data.item.tutorFirstName }} {{ data.item.tutorLastName }} is available for {{data.item.subject}} on {{dateText(data.item.date)}}
                     </template>
                 </v-select>
                 <v-card-actions>
