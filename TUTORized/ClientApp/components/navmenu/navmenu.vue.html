@@ -49,6 +49,11 @@
                         </router-link>
                     </li>
                     <li>
+                        <router-link v-if="isTutor || isStudent" to="/resources">
+                            Share Resources
+                        </router-link>
+                    </li>
+                    <li>
                         <router-link v-if="isLoggedIn" to="/logout" @click.native="logOut">
                             Log Out
                         </router-link>
