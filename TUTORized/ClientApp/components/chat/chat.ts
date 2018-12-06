@@ -2,6 +2,7 @@
 import { Component } from 'vue-property-decorator';
 import { User } from '../../models/User';
 import { Message } from '../../models/Message';
+
 import UserService from '../../services/user/userServices';
 
 
@@ -11,6 +12,7 @@ import UserService from '../../services/user/userServices';
     }
 })
 export default class Chat extends Vue {
+
 
     users: Array<User> = [];
     user = new User();
@@ -47,4 +49,6 @@ export default class Chat extends Vue {
         alert('Message Sent Successfully');
         window.location.href = "/chat";
     }
+
+    
 }
