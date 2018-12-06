@@ -1,0 +1,30 @@
+﻿<template>
+    <div>
+        <nav-menu></nav-menu>
+
+        <h5>Select a Student to upgrade to Tutor, then click submit.</h5>
+
+        <!--This lists all the students available for upgrade-->
+        <v-layout>
+            <v-flex xs12 md8 lg6>
+                <v-select id="selected"
+                          v-model="selectedUser.id"
+                          :items="users"
+                          item-text="email"
+                          item-value="id"
+                          label="Select Student to Upgrade:"
+                          dark>
+                </v-select>
+            </v-flex>
+        </v-layout>
+        <v-layout>
+            <v-flex xs12 md8 lg6>
+                <v-actions>
+                    <v-btn @click="submit">Submit</v-btn>
+                </v-actions>
+            </v-flex>
+        </v-layout>
+    </div>
+</template>
+
+<script src="./upgradeStudentToTutor.ts"></script>

@@ -27,5 +27,11 @@ namespace TUTORized.Repository.Abstract
         Task<Appointment> CreateAppointment(Appointment appointment);
 
         Task AppointmentDeleteByAppointmentId(string Id);
+
+        Task<string> GetTutorEmailById(string id);
+
+        Task<IEnumerable<User>> GetEntireStudentListAsync();
+
+        Task<User> UserProfileUpdateAsync(User user);
     }
 }

@@ -51,7 +51,7 @@ namespace TUTORized.Services
         /// <returns></returns>
         public async Task<User> LoginUser(string email, string password)
         {
-               return await _userRepository.UserLoginAsync(email, password);
+            return await _userRepository.UserLoginAsync(email, password);
 
         }
 
@@ -59,9 +59,37 @@ namespace TUTORized.Services
         /// Retreives the entire list of the users appointments
         /// </summary>
         /// <returns></returns>
-        public async Task<IEnumerable<Appointment>> GetEntireUserAppointmentListAsync()
+        public async Task<IEnumerable<Models.Appointment>> GetEntireUserAppointmentListAsync()
         {
             return await _userRepository.GetEntireUserAppointmentListAsync();
+        }
+
+        /// <summary>
+        /// Retreives the list of the users (tutors or students) you have worked with.
+        /// </summary>
+        /// <returns></returns>
+        public async Task<IEnumerable<User>> GetListOfUsersWorkedWithAsync()
+        {
+            return await _userRepository.GetListOfUsersWorkedWithAsync();
+        }
+
+        /// <summary>
+        /// Used to send a message
+        /// </summary>
+        /// <param></param>
+        public async Task<Message> SendMessageAsync(Message message)
+        {
+            return await _userRepository.SendMessageAsync(message);
+        }
+
+        public async Task<IEnumerable<Message>> GetListOfUsersReceivedMessagesAsync()
+        {
+            return await _userRepository.GetListOfUsersReceivedMessagesAsync();
+        }
+
+        public async Task<IEnumerable<Message>> GetListOfUsersSentMessagesAsync()
+        {
+            return await _userRepository.GetListOfUsersSentMessagesAsync();
         }
 
     }

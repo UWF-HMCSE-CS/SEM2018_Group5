@@ -1,0 +1,18 @@
+{
+  "version": "1.0",
+  "defaultProvider": "unpkg",
+  "libraries": [
+    {
+      "library": "@aspnet/signalr@1.0.4",
+<<<<<<< HEAD
+      "destination": "wwwroot/lib/signalr/",
+=======
+      "destination": " wwwroot/lib/signalr/",
+>>>>>>> chat2
+      "files": [
+        "dist/browser/signalr.js",
+        "dist/browser/signalr.min.js"
+      ]
+    }
+  ]
+}

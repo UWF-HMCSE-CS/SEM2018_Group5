@@ -1,8 +1,19 @@
 ﻿import { User } from '../../models/User';
 import axios from 'axios';
 import { Appointment } from '../../models/Appointment';
+import { Message } from '../../models/Message';
 
 export default class UserService {
+
+    public static GetListOfUsersWorkedWith(): Promise<Array<User>> {
+        return axios.get('api/user/getListOfUsersWorkedWith')
+            .then(response => {
+                return response.data;
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
 
     public static GetListOfAppointments(): Promise<Array<Appointment>> {
         return axios.get('api/user')
@@ -14,16 +25,49 @@ export default class UserService {
             })
     }
 
-    public static UserLogin(email: string, password:string): Promise<User> {
+    public static UserLogin(email: string, password: string): Promise<User> {
         return axios.post('api/user/loginUser', {
             Email: email,
             Password: password
         })
-        .then(response => {
-            return response.data;
+            .then(response => {
+                return response.data;
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
+    public static sendMessage(toUser: User, messageBody: string): Promise<Message> {
+        return axios.post('api/user/sendMessage', {
+            ToUser: toUser,
+            MessageBody: messageBody
         })
-        .catch(error => {
-            console.log(error);
-        })
+            .then(response => {
+                return response.data;
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
+    public static GetListOfUsersReceivedMessages(): Promise<Array<Message>> {
+        return axios.get('api/user/getListOfUsersReceivedMessages')
+            .then(response => {
+                return response.data;
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
+    public static GetListOfUsersSentMessages(): Promise<Array<Message>> {
+        return axios.get('api/user/getListOfUsersSentMessages')
+            .then(response => {
+                return response.data;
+            })
+            .catch(error => {
+                console.log(error);
+            })
     }
 }

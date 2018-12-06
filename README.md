@@ -94,6 +94,37 @@ After reading the description above, you must have figured out that our applicat
 8. The appointment you just confirmed will be displayed on your calendar along with the date, time and the name of your tutor.
 ![image](https://user-images.githubusercontent.com/14351534/47765495-39f07600-dc98-11e8-9a9e-9d1eddf4c0b4.png)
 
+### Viewing Users (Tutors or Students) you have worked with
+1. After you have logged in (discribed above), select the correct tab based on what "Role" you are logged in under. 
+  
+  A) Logged in as "Tutor"
+  ![image](https://user-images.githubusercontent.com/25124387/48272551-79d7fb80-e404-11e8-960d-3d22076c8b3a.png)
+  
+  B) Logged in as "Student"
+  ![image](https://user-images.githubusercontent.com/25124387/48272702-df2bec80-e404-11e8-82f6-dce5e61e22d0.png)
+
+
+2. Next you will be able to see who you have worked with, or if you have not worked with anyone yet.
+
+  A) Displays the Users you have worked with
+  ![image](https://user-images.githubusercontent.com/25124387/48272748-02ef3280-e405-11e8-80c4-e50367312771.png)
+  
+  B) Informs you that you have not worked with another User yet
+  ![image](https://user-images.githubusercontent.com/25124387/48272803-1a2e2000-e405-11e8-8d29-f58dd645d68c.png)
+  
+### Messaging a User (Tutors or Students) you have worked with
+1. After you have logged in (described above), select the 'Messages' tab to chat with a user you have worked with. If you are a tutor, you can only chat with students you have worked with. If you are a student, you can only chat with tutors you have worked with.
+
+#### Logged in as a "Tutor" or a "Student"
+1. Select a user, type your message and click on the send button. That message will appear under 'List of your sent messages:' 
+You can view their messages by looking at the 'List of your received messages'.
+![image](https://user-images.githubusercontent.com/14351534/48653810-6d880b80-e9cd-11e8-9f56-812d663d4016.png)
+
+![image](https://user-images.githubusercontent.com/14351534/48653823-85f82600-e9cd-11e8-8d13-b7f4c835b4b2.png)
+
+![image](https://user-images.githubusercontent.com/14351534/48653841-9f996d80-e9cd-11e8-8123-0138351e29f7.png)
+
+![image](https://user-images.githubusercontent.com/14351534/48654040-3581c800-e9cf-11e8-8f1e-8a24d6708584.png)
 
 
 

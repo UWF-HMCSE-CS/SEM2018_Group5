@@ -28,6 +28,6 @@ namespace TUTORized.Services.Abstract
 
         Task<IEnumerable<Appointment>> GetListOfAllAvailableAppointmentsAsync();
 
-        Task<Appointment> MakeStudentAppointment(Appointment appointment);
+        Task<Appointment> MakeStudentAppointment(Appointment appointment, string email);
     }
 }

@@ -26,12 +26,14 @@ namespace TUTORized.Repository.Abstract
     {
         Task<User> GetTutorByEmailAsync(string email);
 
+        Task<string> GetStudentEmailById(string id);
+
         Task<IEnumerable<User>> GetEntireTutorListAsync();
 
         Task<IEnumerable<User>> GetTutorListBySubjectAsync(string subject);
 
-        Task<IEnumerable<Appointment>> GetListOfAllAvailableAppointmentsAsync();
+        Task<IEnumerable<Models.Appointment>> GetListOfAllAvailableAppointmentsAsync();
 
-        Task<Appointment> MakeStudentAppointment(Appointment appointment);
+        Task<Models.Appointment> MakeStudentAppointment(Models.Appointment appointment);
     }
 }

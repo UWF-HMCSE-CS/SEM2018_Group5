@@ -57,6 +57,15 @@ namespace TUTORized.Repository
             return result;
         }
 
+        public async Task<string> GetTutorEmailById(string id)
+        {
+            var parameters = new DynamicParameters();
+
+            parameters.Add("TutorId", id);
+
+            return await JsonResultAsync("getUserEmailFromTutorId", parameters);
+        }
+
         /// <summary>
         /// Deletes an Appointment from the Database
         /// </summary>
@@ -71,6 +80,35 @@ namespace TUTORized.Repository
             parameters.Add("Id", id);
 
             await ExecuteAsync("deleteAppointmentByAppointmentId", parameters);
+        }
+
+        /// <summary>
+        /// Retrieves all Students from the database
+        /// </summary>
+        /// <returns></returns>
+        public async Task<IEnumerable<User>> GetEntireStudentListAsync()
+        {
+            return await JsonResultAsync<User>("readAllStudents");
+        }
+
+        /// <summary>
+        ///  Updates a User in the database by passing in their updated User object
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public async Task<User> UserProfileUpdateAsync(User user)
+        {
+            //Initializes Parameters for Stored Procedure
+            var parameters = new DynamicParameters();
+
+            //Adds to Parameters
+            parameters.Add("Id", user.Id);
+            parameters.Add("Email", user.Email);
+            parameters.Add("FirstName", user.FirstName);
+            parameters.Add("LastName", user.LastName);
+            parameters.Add("Role", user.Role);
+
+            return await FirstJsonResultAsync<User>("updateUserProfileById", parameters);
         }
     }
 }

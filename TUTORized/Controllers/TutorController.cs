@@ -23,6 +23,19 @@ namespace TUTORized.Controllers
         {
             return Ok(await _tutorService.CreateAppointment(appointment));
         }
-    }
 
+        [HttpGet("getAllStudents")]
+        [ProducesResponseType(typeof(IList<User>), 200)] 
+        public async Task<IActionResult> GetEntireStudentListAsync()
+        {
+            return Ok(await _tutorService.GetEntireStudentListAsync());
+        }
+
+        [HttpPost("upgradeStudentToTutor")]
+        [ProducesResponseType(typeof(User), 200)]
+        public async Task<IActionResult> UpgradeStudentToTutorAsync([FromBody] User user)
+        {
+            return Ok(await _tutorService.UpgradeStudentToTutorAsync(user));
+        }
+    }
 }

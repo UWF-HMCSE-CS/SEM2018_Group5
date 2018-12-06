@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TUTORized.Models;
 using TUTORized.Services.Abstract;
@@ -35,10 +33,10 @@ namespace TUTORized.Controllers
             return Ok(await _studentService.GetListOfAllAvailableAppointmentsAsync());
         }
 
-        [HttpPost("makeStudentAppointment")]
-        public async Task<IActionResult> MakeStudentAppointment([FromBody] Appointment appointment)
+        [HttpPost("makeStudentAppointment/{email}")]
+        public async Task<IActionResult> MakeStudentAppointment([FromBody] Appointment appointment, string email)
         {
-            return Ok(await _studentService.MakeStudentAppointment(appointment));
+            return Ok(await _studentService.MakeStudentAppointment(appointment, email));
         }
     }
 }

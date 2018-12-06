@@ -17,27 +17,21 @@
                           :items="subjects"
                           item-text="subject"
                           item-value="subject"
-                          label="subject">
+                          label="subject"
+                          dark>
                 </v-select>
             </v-flex>
         </v-layout>
         <v-layout>
             <v-flex xs12 md8 lg6>
-                <v-text-field id="year" v-model="year" label="Year" hint="yyyy"></v-text-field>
-                <v-text-field id="month" v-model="month" label="Month" hint="mm"></v-text-field>
-                <v-text-field id="day" v-model="day" label="Day" hint="dd"></v-text-field>
-                <v-text-field id="dateTime" v-model="dateTime" label="Time (24 hr format)" hint="hh:mm"></v-text-field>
+                <v-text-field dark color="white" id="year" v-model="year" label="Year" hint="yyyy"></v-text-field>
+                <v-text-field dark color="white" id="month" v-model="month" label="Month" hint="mm"></v-text-field>
+                <v-text-field dark color="white" id="day" v-model="day" label="Day" hint="dd"></v-text-field>
+                <v-text-field dark color="white" id="dateTime" v-model="dateTime" label="Time (24 hr format)" hint="hh:mm"></v-text-field>
             </v-flex>
         </v-layout>
         <v-layout>
             <v-flex xs12 md8 lg6>
-                <!--<v-select id="dateTime"
-                      v-model="dateTime"
-                      :items="times"
-                      item-text="time"
-                      item-value="time"
-                      label="Time (24hr format)">
-            </v-select>-->
                 <v-actions>
                     <v-btn @click="submitFunction">Submit</v-btn>
                 </v-actions>
@@ -46,54 +40,3 @@
     </div>
 </template>
 <script src="./makeSchedule.ts"></script>
-
-
-
-<!--<template>
-    <div>
-        <h5>List of tutors available for Fall18 semester:</h5>
-
-        <table class="tg">
-            <tr>
-                <th style="font-weight:bold">Tutor:</th>
-                <th>Aaron Jones</th>
-                <th>Derek Miller</th>
-                <th>Brandon Davis</th>
-                <th>Kelly Patterson</th>
-                <th>Jacob Carter</th>
-            </tr>
-            <tr>
-                <td style="font-weight:bold">Subject:</td>
-                <td>Math</td>
-                <td>CS</td>
-                <td>Science</td>
-                <td>History</td>
-                <td>English</td>
-            </tr>
-        </table>
-
-        <iframe src="https://calendar.google.com/calendar/b/2/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;src=usltqh07santrkioft1ve37fa0%40group.calendar.google.com&amp;color=%23333333&amp;src=3l3louf6afsgnou8pjh614rfik%40group.calendar.google.com&amp;color=%23B1365F&amp;src=ncucb5jlg3cumjaofumo5v5lug%40group.calendar.google.com&amp;color=%23125A12&amp;src=i3130ibn4ujvodsdagrgccaodk%40group.calendar.google.com&amp;color=%23853104&amp;src=66the736jmuc5dqgfg4f5pg494%40group.calendar.google.com&amp;color=%232952A3&amp;ctz=America%2FChicago"
-                style="border-width:0"
-                width="800"
-                height="600"
-                frameborder="0"
-                scrolling="no"></iframe>
-    </div>
-
-</template>
-
-<script src="./scheduleAppointment.css"></script>-->
-<!--KEPT OLD CODE HERE IN CASE WE NEED TO REVERT or JUST AS AN EXAMPLE FOR LATER-->
-<!--<v-layout>
-        <v-flex xs12 md8 lg6>
-            <v-select v-if="isLoaded"
-                v-model="selectedTutor.id"
-                :items="tutors"
-                item-text="lastName"
-                item-value="id"
-                label="All Tutors">
-            </v-select>
-        </v-flex>
-    </v-layout>
-</template>
-<script src="./scheduleAppointment.ts"></script>-->

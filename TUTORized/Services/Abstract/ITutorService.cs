@@ -24,6 +24,10 @@ namespace TUTORized.Services.Abstract
 {
     public interface ITutorService
     {
-        Task<Appointment> CreateAppointment(Appointment appointment);
+        Task<Models.Appointment> CreateAppointment(Models.Appointment appointment);
+
+        Task<IEnumerable<User>> GetEntireStudentListAsync();
+
+        Task<User> UpgradeStudentToTutorAsync(User user);
     }
 }

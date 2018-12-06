@@ -1,17 +1,22 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
     <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
     <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
     <IsPackable>false</IsPackable>
     <UserSecretsId>04ca71b5-5671-43f4-a15a-940f3271214b</UserSecretsId>
+    <ApplicationIcon />
+    <OutputType>WinExe</OutputType>
+    <StartupObject />
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Dapper" Version="1.50.5" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.7" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.0.4" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.4" />
+    <PackageReference Include="Sendgrid" Version="9.10.0" />
   </ItemGroup>
 
   <ItemGroup>
