@@ -7,11 +7,10 @@ import { Component } from 'vue-property-decorator';
         NavMenu: require('../navmenu/navmenu.vue.html').default
     }
 })
-export default class Resources extends Vue {
+export default class Sharing extends Vue {
 
-    submitFile(){
-        alert("test");
-}
+    upload(){
+        alert("upload successful!");
+    }
  
 }
-
