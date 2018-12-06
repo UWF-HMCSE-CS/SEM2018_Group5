@@ -15,18 +15,20 @@
             <v-flex xs12 md8 lg8>
                 <v-text-field v-model="appointmentSearch"
                               label="Input First Name, Last Name, Subject or Date to filter appointments by."
-                              light
+                              dark
+                              color="white"
                               box
                               single-line>
                 </v-text-field>
                 <v-card-actions>
-                    <v-btn id="filter" flat @click="filterFunction(appointmentSearch)">Apply Filter</v-btn>
-                    <v-btn id="reset" flat @click="resetFilterFunction()">Reset Filter</v-btn>
+                    <v-btn dark id="filter" flat @click="filterFunction(appointmentSearch)">Apply Filter</v-btn>
+                    <v-btn dark id="reset" flat @click="resetFilterFunction()">Reset Filter</v-btn>
                 </v-card-actions>
                 <v-select v-if="isLoaded"
                           v-model="appointment"
                           :items="appointments"
-                          label="Available Appointments">
+                          label="Available Appointments"
+                          dark>
                     <template slot="selection" slot-scope="data">
                         {{ data.item.tutorFirstName }} {{ data.item.tutorLastName }} is available for {{data.item.subject}} on {{data.item.date}}
                     </template>
@@ -35,25 +37,10 @@
                     </template>
                 </v-select>
                 <v-card-actions>
-                    <v-btn flat @click="submitFunction">Submit</v-btn>
+                    <v-btn @click="submitFunction">Submit</v-btn>
                 </v-card-actions>
             </v-flex>
         </v-layout>
     </div>
 </template>
 <script src="./scheduleAppointment.ts"></script>
-
-<!--KEPT OLD CODE HERE IN CASE WE NEED TO REVERT or JUST AS AN EXAMPLE FOR LATER-->
-<!--<v-layout>
-        <v-flex xs12 md8 lg6>
-            <v-select v-if="isLoaded"
-                v-model="selectedTutor.id"
-                :items="tutors"
-                item-text="lastName"
-                item-value="id"
-                label="All Tutors">
-            </v-select>
-        </v-flex>
-    </v-layout>
-</template>
-<script src="./scheduleAppointment.ts"></script>-->
