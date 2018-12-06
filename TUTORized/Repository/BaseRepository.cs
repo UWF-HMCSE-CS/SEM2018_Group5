@@ -23,19 +23,6 @@ namespace TUTORized.Repository
             _connection = connection;
         }
 
-        //test connection
-
-        //public async Task TestConnection()
-        //{
-        //    using (IDbConnection conn = Connection)
-        //    {
-        //        string query = "SELECT * FROM USERS";
-        //        conn.Open();
-        //        var result = await conn.QueryAsync<String>(query);
-        //    }
-        //}
-
-
         /// <summary>
         /// executes the commands
         /// </summary>

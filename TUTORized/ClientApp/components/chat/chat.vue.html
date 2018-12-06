@@ -12,7 +12,8 @@
                           :items="users"
                           item-text="email"
                           item-value="id"
-                          label="Select A User To Message:">
+                          label="Select A User To Message:"
+                          dark>
                 </v-select>
             </v-flex>
         </v-layout>
@@ -20,7 +21,7 @@
         <!--This is where you type the message to be sent-->
         <v-layout>
             <v-flex xs12 md8 lg6>
-                <v-text-field v-model="message.messageBody" label="Message"></v-text-field>
+                <v-text-field dark color="white" v-model="message.messageBody" label="Message"></v-text-field>
             </v-flex>
         </v-layout>
 
