@@ -10,17 +10,7 @@ using TUTORized.Services.Abstract;
 namespace TUTORized.Controllers
 {
     public class HomeController : Controller
-    {
-        //FOR TESTING PURPOSES ONLY
-        private readonly IUserService _userService;
-
-        public HomeController(IUserService userService)
-        {
-            _userService = userService;
-        }
-
-
-        
+    { 
         public IActionResult Index()
         {
             

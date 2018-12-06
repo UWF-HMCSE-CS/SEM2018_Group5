@@ -7,6 +7,7 @@ using Moq;
 using TUTORized.Models;
 using TUTORized.Repository.Abstract;
 using TUTORized.Services;
+using TUTORized.Services.Abstract;
 
 namespace TUTORizedTests
 {
@@ -16,6 +17,8 @@ namespace TUTORizedTests
         private readonly StudentService _sut;
         private readonly Mock<IUserRepository> _userRepositoryMock;
         private readonly Mock<IStudentRepository> _studentRepositoryMock;
+        private readonly Mock<IMessageService> _messageServiceMock;
+        private readonly Mock<ITutorRepository> _tutorRepositoryMock;
         private User user;
         private Appointment appointment;
         List<User> mockList;
@@ -25,9 +28,11 @@ namespace TUTORizedTests
             //Mock dependancies
             _userRepositoryMock = new Mock<IUserRepository>();
             _studentRepositoryMock = new Mock<IStudentRepository>();
+            _messageServiceMock = new Mock<IMessageService>();
+            _tutorRepositoryMock = new Mock<ITutorRepository>();
 
             //Construct system under test (sut)
-            _sut = new StudentService(_studentRepositoryMock.Object);
+            _sut = new StudentService(_studentRepositoryMock.Object, _messageServiceMock.Object, _tutorRepositoryMock.Object);
         }
 
         [TestInitialize]
@@ -81,7 +86,8 @@ namespace TUTORizedTests
             appointment.StudentId = "222222";
             appointment.StudentFirstName = "studentfirst";
             appointment.StudentLastName = "studentlast";
-            _sut.MakeStudentAppointment(appointment);
+            var email = "test@test.com";
+            await _sut.MakeStudentAppointment(appointment, email);
 
 
             //ASSERT

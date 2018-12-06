@@ -26,8 +26,8 @@ namespace TUTORized.Services.Abstract
     {
         Task<IEnumerable<User>> ListOfTutorsGetAsync();
 
-        Task<IEnumerable<Models.Appointment>> GetListOfAllAvailableAppointmentsAsync();
+        Task<IEnumerable<Appointment>> GetListOfAllAvailableAppointmentsAsync();
 
-        Task<Models.Appointment> MakeStudentAppointment(Models.Appointment appointment);
+        Task<Appointment> MakeStudentAppointment(Appointment appointment, string email);
     }
 }

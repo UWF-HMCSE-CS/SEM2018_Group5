@@ -40,12 +40,12 @@
                     </li>
                     <li>
                         <router-link v-if="isTutor || isStudent" to="/chat">
-                                Chat
+                            Chat
                         </router-link>
                     </li>
                     <li>
-                        <router-link v-if="isTutor || isStudent" to="/resources">
-                                Share resources
+                        <router-link v-if="isTutor" to="/upgradeStudentToTutor">
+                            Approve New Tutors
                         </router-link>
                     </li>
                     <li>

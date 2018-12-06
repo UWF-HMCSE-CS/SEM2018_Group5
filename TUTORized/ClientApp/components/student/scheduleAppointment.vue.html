@@ -12,17 +12,26 @@
         </v-layout>
         <h5>Schedule An Appointment: (Please use the calendar above for date referances.)</h5>
         <v-layout>
-            <v-flex xs12 md8 lg6>
+            <v-flex xs12 md8 lg8>
+                <v-text-field v-model="appointmentSearch"
+                              label="Input First Name, Last Name, Subject or Date to filter appointments by."
+                              light
+                              box
+                              single-line>
+                </v-text-field>
+                <v-card-actions>
+                    <v-btn id="filter" flat @click="filterFunction(appointmentSearch)">Apply Filter</v-btn>
+                    <v-btn id="reset" flat @click="resetFilterFunction()">Reset Filter</v-btn>
+                </v-card-actions>
                 <v-select v-if="isLoaded"
-                          v-model="appointment.id"
+                          v-model="appointment"
                           :items="appointments"
-                          item-value="id"
                           label="Available Appointments">
                     <template slot="selection" slot-scope="data">
-                        {{ data.item.tutorFirstName }} {{ data.item.tutorLastName }} {{data.item.date}}
+                        {{ data.item.tutorFirstName }} {{ data.item.tutorLastName }} is available for {{data.item.subject}} on {{data.item.date}}
                     </template>
                     <template slot="item" slot-scope="data">
-                        {{ data.item.tutorFirstName }} {{ data.item.tutorLastName }} {{data.item.date}}
+                        {{ data.item.tutorFirstName }} {{ data.item.tutorLastName }} is available for {{data.item.subject}} on {{data.item.date}}
                     </template>
                 </v-select>
                 <v-card-actions>

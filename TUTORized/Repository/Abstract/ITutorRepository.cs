@@ -24,8 +24,14 @@ namespace TUTORized.Repository.Abstract
 {
     public interface ITutorRepository
     {
-        Task<Models.Appointment> CreateAppointment(Models.Appointment appointment);
+        Task<Appointment> CreateAppointment(Appointment appointment);
 
         Task AppointmentDeleteByAppointmentId(string Id);
+
+        Task<string> GetTutorEmailById(string id);
+
+        Task<IEnumerable<User>> GetEntireStudentListAsync();
+
+        Task<User> UserProfileUpdateAsync(User user);
     }
 }

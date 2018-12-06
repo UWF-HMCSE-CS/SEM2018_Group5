@@ -14,9 +14,13 @@ export default class StudentService {
             })
     }
 
-    public static MakeStudentAppointment(appointmentId: string) : Promise<Appointment> {
-        return axios.post('api/Student/makeStudentAppointment', {
-            id: appointmentId
+    public static MakeStudentAppointment(appointment: Appointment, email: string) : Promise<Appointment> {
+        console.log(appointment);
+        return axios.post(`api/Student/makeStudentAppointment/${email}`, {
+            id: appointment.id,
+            date: appointment.date,
+            subject: appointment.subject,
+            tutorId: appointment.tutorId
             })
             .then( response => {
                 return response.data;
