@@ -31,7 +31,7 @@ npm install
 ```
 
 ## Running the program
-After reading the description above, you must have figured out that our application is used for both students and tutors, hence the following steps (along with sample images on the bottom of each step) will be shown using both users. We will use the name Shriya for a student and Tanuj will be our guinea tutor. 
+After reading the description above, you must have figured out that our application is used for both students and tutors, hence the following steps (along with sample images on the bottom of each step) will be shown using both users. 
 
 
 ### Login as a Tutor
@@ -48,19 +48,35 @@ After reading the description above, you must have figured out that our applicat
 
 
 4. After logging in, you will see a page that will welcome you to our website! 
-![image](https://user-images.githubusercontent.com/14351534/47765084-3fe55780-dc96-11e8-86a7-62703aac39bf.png)
+![k](https://user-images.githubusercontent.com/25124387/49679568-f258c900-fa51-11e8-8b4f-90d422a8462f.JPG)
 
-
-5. On the left hand side, one of the menus on the navigation bar will have "Create New Appointment" where you will want to go next.
+### Tutors Can Create An Available Appointment (Build Their Schedule)
+1. On the left hand side, one of the menus on the navigation bar will have "Create New Appointment" where you will want to go next.
 ![image](https://user-images.githubusercontent.com/14351534/47765265-1c6edc80-dc97-11e8-91cd-c1b0563ed77b.png)
 
 
-6. This will ask you to enter the subject you are tutoring in along with your available date and time, click on the submit button to release your appointment to the student. 
+2. This will ask you to enter the subject you are tutoring in along with your available date and time, click on the submit button to release your appointment to the student. 
 ![image](https://user-images.githubusercontent.com/14351534/47765531-699f7e00-dc98-11e8-8717-d19fc3909a0d.png)
 
 
-7. Your calendar will be shown on the calendar and once a student confirms it, it will have their name on it (compare the two images below, one without the student's name which means nobody has taken up that appointment versus the one that has a name of a student which has confirmed your appointment). ![image](https://user-images.githubusercontent.com/14351534/47765583-9fdcfd80-dc98-11e8-8c2d-5530948c9467.png) ![image](https://user-images.githubusercontent.com/14351534/47765604-bc793580-dc98-11e8-990b-2303979f404a.png)
+3. Your appointment will be shown on the calendar and once a student confirms it, you will receive an Email confirmation, and your calendar will have their name on it (compare the two images below, one without the student's name which means nobody has taken up that appointment versus the one that has a name of a student which has confirmed your appointment). ![image](https://user-images.githubusercontent.com/14351534/47765583-9fdcfd80-dc98-11e8-8c2d-5530948c9467.png) ![image](https://user-images.githubusercontent.com/14351534/47765604-bc793580-dc98-11e8-990b-2303979f404a.png)
 
+### Tutors Can Upgrade Students to Tutor
+1. Navigate to the "Approve New Tutors" page by selecting "Approve New Tutors" from the nav menu
+![l](https://user-images.githubusercontent.com/25124387/49679576-fedd2180-fa51-11e8-8ce9-4ae0a3c821f5.jpg)
+
+
+Currently all Tutors have the capability to upgrade a capable Student to Tutor status. In our next release there will be a verification process put into place to require an approval authority. Additionally, there will be a capability to accept requests from non-students to be vetted and approved to tutor students. 
+
+
+2. Next use the drop down menu to select a Student you wish to upgrade to Tutor
+![m](https://user-images.githubusercontent.com/25124387/49679581-0ac8e380-fa52-11e8-9452-a6afc86679da.jpg)
+![n](https://user-images.githubusercontent.com/25124387/49679588-14eae200-fa52-11e8-81c4-70d897414e1c.jpg)
+
+
+3. Once the correct Student is selected click "Submit" and you will recieve a notification once the upgrade is complete
+![o](https://user-images.githubusercontent.com/25124387/49679593-1ddbb380-fa52-11e8-952a-268ecce1ea02.jpg)
+![p](https://user-images.githubusercontent.com/25124387/49679597-27651b80-fa52-11e8-9bce-5de03e747278.jpg)
 
 
 ### Login as a Student
@@ -77,22 +93,39 @@ After reading the description above, you must have figured out that our applicat
 
 
 4. After logging in, you will see a page that will welcome you to our website! 
-![image](https://user-images.githubusercontent.com/14351534/47765084-3fe55780-dc96-11e8-86a7-62703aac39bf.png)
+![a](https://user-images.githubusercontent.com/25124387/49679499-752d5400-fa51-11e8-8d09-bb1beddf9d06.JPG)
 
 
-5. On the left hand side, one of the menus on the navigation bar will have "Schedule An Appointment" where you will want to go next. 
-![image](https://user-images.githubusercontent.com/14351534/47765188-c26e1700-dc96-11e8-9e9f-1c17476878a8.png)
+### Schedule an Appointment as a Student
+1. On the left hand side, one of the menus on the navigation bar will say "Schedule An Appointment", that is where you will want to go next. 
+![b](https://user-images.githubusercontent.com/25124387/49679508-82e2d980-fa51-11e8-81cb-9ad30ef87d1e.JPG)
 
 
-6. This dropbox box will show you a list of available tutor appointments, select an appointment and then click on the submit button to confirm your appointment. 
-![image](https://user-images.githubusercontent.com/14351534/47765324-6c4da380-dc97-11e8-9def-48bc69400b4e.png)
+2. This dropbox box will show you a list of available tutor appointments, select an appointment and then click on the submit button to confirm your appointment. 
+![c](https://user-images.githubusercontent.com/25124387/49679512-8d04d800-fa51-11e8-9ca2-0a0b4fbdae1d.jpg)
+![d](https://user-images.githubusercontent.com/25124387/49679518-98580380-fa51-11e8-996a-310a175c2113.jpg)
+![e](https://user-images.githubusercontent.com/25124387/49679526-a1e16b80-fa51-11e8-9d69-cba8d707a790.jpg)
 
 
-7. Once you confirm it, you will get be alerted saying "Scheduled Successfully".
-![image](https://user-images.githubusercontent.com/14351534/47765376-af0f7b80-dc97-11e8-8b2b-cfd74d6a5752.png)
+3. Once you confirm it, you will get be alerted saying "Scheduled Successfully".
+![f](https://user-images.githubusercontent.com/25124387/49679530-ad349700-fa51-11e8-886d-bcef8c8cbef5.JPG)
 
-8. The appointment you just confirmed will be displayed on your calendar along with the date, time and the name of your tutor.
-![image](https://user-images.githubusercontent.com/14351534/47765495-39f07600-dc98-11e8-9a9e-9d1eddf4c0b4.png)
+
+4. The appointment you just confirmed will be displayed on your calendar along with the date, time and the name of your tutor.
+![ff](https://user-images.githubusercontent.com/25124387/49680095-9e9cae80-fa56-11e8-9a12-3359041efb6c.JPG)
+
+
+#### Using the Search Bar on the Schedule An Appointment Page
+1. If you wish to search an appointment you can type either the Tutors name or the Subject you wish to filter by, and click "Apply Filter" and you will get a notification that the Appointments were filtered successfully.
+![g](https://user-images.githubusercontent.com/25124387/49679535-b887c280-fa51-11e8-8b10-f1b68f4409ea.jpg)
+![h](https://user-images.githubusercontent.com/25124387/49679538-c2a9c100-fa51-11e8-8285-1e4242057a3d.jpg)
+
+2. Next, use the drop down box; you will notice that it is now filtered. Select the Appointment you wish to schedule, and finish the appointment scheduling process as described above.
+![i](https://user-images.githubusercontent.com/25124387/49679554-d9e8ae80-fa51-11e8-82bd-6399773a1f6e.jpg)
+ 
+3. If, after you have applied a filter, you wish to reset it and filter for a different Tutor or Subject; simply click the "Reset Filter" button. At this point you can start over from step one and start your search again, or simply use the drop down menu and select from the entire list of Appointments.
+![j](https://user-images.githubusercontent.com/25124387/49679560-e3721680-fa51-11e8-8289-6f86a129fe58.jpg)
+
 
 ### Viewing Users (Tutors or Students) you have worked with
 1. After you have logged in (discribed above), select the correct tab based on what "Role" you are logged in under. 
