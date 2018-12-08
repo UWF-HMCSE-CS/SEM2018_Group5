@@ -160,6 +160,25 @@ You can view their messages by looking at the 'List of your received messages'.
 ![image](https://user-images.githubusercontent.com/14351534/48654040-3581c800-e9cf-11e8-8f1e-8a24d6708584.png)
 
 
+### Sharing a Resource with a Student/Tutor you have worked with
+After you have logged in (described above), select the 'Resources' tab to share a resource with a user you have worked with. If you are a tutor, you can only share with students you have worked with. If you are a student, you can only share with tutors you have worked with. 
+
+Currently a student or a tutor can only select the file to be uploaded. In our next release there will be a capability to select a user and send that file that you selected to upload. Additionally, you will be able to look at the files sent from you and sent to you. 
+
+
+### Logged in as a "Tutor" or a "Student"
+1. Select the Resources tab
+![image](https://user-images.githubusercontent.com/14351534/49680506-b0805080-fa5a-11e8-97ef-c247f42a95f4.png)
+
+2. And you should see a page similar to this. 
+![image](https://user-images.githubusercontent.com/14351534/49680514-cc83f200-fa5a-11e8-9b75-3fac0bce65fb.png)
+
+3. Click "browse" to select a file, once selected the name of the file will show up to ensure you have got the correct file.
+![image](https://user-images.githubusercontent.com/14351534/49680540-1ec51300-fa5b-11e8-8488-fcf5d139e852.png)
+
+4. Once you're done, click on upload to send it and you should get a message saying the upload was successful. 
+![image](https://user-images.githubusercontent.com/14351534/49680553-4916d080-fa5b-11e8-92ba-fa1b99cc39fd.png)
+
 
 ## Running the tests
 You can run the tests by going to the 'Test' menu, then 'Run' and 'All Tests', an image is provided below: 
